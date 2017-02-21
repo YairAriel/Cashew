@@ -37,6 +37,7 @@ public class MainWindow extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         Locale hebrew = new Locale("iw","IL");
         ComponentOrientation hebrewOri1entation = ComponentOrientation.getOrientation(hebrew);
+        jTabbedPaneMenu.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         
         // General view components
         ((JLabel)comboBoxDatesRange.getRenderer()).setHorizontalAlignment(JLabel.RIGHT);
@@ -68,28 +69,6 @@ public class MainWindow extends javax.swing.JFrame {
 
         jMenu1 = new javax.swing.JMenu();
         jTabbedPaneMenu = new javax.swing.JTabbedPane();
-        labelTitleBudget = new javax.swing.JPanel();
-        labelBudget = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        checkBoxAlertBeforeException = new javax.swing.JCheckBox();
-        checkBoxAlertBeforeX = new javax.swing.JCheckBox();
-        spinnerAlertBefore = new javax.swing.JSpinner();
-        spinnerBudgetAmount = new javax.swing.JSpinner();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        buttonDefineBudjet = new javax.swing.JButton();
-        jLabel26 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        labelTitleTransactions = new javax.swing.JPanel();
-        labelTransactions = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        datePickerFromDate = new org.jdesktop.swingx.JXDatePicker();
-        datePickerToDate = new org.jdesktop.swingx.JXDatePicker();
-        jLabel15 = new javax.swing.JLabel();
-        comboBoxTransactionsData = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         labelTitleGeneralView = new javax.swing.JLabel();
         generalViewPanel = new javax.swing.JPanel();
@@ -117,6 +96,28 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         buttonNewIncome = new javax.swing.JButton();
         buttonNewExpense = new javax.swing.JButton();
+        labelTitleTransactions = new javax.swing.JPanel();
+        labelTransactions = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        datePickerFromDate = new org.jdesktop.swingx.JXDatePicker();
+        datePickerToDate = new org.jdesktop.swingx.JXDatePicker();
+        jLabel15 = new javax.swing.JLabel();
+        comboBoxTransactionsData = new javax.swing.JComboBox<>();
+        labelTitleBudget = new javax.swing.JPanel();
+        labelBudget = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        checkBoxAlertBeforeException = new javax.swing.JCheckBox();
+        checkBoxAlertBeforeX = new javax.swing.JCheckBox();
+        spinnerAlertBefore = new javax.swing.JSpinner();
+        spinnerBudgetAmount = new javax.swing.JSpinner();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        buttonDefineBudjet = new javax.swing.JButton();
+        jLabel26 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         labelCalculator = new javax.swing.JLabel();
 
@@ -128,225 +129,8 @@ public class MainWindow extends javax.swing.JFrame {
 
         jTabbedPaneMenu.setBackground(new java.awt.Color(251, 248, 247));
         jTabbedPaneMenu.setForeground(new java.awt.Color(85, 96, 128));
-        jTabbedPaneMenu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jTabbedPaneMenu.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jTabbedPaneMenu.setName(""); // NOI18N
-
-        labelTitleBudget.setBackground(new java.awt.Color(251, 248, 247));
-        labelTitleBudget.setForeground(new java.awt.Color(0, 102, 255));
-        labelTitleBudget.setName(""); // NOI18N
-
-        labelBudget.setFont(new java.awt.Font("Segoe UI", 0, 44)); // NOI18N
-        labelBudget.setForeground(new java.awt.Color(85, 96, 128));
-        labelBudget.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelBudget.setText("תקציב");
-        labelBudget.setName("labelTitleGeneralView"); // NOI18N
-
-        jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(85, 96, 128), 2, true));
-        jPanel2.setForeground(new java.awt.Color(85, 96, 128));
-
-        checkBoxAlertBeforeException.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        checkBoxAlertBeforeException.setSelected(true);
-        checkBoxAlertBeforeException.setText("התראה בעת חריגה");
-        checkBoxAlertBeforeException.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-
-        checkBoxAlertBeforeX.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        checkBoxAlertBeforeX.setSelected(true);
-        checkBoxAlertBeforeX.setText("אזהרה כאשר נותרו");
-        checkBoxAlertBeforeX.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-
-        spinnerAlertBefore.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        spinnerBudgetAmount.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        jLabel17.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel17.setText("₪");
-        jLabel17.setName("incomesLabel"); // NOI18N
-
-        jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel18.setText("סכום");
-
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel16.setText("הגדר תקציב חדש ");
-
-        buttonDefineBudjet.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        buttonDefineBudjet.setText("הגדר");
-
-        jLabel26.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel26.setText("₪");
-        jLabel26.setName("incomesLabel"); // NOI18N
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(jLabel16)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(checkBoxAlertBeforeException)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel17)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(spinnerBudgetAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel18))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 39, Short.MAX_VALUE)
-                        .addComponent(jLabel26)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(spinnerAlertBefore, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(checkBoxAlertBeforeX)))
-                .addContainerGap())
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(buttonDefineBudjet, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(spinnerBudgetAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(checkBoxAlertBeforeException)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(checkBoxAlertBeforeX)
-                    .addComponent(spinnerAlertBefore, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
-                .addComponent(buttonDefineBudjet, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        jPanel6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(85, 96, 128), 2, true));
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout labelTitleBudgetLayout = new javax.swing.GroupLayout(labelTitleBudget);
-        labelTitleBudget.setLayout(labelTitleBudgetLayout);
-        labelTitleBudgetLayout.setHorizontalGroup(
-            labelTitleBudgetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(labelTitleBudgetLayout.createSequentialGroup()
-                .addGap(263, 263, 263)
-                .addComponent(labelBudget)
-                .addContainerGap(304, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, labelTitleBudgetLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
-        );
-        labelTitleBudgetLayout.setVerticalGroup(
-            labelTitleBudgetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(labelTitleBudgetLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelBudget)
-                .addGap(18, 18, 18)
-                .addGroup(labelTitleBudgetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        jTabbedPaneMenu.addTab("תקציב", null, labelTitleBudget, "");
-        labelTitleBudget.getAccessibleContext().setAccessibleName("tabExpenses");
-
-        labelTitleTransactions.setBackground(new java.awt.Color(251, 248, 247));
-        labelTitleTransactions.setForeground(new java.awt.Color(0, 102, 255));
-        labelTitleTransactions.setName(""); // NOI18N
-
-        labelTransactions.setFont(new java.awt.Font("Segoe UI", 0, 44)); // NOI18N
-        labelTransactions.setForeground(new java.awt.Color(85, 96, 128));
-        labelTransactions.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelTransactions.setText("תנועות");
-        labelTransactions.setName("labelTitleGeneralView"); // NOI18N
-
-        jScrollPane1.setBackground(new java.awt.Color(242, 242, 242));
-
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel13.setText("מתאריך");
-
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel14.setText("עד תאריך");
-
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel15.setText("מציג");
-
-        comboBoxTransactionsData.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        comboBoxTransactionsData.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "כל התנועות", "הכנסות", "הוצאות" }));
-
-        javax.swing.GroupLayout labelTitleTransactionsLayout = new javax.swing.GroupLayout(labelTitleTransactions);
-        labelTitleTransactions.setLayout(labelTitleTransactionsLayout);
-        labelTitleTransactionsLayout.setHorizontalGroup(
-            labelTitleTransactionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(labelTitleTransactionsLayout.createSequentialGroup()
-                .addGap(263, 263, 263)
-                .addComponent(labelTransactions)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(labelTitleTransactionsLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(labelTitleTransactionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(datePickerFromDate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(datePickerToDate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, labelTitleTransactionsLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(labelTitleTransactionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addComponent(comboBoxTransactionsData, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(28, 28, 28))
-        );
-        labelTitleTransactionsLayout.setVerticalGroup(
-            labelTitleTransactionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(labelTitleTransactionsLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelTransactions)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(labelTitleTransactionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
-                    .addGroup(labelTitleTransactionsLayout.createSequentialGroup()
-                        .addComponent(jLabel15)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboBoxTransactionsData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(datePickerFromDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(datePickerToDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-
-        jTabbedPaneMenu.addTab("תנועות", labelTitleTransactions);
-        labelTitleTransactions.getAccessibleContext().setAccessibleName("tabIncomes");
 
         jPanel1.setBackground(new java.awt.Color(251, 248, 247));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -615,36 +399,253 @@ public class MainWindow extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(64, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(103, 103, 103)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(generalViewPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(buttonNewExpense, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonNewIncome))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(259, 259, 259)
-                        .addComponent(labelTitleGeneralView))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(generalViewPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(76, Short.MAX_VALUE))
+                        .addComponent(buttonNewIncome)
+                        .addGap(113, 113, 113))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(labelTitleGeneralView)
+                        .addGap(263, 263, 263))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labelTitleGeneralView)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(generalViewPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonNewIncome)
                     .addComponent(buttonNewExpense))
-                .addGap(25, 25, 25))
+                .addGap(45, 45, 45))
         );
 
         jTabbedPaneMenu.addTab("מבט על", null, jPanel1, "");
         jPanel1.getAccessibleContext().setAccessibleName("tab1");
+
+        labelTitleTransactions.setBackground(new java.awt.Color(251, 248, 247));
+        labelTitleTransactions.setForeground(new java.awt.Color(0, 102, 255));
+        labelTitleTransactions.setName(""); // NOI18N
+
+        labelTransactions.setFont(new java.awt.Font("Segoe UI", 0, 44)); // NOI18N
+        labelTransactions.setForeground(new java.awt.Color(85, 96, 128));
+        labelTransactions.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelTransactions.setText("תנועות");
+        labelTransactions.setName("labelTitleGeneralView"); // NOI18N
+
+        jScrollPane1.setBackground(new java.awt.Color(242, 242, 242));
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel13.setText("מתאריך");
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel14.setText("עד תאריך");
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel15.setText("מציג");
+
+        comboBoxTransactionsData.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        comboBoxTransactionsData.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "כל התנועות", "הכנסות", "הוצאות" }));
+
+        javax.swing.GroupLayout labelTitleTransactionsLayout = new javax.swing.GroupLayout(labelTitleTransactions);
+        labelTitleTransactions.setLayout(labelTitleTransactionsLayout);
+        labelTitleTransactionsLayout.setHorizontalGroup(
+            labelTitleTransactionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(labelTitleTransactionsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(labelTitleTransactionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(datePickerFromDate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+                    .addComponent(datePickerToDate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, labelTitleTransactionsLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(labelTitleTransactionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addComponent(comboBoxTransactionsData, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(labelTitleTransactionsLayout.createSequentialGroup()
+                .addGap(276, 276, 276)
+                .addComponent(labelTransactions)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        labelTitleTransactionsLayout.setVerticalGroup(
+            labelTitleTransactionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(labelTitleTransactionsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelTransactions)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(labelTitleTransactionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
+                    .addGroup(labelTitleTransactionsLayout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(comboBoxTransactionsData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(datePickerFromDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(datePickerToDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+
+        jTabbedPaneMenu.addTab("תנועות", labelTitleTransactions);
+        labelTitleTransactions.getAccessibleContext().setAccessibleName("tabIncomes");
+
+        labelTitleBudget.setBackground(new java.awt.Color(251, 248, 247));
+        labelTitleBudget.setForeground(new java.awt.Color(0, 102, 255));
+        labelTitleBudget.setName(""); // NOI18N
+
+        labelBudget.setFont(new java.awt.Font("Segoe UI", 0, 44)); // NOI18N
+        labelBudget.setForeground(new java.awt.Color(85, 96, 128));
+        labelBudget.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelBudget.setText("תקציב");
+        labelBudget.setName("labelTitleGeneralView"); // NOI18N
+
+        jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(85, 96, 128), 2, true));
+        jPanel2.setForeground(new java.awt.Color(85, 96, 128));
+
+        checkBoxAlertBeforeException.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        checkBoxAlertBeforeException.setSelected(true);
+        checkBoxAlertBeforeException.setText("התראה בעת חריגה");
+        checkBoxAlertBeforeException.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        checkBoxAlertBeforeX.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        checkBoxAlertBeforeX.setSelected(true);
+        checkBoxAlertBeforeX.setText("אזהרה כאשר נותרו");
+        checkBoxAlertBeforeX.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        spinnerAlertBefore.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        spinnerBudgetAmount.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        jLabel17.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel17.setText("₪");
+        jLabel17.setName("incomesLabel"); // NOI18N
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel18.setText("סכום");
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel16.setText("הגדר תקציב חדש ");
+
+        buttonDefineBudjet.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        buttonDefineBudjet.setText("הגדר");
+
+        jLabel26.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel26.setText("₪");
+        jLabel26.setName("incomesLabel"); // NOI18N
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(jLabel16)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(checkBoxAlertBeforeException)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel17)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(spinnerBudgetAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel18))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 48, Short.MAX_VALUE)
+                        .addComponent(jLabel26)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(spinnerAlertBefore, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(checkBoxAlertBeforeX)))
+                .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(buttonDefineBudjet, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spinnerBudgetAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(checkBoxAlertBeforeException)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(checkBoxAlertBeforeX)
+                    .addComponent(spinnerAlertBefore, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                .addComponent(buttonDefineBudjet, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jPanel6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(85, 96, 128), 2, true));
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout labelTitleBudgetLayout = new javax.swing.GroupLayout(labelTitleBudget);
+        labelTitleBudget.setLayout(labelTitleBudgetLayout);
+        labelTitleBudgetLayout.setHorizontalGroup(
+            labelTitleBudgetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, labelTitleBudgetLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, labelTitleBudgetLayout.createSequentialGroup()
+                .addContainerGap(284, Short.MAX_VALUE)
+                .addComponent(labelBudget)
+                .addGap(283, 283, 283))
+        );
+        labelTitleBudgetLayout.setVerticalGroup(
+            labelTitleBudgetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(labelTitleBudgetLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelBudget)
+                .addGap(18, 18, 18)
+                .addGroup(labelTitleBudgetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        jTabbedPaneMenu.addTab("תקציב", null, labelTitleBudget, "");
+        labelTitleBudget.getAccessibleContext().setAccessibleName("tabExpenses");
 
         jPanel3.setBackground(new java.awt.Color(251, 248, 247));
 
@@ -658,10 +659,10 @@ public class MainWindow extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(267, 267, 267)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(280, Short.MAX_VALUE)
                 .addComponent(labelCalculator)
-                .addContainerGap(280, Short.MAX_VALUE))
+                .addGap(267, 267, 267))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
