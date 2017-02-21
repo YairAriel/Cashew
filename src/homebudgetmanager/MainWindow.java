@@ -39,11 +39,10 @@ public class MainWindow extends javax.swing.JFrame {
         ComponentOrientation hebrewOri1entation = ComponentOrientation.getOrientation(hebrew);
         try {
              GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-             ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("A.ttf")));
+             ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("Varela Round Regular.ttf")));
         } catch (IOException|FontFormatException e) {
             System.out.println(e.getMessage());
         }
-        
         
         // General view components
         labelTitleGeneralView.setFont(new Font("Varela Round Regular",Font.PLAIN,48));
