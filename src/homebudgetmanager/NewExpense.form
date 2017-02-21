@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Container class="javax.swing.JPanel" name="jPanel2">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+    </Container>
+  </NonVisualComponents>
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="f2" green="f2" red="f2" type="rgb"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="buttonAddExpense" min="-2" pref="82" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="buttonExpenseCancel" min="-2" pref="82" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="0" pref="130" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="textBoxExpenseComments" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="jLabel11" min="-2" pref="21" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="spinnerExpenseSum" min="-2" pref="95" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="datePickerExpense" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="comboBoxExpenseCategory" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="comboBoxExpenseMethod" alignment="1" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel1" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                      <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="comboBoxExpenseCategory" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="datePickerExpense" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabel2" alignment="1" min="-2" pref="22" max="-2" attributes="0"/>
+                      <Component id="jLabel5" min="-2" pref="22" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="comboBoxExpenseMethod" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="spinnerExpenseSum" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel11" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel3" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                      <Component id="textBoxExpenseComments" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="54" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="buttonAddExpense" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="buttonExpenseCancel" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel6">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial" size="24" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="80" green="60" red="55" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="&#x5d4;&#x5d5;&#x5e6;&#x5d0;&#x5d4; &#x5d7;&#x5d3;&#x5e9;&#x5d4;"/>
+            <Property name="name" type="java.lang.String" value="jLabel6" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="18" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="&#x5e7;&#x5d8;&#x5d2;&#x5d5;&#x5e8;&#x5d9;&#x5d4;"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel2">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="18" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="&#x5d0;&#x5de;&#x5e6;&#x5e2;&#x5d9; &#x5ea;&#x5e9;&#x5dc;&#x5d5;&#x5dd;"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel3">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="18" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="&#x5ea;&#x5d9;&#x5d0;&#x5d5;&#x5e8;"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel4">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="18" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="&#x5ea;&#x5d0;&#x5e8;&#x5d9;&#x5da;"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel5">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="18" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="&#x5e1;&#x5db;&#x5d5;&#x5dd;"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="comboBoxExpenseCategory">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="31">
+                <StringItem index="0" value="&#x5d1;&#x5d7;&#x5e8; &#x5e7;&#x5d8;&#x5d2;&#x5d5;&#x5e8;&#x5d9;&#x5d4;"/>
+                <StringItem index="1" value="&#x5e9;&#x5db;&#x5e8; &#x5d3;&#x5d9;&#x5e8;&#x5d4;"/>
+                <StringItem index="2" value="&#x5de;&#x5e9;&#x5db;&#x5e0;&#x5ea;&#x5d0;"/>
+                <StringItem index="3" value="&#x5d0;&#x5e8;&#x5e0;&#x5d5;&#x5e0;&#x5d4;"/>
+                <StringItem index="4" value="&#x5de;&#x5d6;&#x5d5;&#x5df;"/>
+                <StringItem index="5" value="&#x5d1;&#x5d9;&#x5d2;&#x5d5;&#x5d3;"/>
+                <StringItem index="6" value="&#x5d4;&#x5e0;&#x5e2;&#x5dc;&#x5d4;"/>
+                <StringItem index="7" value="&#x5de;&#x5ea;&#x5e0;&#x5d5;&#x5ea;"/>
+                <StringItem index="8" value="&#x5d7;&#x5d9;&#x5e1;&#x5db;&#x5d5;&#x5df;"/>
+                <StringItem index="9" value="&#x5d7;&#x5e9;&#x5de;&#x5dc;"/>
+                <StringItem index="10" value="&#x5de;&#x5d9;&#x5dd;"/>
+                <StringItem index="11" value="&#x5de;&#x5d9;&#x5e1;&#x5d9;&#x5dd;"/>
+                <StringItem index="12" value="&#x5d7;&#x5d9;&#x5e0;&#x5d5;&#x5da;"/>
+                <StringItem index="13" value="&#x5d1;&#x5e8;&#x5d9;&#x5d0;&#x5d5;&#x5ea;"/>
+                <StringItem index="14" value="&#x5e0;&#x5e1;&#x5d9;&#x5e2;&#x5d5;&#x5ea;"/>
+                <StringItem index="15" value="&#x5e8;&#x5db;&#x5d1;"/>
+                <StringItem index="16" value="&#x5d3;&#x5dc;&#x5e7;"/>
+                <StringItem index="17" value="&#x5d7;&#x5d9;&#x5d5;&#x5ea; &#x5de;&#x5d7;&#x5de;&#x5d3;"/>
+                <StringItem index="18" value="&#x5d2;&#x5d9;&#x5e0;&#x5d5;&#x5df;"/>
+                <StringItem index="19" value="&#x5d1;&#x5d9;&#x5d8;&#x5d5;&#x5d7;"/>
+                <StringItem index="20" value="&#x5e2;&#x5d9;&#x5e9;&#x5d5;&#x5df;"/>
+                <StringItem index="21" value="&#x5d1;&#x5d9;&#x5d3;&#x5d5;&#x5e8;"/>
+                <StringItem index="22" value="&#x5d8;&#x5d9;&#x5d5;&#x5dc;&#x5d9;&#x5dd;"/>
+                <StringItem index="23" value="&#x5d0;&#x5d5;&#x5db;&#x5dc; &#x5d1;&#x5d7;&#x5d5;&#x5e5;"/>
+                <StringItem index="24" value="&#x5d7;&#x5d5;&#x5e4;&#x5e9;&#x5d4;"/>
+                <StringItem index="25" value="&#x5db;&#x5d5;&#x5e9;&#x5e8;"/>
+                <StringItem index="26" value="&#x5ea;&#x5d9;&#x5e7;&#x5d5;&#x5e0;&#x5d9;&#x5dd;"/>
+                <StringItem index="27" value="&#x5ea;&#x5e7;&#x5e9;&#x5d5;&#x5e8;&#x5ea;"/>
+                <StringItem index="28" value="&#x5d3;&#x5d5;&#x5d7;&#x5d5;&quot;&#x5ea;"/>
+                <StringItem index="29" value="&#x5d7;&#x5d5;&#x5d2;&#x5d9;&#x5dd;"/>
+                <StringItem index="30" value="&#x5d0;&#x5d7;&#x5e8;"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="comboBoxExpenseMethod">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="5">
+                <StringItem index="0" value="&#x5d1;&#x5d7;&#x5e8; &#x5d0;&#x5de;&#x5e6;&#x5e2;&#x5d9; &#x5ea;&#x5e9;&#x5dc;&#x5d5;&#x5dd;"/>
+                <StringItem index="1" value="&#x5de;&#x5d6;&#x5d5;&#x5de;&#x5df;"/>
+                <StringItem index="2" value="&#x5e6;&apos;&#x5e7;"/>
+                <StringItem index="3" value="&#x5d4;&#x5e2;&#x5d1;&#x5e8;&#x5d4; &#x5d1;&#x5e0;&#x5e7;&#x5d0;&#x5d9;&#x5ea;"/>
+                <StringItem index="4" value="&#x5d0;&#x5e9;&#x5e8;&#x5d0;&#x5d9;"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JTextField" name="textBoxExpenseComments">
+        </Component>
+        <Component class="org.jdesktop.swingx.JXDatePicker" name="datePickerExpense">
+        </Component>
+        <Component class="javax.swing.JSpinner" name="spinnerExpenseSum">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel11">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial" size="24" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="&#x20aa;"/>
+            <Property name="name" type="java.lang.String" value="incomesLabel" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="buttonAddExpense">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="&#x5d4;&#x5d5;&#x5e1;&#x5e3;"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="buttonExpenseCancel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="&#x5d1;&#x5d9;&#x5d8;&#x5d5;&#x5dc;"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
