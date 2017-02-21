@@ -8,10 +8,14 @@ package homebudgetmanager;
 import java.awt.ComponentOrientation;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.FontFormatException;
+import java.awt.GraphicsEnvironment;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.Locale;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -33,6 +37,13 @@ public class MainWindow extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         Locale hebrew = new Locale("iw","IL");
         ComponentOrientation hebrewOri1entation = ComponentOrientation.getOrientation(hebrew);
+        try {
+             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+             ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("A.ttf")));
+        } catch (IOException|FontFormatException e) {
+            System.out.println(e.getMessage());
+        }
+        
         
         // General view components
         labelTitleGeneralView.setFont(new Font("Varela Round Regular",Font.PLAIN,48));
