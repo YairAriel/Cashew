@@ -15,22 +15,23 @@ public class Expense extends Transaction{
     
     private String expenseCategory;
     
-    public String getExpenseCategory(){
-        return expenseCategory;
-    }
-    
-    public void setExpenseCategory(String expenseCategory){
-        this.expenseCategory = expenseCategory;
-    }
-    
     public Expense(){
         
     }
     
     public Expense(int transID, double transAmount, Calendar transDate, String transDescription,
             String expenseCategory, String transPaymentMethod){
+        
         super(transID, transAmount, transDate, transDescription, transPaymentMethod);
         setExpenseCategory(expenseCategory);
+    }
+    
+    public String getExpenseCategory(){
+        return expenseCategory;
+    }
+    
+    public void setExpenseCategory(String expenseCategory){
+        this.expenseCategory = expenseCategory;
     }
     
     @Override 

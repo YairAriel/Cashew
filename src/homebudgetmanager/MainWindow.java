@@ -18,6 +18,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTabbedPane;
 import javax.swing.UIManager;
@@ -124,6 +125,7 @@ public class MainWindow extends javax.swing.JFrame {
         jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cashew - Main Menu");
         setBackground(new java.awt.Color(242, 239, 239));
         setResizable(false);
 

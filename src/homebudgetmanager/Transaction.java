@@ -19,6 +19,18 @@ public class Transaction {
     private String transDescription;
     private String transPaymentMethod;
     
+    public Transaction(){
+        
+    }
+    
+    public Transaction(int transID, double transAmount, Calendar transDate, String transDescription, String transPaymentMethod){
+        setTransID(transID);
+        setTransAmount(transAmount);
+        setTransDate(transDate);
+        setTransDescription(transDescription);
+        setTransPaymentMethod(transPaymentMethod);
+    }
+    
     public int getTransID() {
         return transID;
     }
@@ -59,18 +71,6 @@ public class Transaction {
         this.transPaymentMethod = transPaymentMethod;
     }
     
-    public Transaction(){
-        
-    }
-    
-    public Transaction(int transID, double transAmount, Calendar transDate, String transDescription, String transPaymentMethod){
-        setTransID(transID);
-        setTransAmount(transAmount);
-        setTransDate(transDate);
-        setTransDescription(transDescription);
-        setTransPaymentMethod(transPaymentMethod);
-    }
-
     @Override
     public String toString() {
         return "Transaction{" + "transID=" + getTransID() + ", transAmount=" + getTransAmount() +
