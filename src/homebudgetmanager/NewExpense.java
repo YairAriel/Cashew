@@ -28,26 +28,13 @@ public class NewExpense extends javax.swing.JFrame {
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         Locale hebrew = new Locale("iw","IL");
         ComponentOrientation hebrewOri1entation = ComponentOrientation.getOrientation(hebrew);
-        jLabel1.setFont(new Font("Varela Round Regular", Font.PLAIN, 22));
-        jLabel2.setFont(new Font("Varela Round Regular", Font.PLAIN, 22));
-        jLabel3.setFont(new Font("Varela Round Regular", Font.PLAIN, 22));
-        jLabel4.setFont(new Font("Varela Round Regular", Font.PLAIN, 22));
-        jLabel5.setFont(new Font("Varela Round Regular", Font.PLAIN, 22));
-        jLabel6.setFont(new Font("Varela Round Regular", Font.PLAIN, 34));
-        comboBoxExpenseCategory.setFont(new Font("Varela Round Regular", Font.PLAIN, 14));
         comboBoxExpenseCategory.applyComponentOrientation(hebrewOri1entation);
         ((JLabel)comboBoxExpenseCategory.getRenderer()).setHorizontalAlignment(JLabel.RIGHT);
-        comboBoxExpenseMethod.setFont(new Font("Varela Round Regular", Font.PLAIN, 14));
         comboBoxExpenseMethod.applyComponentOrientation(hebrewOri1entation);
         ((JLabel)comboBoxExpenseMethod.getRenderer()).setHorizontalAlignment(JLabel.RIGHT);
-        datePickerExpense.setFont(new Font("Varela Round Regular", Font.PLAIN, 14));
         datePickerExpense.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-        textBoxExpenseComments.setFont(new Font("Varela Round Regular", Font.PLAIN, 14));
         textBoxExpenseComments.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-        spinnerExpenseSum.setFont(new Font("Varela Round Regular", Font.PLAIN, 14));
         spinnerExpenseSum.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-        buttonAddExpense.setFont(new Font("Varela Round Regular", Font.PLAIN, 16));
-        buttonExpenseCancel.setFont(new Font("Varela Round Regular", Font.PLAIN, 16));
     }
 
     /** This method is called from within the constructor to
@@ -91,37 +78,45 @@ public class NewExpense extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(242, 242, 242));
 
-        jLabel6.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 34)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(85, 96, 128));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("הוצאה חדשה");
         jLabel6.setName("jLabel6"); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel1.setText("קטגוריה");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel2.setText("אמצעי תשלום");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel3.setText("תיאור");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel4.setText("תאריך");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel5.setText("סכום");
 
+        comboBoxExpenseCategory.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         comboBoxExpenseCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "בחר קטגוריה", "שכר דירה", "משכנתא", "ארנונה", "מזון", "ביגוד", "הנעלה", "מתנות", "חיסכון", "חשמל", "מים", "מיסים", "חינוך", "בריאות", "נסיעות", "רכב", "דלק", "חיות מחמד", "גינון", "ביטוח", "עישון", "בידור", "טיולים", "אוכל בחוץ", "חופשה", "כושר", "תיקונים", "תקשורת", "דוחו\"ת", "חוגים", "אחר" }));
 
+        comboBoxExpenseMethod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         comboBoxExpenseMethod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "בחר אמצעי תשלום", "מזומן", "צ'ק", "העברה בנקאית", "אשראי" }));
 
-        jLabel11.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        textBoxExpenseComments.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        spinnerExpenseSum.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        jLabel11.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         jLabel11.setText("₪");
         jLabel11.setName("incomesLabel"); // NOI18N
 
+        buttonAddExpense.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         buttonAddExpense.setText("הוסף");
 
+        buttonExpenseCancel.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         buttonExpenseCancel.setText("ביטול");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -137,7 +132,7 @@ public class NewExpense extends javax.swing.JFrame {
                         .addComponent(buttonExpenseCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 130, Short.MAX_VALUE)
+                        .addGap(0, 108, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(textBoxExpenseComments)
@@ -158,11 +153,12 @@ public class NewExpense extends javax.swing.JFrame {
                                         .addComponent(comboBoxExpenseCategory, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(comboBoxExpenseMethod, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel2)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(70, 70, 70)
-                                .addComponent(jLabel6)))
+                                    .addComponent(jLabel2))))
                         .addGap(21, 21, 21))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(142, 142, 142)
+                .addComponent(jLabel6)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,7 +186,7 @@ public class NewExpense extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textBoxExpenseComments, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(buttonAddExpense, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonExpenseCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))

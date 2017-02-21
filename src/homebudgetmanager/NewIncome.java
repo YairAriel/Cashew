@@ -29,26 +29,13 @@ public class NewIncome extends javax.swing.JFrame {
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         Locale hebrew = new Locale("iw","IL");
         ComponentOrientation hebrewOri1entation = ComponentOrientation.getOrientation(hebrew);
-        jLabel1.setFont(new Font("Varela Round Regular", Font.PLAIN, 22));
-        jLabel2.setFont(new Font("Varela Round Regular", Font.PLAIN, 22));
-        jLabel3.setFont(new Font("Varela Round Regular", Font.PLAIN, 22));
-        jLabel4.setFont(new Font("Varela Round Regular", Font.PLAIN, 22));
-        jLabel5.setFont(new Font("Varela Round Regular", Font.PLAIN, 22));
-        jLabel6.setFont(new Font("Varela Round Regular", Font.PLAIN, 34));
-        comboBoxIncomeSource.setFont(new Font("Varela Round Regular", Font.PLAIN, 14));
         comboBoxIncomeSource.applyComponentOrientation(hebrewOri1entation);
         ((JLabel)comboBoxIncomeSource.getRenderer()).setHorizontalAlignment(JLabel.RIGHT);
-        comboBoxIncomeMethod.setFont(new Font("Varela Round Regular", Font.PLAIN, 14));
         comboBoxIncomeMethod.applyComponentOrientation(hebrewOri1entation);
         ((JLabel)comboBoxIncomeMethod.getRenderer()).setHorizontalAlignment(JLabel.RIGHT);
-        datePickerIncome.setFont(new Font("Varela Round Regular", Font.PLAIN, 14));
         datePickerIncome.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-        textBoxIncomeComments.setFont(new Font("Varela Round Regular", Font.PLAIN, 14));
         textBoxIncomeComments.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-        spinnerIncomeSum.setFont(new Font("Varela Round Regular", Font.PLAIN, 14));
         spinnerIncomeSum.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-        buttonAddIncome.setFont(new Font("Varela Round Regular", Font.PLAIN, 16));
-        buttonIncomeCancel.setFont(new Font("Varela Round Regular", Font.PLAIN, 16));
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -80,37 +67,45 @@ public class NewIncome extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(242, 242, 242));
 
-        jLabel6.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 34)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(85, 96, 128));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("הכנסה חדשה");
         jLabel6.setName("jLabel6"); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel1.setText("מקור");
 
+        comboBoxIncomeSource.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         comboBoxIncomeSource.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "בחר מקור", "משכורת", "ביטוח לאומי", "קצבה", "מתנה", "זכיות", "פנסיה", "עבודה מזדמנת", "שכר דירה", "אחר" }));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel4.setText("תאריך");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel2.setText("אמצעי תשלום");
 
+        comboBoxIncomeMethod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         comboBoxIncomeMethod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "בחר אמצעי תשלום", "מזומן", "צ'ק", "העברה בנקאית", "אשראי" }));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel5.setText("סכום");
 
-        jLabel11.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        spinnerIncomeSum.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        jLabel11.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         jLabel11.setText("₪");
         jLabel11.setName("incomesLabel"); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel3.setText("תיאור");
 
+        textBoxIncomeComments.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        buttonIncomeCancel.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         buttonIncomeCancel.setText("ביטול");
 
+        buttonAddIncome.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         buttonAddIncome.setText("הוסף");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -126,7 +121,7 @@ public class NewIncome extends javax.swing.JFrame {
                         .addComponent(buttonIncomeCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 131, Short.MAX_VALUE)
+                        .addGap(0, 109, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(textBoxIncomeComments)
@@ -147,11 +142,12 @@ public class NewIncome extends javax.swing.JFrame {
                                         .addComponent(comboBoxIncomeSource, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(comboBoxIncomeMethod, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(jLabel2)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(70, 70, 70)
-                                .addComponent(jLabel6)))
+                                    .addComponent(jLabel2))))
                         .addGap(21, 21, 21))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(138, 138, 138)
+                .addComponent(jLabel6)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,24 +162,28 @@ public class NewIncome extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comboBoxIncomeSource, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(datePickerIncome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comboBoxIncomeMethod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(spinnerIncomeSum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textBoxIncomeComments, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonAddIncome, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonIncomeCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(36, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(comboBoxIncomeMethod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(spinnerIncomeSum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textBoxIncomeComments, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(89, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(buttonIncomeCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonAddIncome, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -194,9 +194,7 @@ public class NewIncome extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();

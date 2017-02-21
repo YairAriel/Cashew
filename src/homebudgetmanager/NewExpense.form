@@ -70,7 +70,7 @@
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="130" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="108" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="textBoxExpenseComments" max="32767" attributes="0"/>
@@ -98,14 +98,15 @@
                                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                              </Group>
                           </Group>
                           <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
+                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -140,7 +141,7 @@
                       <Component id="jLabel3" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                       <Component id="textBoxExpenseComments" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="54" max="32767" attributes="0"/>
+                  <EmptySpace pref="42" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="buttonAddExpense" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
                       <Component id="buttonExpenseCancel" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
@@ -154,7 +155,7 @@
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="24" style="0"/>
+              <Font name="Segoe UI" size="34" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="80" green="60" red="55" type="rgb"/>
@@ -167,7 +168,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="18" style="0"/>
+              <Font name="Segoe UI" size="22" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&#x5e7;&#x5d8;&#x5d2;&#x5d5;&#x5e8;&#x5d9;&#x5d4;"/>
           </Properties>
@@ -175,7 +176,7 @@
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="18" style="0"/>
+              <Font name="Segoe UI" size="22" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&#x5d0;&#x5de;&#x5e6;&#x5e2;&#x5d9; &#x5ea;&#x5e9;&#x5dc;&#x5d5;&#x5dd;"/>
           </Properties>
@@ -183,7 +184,7 @@
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="18" style="0"/>
+              <Font name="Segoe UI" size="22" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&#x5ea;&#x5d9;&#x5d0;&#x5d5;&#x5e8;"/>
           </Properties>
@@ -191,7 +192,7 @@
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="18" style="0"/>
+              <Font name="Segoe UI" size="22" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&#x5ea;&#x5d0;&#x5e8;&#x5d9;&#x5da;"/>
           </Properties>
@@ -199,13 +200,16 @@
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="18" style="0"/>
+              <Font name="Segoe UI" size="22" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&#x5e1;&#x5db;&#x5d5;&#x5dd;"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="comboBoxExpenseCategory">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="0"/>
+            </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="31">
                 <StringItem index="0" value="&#x5d1;&#x5d7;&#x5e8; &#x5e7;&#x5d8;&#x5d2;&#x5d5;&#x5e8;&#x5d9;&#x5d4;"/>
@@ -248,6 +252,9 @@
         </Component>
         <Component class="javax.swing.JComboBox" name="comboBoxExpenseMethod">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="0"/>
+            </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="5">
                 <StringItem index="0" value="&#x5d1;&#x5d7;&#x5e8; &#x5d0;&#x5de;&#x5e6;&#x5e2;&#x5d9; &#x5ea;&#x5e9;&#x5dc;&#x5d5;&#x5dd;"/>
@@ -263,15 +270,25 @@
           </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="textBoxExpenseComments">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="0"/>
+            </Property>
+          </Properties>
         </Component>
         <Component class="org.jdesktop.swingx.JXDatePicker" name="datePickerExpense">
         </Component>
         <Component class="javax.swing.JSpinner" name="spinnerExpenseSum">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="0"/>
+            </Property>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel11">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="24" style="0"/>
+              <Font name="Arial" size="20" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&#x20aa;"/>
             <Property name="name" type="java.lang.String" value="incomesLabel" noResource="true"/>
@@ -279,11 +296,17 @@
         </Component>
         <Component class="javax.swing.JButton" name="buttonAddExpense">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="16" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="&#x5d4;&#x5d5;&#x5e1;&#x5e3;"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="buttonExpenseCancel">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="16" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="&#x5d1;&#x5d9;&#x5d8;&#x5d5;&#x5dc;"/>
           </Properties>
         </Component>

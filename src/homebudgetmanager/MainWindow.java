@@ -37,64 +37,23 @@ public class MainWindow extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         Locale hebrew = new Locale("iw","IL");
         ComponentOrientation hebrewOri1entation = ComponentOrientation.getOrientation(hebrew);
-        try {
-             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-             ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("Varela Round Regular.ttf")));
-        } catch (IOException|FontFormatException e) {
-            System.out.println(e.getMessage());
-        }
         
         // General view components
-        labelTitleGeneralView.setFont(new Font("Varela Round Regular",Font.PLAIN,48));
-        buttonNewIncome.setFont(new Font("Varela Round Regular",Font.BOLD,23));
-        buttonNewExpense.setFont(new Font("Varela Round Regular",Font.BOLD,23));
-        jTabbedPaneMenu.setFont(new Font("Varela Round Regular",Font.PLAIN,18));
-        jLabel3.setFont(new Font("Varela Round Regular", Font.PLAIN, 14));
-        jLabel4.setFont(new Font("Varela Round Regular", Font.PLAIN, 20));
-        jLabel5.setFont(new Font("Varela Round Regular", Font.PLAIN, 20));
-        jLabel6.setFont(new Font("Varela Round Regular", Font.PLAIN, 20));
-        jLabel7.setFont(new Font("Varela Round Regular", Font.PLAIN, 20));
-        jLabel10.setFont(new Font("Varela Round Regular", Font.PLAIN, 20));
-        jLabel12.setFont(new Font("Varela Round Regular", Font.PLAIN, 20));
-        jLabel20.setFont(new Font("Varela Round Regular", Font.PLAIN, 20));
-        jLabel21.setFont(new Font("Varela Round Regular", Font.PLAIN, 20));
-        jLabel22.setFont(new Font("Varela Round Regular", Font.PLAIN, 20));
-        jLabel23.setFont(new Font("Varela Round Regular", Font.PLAIN, 20));
-        jLabel24.setFont(new Font("Varela Round Regular", Font.PLAIN, 20));
-        jLabel25.setFont(new Font("Varela Round Regular", Font.PLAIN, 20));
-        comboBoxDatesRange.setFont(new Font("Varela Round Regular", Font.PLAIN, 12));
-        comboBoxDatesRange.applyComponentOrientation(hebrewOri1entation);
         ((JLabel)comboBoxDatesRange.getRenderer()).setHorizontalAlignment(JLabel.RIGHT);
         
         // Transactions components
-        labelTransactions.setFont(new Font("Varela Round Regular",Font.PLAIN,48));
-        jLabel13.setFont(new Font("Varela Round Regular", Font.PLAIN, 20));
-        jLabel14.setFont(new Font("Varela Round Regular", Font.PLAIN, 20));
-        jLabel15.setFont(new Font("Varela Round Regular", Font.PLAIN, 20));
-        datePickerFromDate.setFont(new Font("Varela Round Regular", Font.PLAIN, 14));
         datePickerFromDate.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-        datePickerToDate.setFont(new Font("Varela Round Regular", Font.PLAIN, 14));
         datePickerToDate.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-        comboBoxTransactionsData.setFont(new Font("Varela Round Regular", Font.PLAIN, 16));
         comboBoxTransactionsData.applyComponentOrientation(hebrewOri1entation);
         ((JLabel)comboBoxTransactionsData.getRenderer()).setHorizontalAlignment(JLabel.RIGHT);
         
-        // Budget components
-        labelBudget.setFont(new Font("Varela Round Regular",Font.PLAIN,48));  
-        jLabel16.setFont(new Font("Varela Round Regular", Font.PLAIN, 20));
-        jLabel17.setFont(new Font("Varela Round Regular", Font.PLAIN, 18));
-        jLabel18.setFont(new Font("Varela Round Regular", Font.PLAIN, 18));
-        jLabel19.setFont(new Font("Varela Round Regular", Font.PLAIN, 14));
-        checkBoxAlertBeforeException.setFont(new Font("Varela Round Regular", Font.PLAIN, 14));
-        checkBoxAlertBeforeX.setFont(new Font("Varela Round Regular", Font.PLAIN, 14));
-        spinnerBudgetAmount.setFont(new Font("Varela Round Regular", Font.PLAIN, 14));
+        // Budget components 
         spinnerBudgetAmount.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-        spinnerAlertBefore.setFont(new Font("Varela Round Regular", Font.PLAIN, 14));
         spinnerAlertBefore.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-        buttonDefineBudjet.setFont(new Font("Varela Round Regular", Font.PLAIN, 16));
+
         
         // Calculator components
-        labelCalculator.setFont(new Font("Varela Round Regular",Font.PLAIN,48));
+        
     }
     
     
@@ -115,12 +74,12 @@ public class MainWindow extends javax.swing.JFrame {
         checkBoxAlertBeforeException = new javax.swing.JCheckBox();
         checkBoxAlertBeforeX = new javax.swing.JCheckBox();
         spinnerAlertBefore = new javax.swing.JSpinner();
-        jLabel19 = new javax.swing.JLabel();
         spinnerBudgetAmount = new javax.swing.JSpinner();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         buttonDefineBudjet = new javax.swing.JButton();
+        jLabel26 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         labelTitleTransactions = new javax.swing.JPanel();
         labelTransactions = new javax.swing.JLabel();
@@ -169,14 +128,14 @@ public class MainWindow extends javax.swing.JFrame {
 
         jTabbedPaneMenu.setBackground(new java.awt.Color(251, 248, 247));
         jTabbedPaneMenu.setForeground(new java.awt.Color(85, 96, 128));
-        jTabbedPaneMenu.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jTabbedPaneMenu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTabbedPaneMenu.setName(""); // NOI18N
 
         labelTitleBudget.setBackground(new java.awt.Color(251, 248, 247));
         labelTitleBudget.setForeground(new java.awt.Color(0, 102, 255));
         labelTitleBudget.setName(""); // NOI18N
 
-        labelBudget.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        labelBudget.setFont(new java.awt.Font("Segoe UI", 0, 44)); // NOI18N
         labelBudget.setForeground(new java.awt.Color(85, 96, 128));
         labelBudget.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelBudget.setText("תקציב");
@@ -185,31 +144,36 @@ public class MainWindow extends javax.swing.JFrame {
         jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(85, 96, 128), 2, true));
         jPanel2.setForeground(new java.awt.Color(85, 96, 128));
 
-        checkBoxAlertBeforeException.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        checkBoxAlertBeforeException.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         checkBoxAlertBeforeException.setSelected(true);
         checkBoxAlertBeforeException.setText("התראה בעת חריגה");
         checkBoxAlertBeforeException.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
-        checkBoxAlertBeforeX.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        checkBoxAlertBeforeX.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         checkBoxAlertBeforeX.setSelected(true);
         checkBoxAlertBeforeX.setText("אזהרה כאשר נותרו");
         checkBoxAlertBeforeX.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
-        jLabel19.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel19.setText("₪ בתקציב");
-        jLabel19.setName("incomesLabel"); // NOI18N
+        spinnerAlertBefore.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jLabel17.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
+        spinnerBudgetAmount.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        jLabel17.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel17.setText("₪");
         jLabel17.setName("incomesLabel"); // NOI18N
 
-        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel18.setText("סכום");
 
-        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel16.setText("הגדר תקציב חדש ");
 
+        buttonDefineBudjet.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         buttonDefineBudjet.setText("הגדר");
+
+        jLabel26.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel26.setText("₪");
+        jLabel26.setName("incomesLabel"); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -218,45 +182,41 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(buttonDefineBudjet, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(90, 90, 90)
-                                .addComponent(jLabel16)))
+                        .addGap(90, 90, 90)
+                        .addComponent(jLabel16)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(checkBoxAlertBeforeException)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel17)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(spinnerBudgetAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel18))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel19)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(spinnerAlertBefore, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(checkBoxAlertBeforeX))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(checkBoxAlertBeforeException)))))
+                                .addComponent(jLabel18))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 39, Short.MAX_VALUE)
+                        .addComponent(jLabel26)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(spinnerAlertBefore, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(checkBoxAlertBeforeX)))
                 .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(buttonDefineBudjet, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(spinnerBudgetAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spinnerBudgetAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(checkBoxAlertBeforeException)
@@ -264,8 +224,8 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(checkBoxAlertBeforeX)
                     .addComponent(spinnerAlertBefore, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
+                    .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
                 .addComponent(buttonDefineBudjet, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -290,7 +250,7 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(labelTitleBudgetLayout.createSequentialGroup()
                 .addGap(263, 263, 263)
                 .addComponent(labelBudget)
-                .addContainerGap(324, Short.MAX_VALUE))
+                .addContainerGap(304, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, labelTitleBudgetLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -317,7 +277,7 @@ public class MainWindow extends javax.swing.JFrame {
         labelTitleTransactions.setForeground(new java.awt.Color(0, 102, 255));
         labelTitleTransactions.setName(""); // NOI18N
 
-        labelTransactions.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        labelTransactions.setFont(new java.awt.Font("Segoe UI", 0, 44)); // NOI18N
         labelTransactions.setForeground(new java.awt.Color(85, 96, 128));
         labelTransactions.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelTransactions.setText("תנועות");
@@ -325,15 +285,16 @@ public class MainWindow extends javax.swing.JFrame {
 
         jScrollPane1.setBackground(new java.awt.Color(242, 242, 242));
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel13.setText("מתאריך");
 
-        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel14.setText("עד תאריך");
 
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel15.setText("מציג");
 
+        comboBoxTransactionsData.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         comboBoxTransactionsData.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "כל התנועות", "הכנסות", "הוצאות" }));
 
         javax.swing.GroupLayout labelTitleTransactionsLayout = new javax.swing.GroupLayout(labelTitleTransactions);
@@ -367,16 +328,16 @@ public class MainWindow extends javax.swing.JFrame {
                 .addComponent(labelTransactions)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(labelTitleTransactionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
                     .addGroup(labelTitleTransactionsLayout.createSequentialGroup()
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(comboBoxTransactionsData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(datePickerFromDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(datePickerToDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -393,7 +354,7 @@ public class MainWindow extends javax.swing.JFrame {
         jPanel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jPanel1.setName(""); // NOI18N
 
-        labelTitleGeneralView.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        labelTitleGeneralView.setFont(new java.awt.Font("Segoe UI", 0, 44)); // NOI18N
         labelTitleGeneralView.setForeground(new java.awt.Color(85, 96, 128));
         labelTitleGeneralView.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelTitleGeneralView.setText("מבט על");
@@ -405,25 +366,26 @@ public class MainWindow extends javax.swing.JFrame {
         generalViewPanel.setToolTipText("");
         generalViewPanel.setName(""); // NOI18N
 
-        comboBoxDatesRange.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        comboBoxDatesRange.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         comboBoxDatesRange.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "היום", "החודש", "השנה" }));
 
-        jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel3.setText("מציג מידע עבור");
 
-        jTextField1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("27/01/2017");
         jTextField1.setName("currentDateTextBox"); // NOI18N
 
         jPanel4.setBackground(new java.awt.Color(242, 242, 242));
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 1, true), "תקציב", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 1, true), "תקציב", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12))); // NOI18N
+        jPanel4.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
 
-        jLabel20.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(153, 153, 153));
         jLabel20.setText("השתמשת ב");
 
-        jLabel21.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(153, 153, 153));
         jLabel21.setText("0.0");
 
@@ -432,11 +394,11 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel22.setText("₪");
         jLabel22.setName("incomesLabel"); // NOI18N
 
-        jLabel23.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(153, 153, 153));
         jLabel23.setText("מתוך");
 
-        jLabel24.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
+        jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(153, 153, 153));
         jLabel24.setText("0.0");
 
@@ -491,37 +453,38 @@ public class MainWindow extends javax.swing.JFrame {
         );
 
         jPanel5.setBackground(new java.awt.Color(242, 242, 242));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 1, true), "סיכום", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 1, true), "סיכום", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12))); // NOI18N
+        jPanel5.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(34, 206, 26));
         jLabel4.setText("הכנסות:");
 
-        jLabel8.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(34, 206, 26));
         jLabel8.setText("₪");
         jLabel8.setName("incomesLabel"); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(34, 206, 26));
         jLabel6.setText("0.0");
         jLabel6.setName("incomesLabel"); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(242, 65, 21));
         jLabel5.setText("הוצאות:");
 
-        jLabel9.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(242, 65, 21));
         jLabel9.setText("₪");
         jLabel9.setName("incomesLabel"); // NOI18N
 
-        jLabel7.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(242, 65, 21));
         jLabel7.setText("0.0");
         jLabel7.setName("incomesLabel"); // NOI18N
 
-        jLabel10.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(85, 96, 128));
         jLabel10.setText("סה\"כ:");
 
@@ -530,7 +493,7 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel11.setText("₪");
         jLabel11.setName("incomesLabel"); // NOI18N
 
-        jLabel12.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(85, 96, 128));
         jLabel12.setText("0.0");
         jLabel12.setName("incomesLabel"); // NOI18N
@@ -540,31 +503,31 @@ public class MainWindow extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(67, Short.MAX_VALUE)
+                .addContainerGap(76, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel9))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel8))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel11)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel5))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel8)
@@ -574,7 +537,7 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(jLabel9)
                     .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(11, 11, 11)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(jLabel11)
@@ -601,7 +564,7 @@ public class MainWindow extends javax.swing.JFrame {
                             .addComponent(comboBoxDatesRange, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3)))
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         generalViewPanelLayout.setVerticalGroup(
             generalViewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -624,7 +587,7 @@ public class MainWindow extends javax.swing.JFrame {
         );
 
         buttonNewIncome.setBackground(new java.awt.Color(34, 206, 26));
-        buttonNewIncome.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        buttonNewIncome.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         buttonNewIncome.setForeground(new java.awt.Color(255, 255, 255));
         buttonNewIncome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homebudgetmanager/plusIcon.png"))); // NOI18N
         buttonNewIncome.setText("הכנסה חדשה ");
@@ -636,7 +599,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         buttonNewExpense.setBackground(new java.awt.Color(242, 65, 21));
-        buttonNewExpense.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        buttonNewExpense.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         buttonNewExpense.setForeground(new java.awt.Color(255, 255, 255));
         buttonNewExpense.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homebudgetmanager/minusIcon.png"))); // NOI18N
         buttonNewExpense.setText("הוצאה חדשה ");
@@ -664,7 +627,7 @@ public class MainWindow extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addComponent(generalViewPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -673,7 +636,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addComponent(labelTitleGeneralView)
                 .addGap(18, 18, 18)
                 .addComponent(generalViewPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonNewIncome)
                     .addComponent(buttonNewExpense))
@@ -685,7 +648,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(251, 248, 247));
 
-        labelCalculator.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        labelCalculator.setFont(new java.awt.Font("Segoe UI", 0, 44)); // NOI18N
         labelCalculator.setForeground(new java.awt.Color(85, 96, 128));
         labelCalculator.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelCalculator.setText("מחשבון");
@@ -698,14 +661,14 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(267, 267, 267)
                 .addComponent(labelCalculator)
-                .addContainerGap(303, Short.MAX_VALUE))
+                .addContainerGap(280, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labelCalculator)
-                .addContainerGap(337, Short.MAX_VALUE))
+                .addContainerGap(334, Short.MAX_VALUE))
         );
 
         jTabbedPaneMenu.addTab("מחשבון", jPanel3);
@@ -723,7 +686,7 @@ public class MainWindow extends javax.swing.JFrame {
             .addComponent(jTabbedPaneMenu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        jTabbedPaneMenu.getAccessibleContext().setAccessibleName("מבט על");
+        jTabbedPaneMenu.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -773,7 +736,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -781,6 +743,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
