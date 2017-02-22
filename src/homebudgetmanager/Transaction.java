@@ -5,7 +5,9 @@
  */
 package homebudgetmanager;
 
+import java.awt.Image;
 import java.util.Calendar;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -13,29 +15,53 @@ import java.util.Calendar;
  */
 public class Transaction {
 
-    private int transID;
+    private static int transactionsCount = 0;
+
+    private final int SIZE = 64;
+    private String transID;
     private double transAmount;
     private Calendar transDate;
     private String transDescription;
     private String transPaymentMethod;
-    
-    public Transaction(){
-        
+    private ImageIcon transIcon;
+
+    public Transaction() {
+
     }
-    
-    public Transaction(int transID, double transAmount, Calendar transDate, String transDescription, String transPaymentMethod){
-        setTransID(transID);
+
+    public Transaction(String transID, double transAmount, Calendar transDate, String transDescription, String transPaymentMethod, String iconPath) {
+        setTransID((Transaction.getTransactionsCount() + 1) + transID);
         setTransAmount(transAmount);
         setTransDate(transDate);
         setTransDescription(transDescription);
         setTransPaymentMethod(transPaymentMethod);
+        setTransIcon(iconPath);
+        Transaction.incTransactionsCount();
     }
-    
-    public int getTransID() {
+
+    public static int getTransactionsCount() {
+        return Transaction.transactionsCount;
+    }
+
+    private static void incTransactionsCount() {
+        Transaction.transactionsCount += 1;
+    }
+
+    private static void decTransactionsCount() {
+        Transaction.transactionsCount -= 1;
+    }
+
+    private void delTransaction() {
+        Transaction.decTransactionsCount();
+        Transaction del = this;
+        del = null;
+    }
+
+    public String getTransID() {
         return transID;
     }
 
-    public void setTransID(int transID) {
+    public void setTransID(String transID) {
         this.transID = transID;
     }
 
@@ -70,13 +96,28 @@ public class Transaction {
     public void setTransPaymentMethod(String transPaymentMethod) {
         this.transPaymentMethod = transPaymentMethod;
     }
-    
+
+    public ImageIcon getTransIcon() {
+        return transIcon;
+    }
+
+    public void setTransIcon(ImageIcon transIcon) throws Exception {
+
+        if ((transIcon.getIconHeight() != SIZE) || (transIcon.getIconWidth() != SIZE)) {
+            throw new Exception("Bad icon size input");//WIP
+        }
+        this.transIcon = transIcon;
+    }
+
+    public void setTransIcon(String iconPath) {
+        this.transIcon = new ImageIcon(new javax.swing.ImageIcon(getClass().getResource(iconPath)).getImage().getScaledInstance(SIZE, SIZE, Image.SCALE_SMOOTH));
+    }
+
     @Override
     public String toString() {
-        return "Transaction{" + "transID=" + getTransID() + ", transAmount=" + getTransAmount() +
-                ", transDate=" + getTransDate() + ", transDescription=" + getTransDescription() +
-                ", transPaymentMethod=" + getTransPaymentMethod();
+        return "Transaction{" + "transID=" + getTransID() + ", transAmount=" + getTransAmount()
+                + ", transDate=" + getTransDate() + ", transDescription=" + getTransDescription()
+                + ", transPaymentMethod=" + getTransPaymentMethod();
     }
-    
-    
+
 }

@@ -11,31 +11,31 @@ import java.util.Calendar;
  *
  * @author Yair Ariel
  */
-public class Expense extends Transaction{
-    
+public class Expense extends Transaction {
+
     private String expenseCategory;
-    
-    public Expense(){
-        
+
+    public Expense() {
+
     }
-    
-    public Expense(int transID, double transAmount, Calendar transDate, String transDescription,
-            String expenseCategory, String transPaymentMethod){
-        
-        super(transID, transAmount, transDate, transDescription, transPaymentMethod);
+
+    public Expense(String transID, double transAmount, Calendar transDate, String transDescription,
+            String expenseCategory, String transPaymentMethod, String transIconPath) {
+
+        super(transID, transAmount, transDate, transDescription, transPaymentMethod, transIconPath);
         setExpenseCategory(expenseCategory);
     }
-    
-    public String getExpenseCategory(){
+
+    public String getExpenseCategory() {
         return expenseCategory;
     }
-    
-    public void setExpenseCategory(String expenseCategory){
+
+    public void setExpenseCategory(String expenseCategory) {
         this.expenseCategory = expenseCategory;
     }
-    
-    @Override 
-    public String toString(){
+
+    @Override
+    public String toString() {
         return super.toString() + ",expenseCategory=" + getExpenseCategory() + '}';
     }
 }
