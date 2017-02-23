@@ -72,8 +72,8 @@
                           <Component id="spinnerExpenseSum" max="32767" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel5" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelDate" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelAmount" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="datePickerExpense" min="-2" pref="208" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -81,10 +81,10 @@
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="comboBoxExpenseCategory" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelCategory" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="comboBoxExpenseMethod" alignment="1" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelPaymentMethod" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
@@ -118,8 +118,8 @@
                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel1" alignment="3" max="32767" attributes="0"/>
-                      <Component id="jLabel4" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                      <Component id="labelCategory" alignment="3" max="32767" attributes="0"/>
+                      <Component id="labelDate" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -128,8 +128,8 @@
                   </Group>
                   <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel2" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                      <Component id="jLabel5" alignment="3" pref="51" max="32767" attributes="0"/>
+                      <Component id="labelPaymentMethod" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="labelAmount" alignment="3" pref="51" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -166,7 +166,7 @@
             <Property name="name" type="java.lang.String" value="jLabel6" noResource="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="labelCategory">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="30" style="0"/>
@@ -174,7 +174,7 @@
             <Property name="text" type="java.lang.String" value="&#x5e7;&#x5d8;&#x5d2;&#x5d5;&#x5e8;&#x5d9;&#x5d4;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel2">
+        <Component class="javax.swing.JLabel" name="labelPaymentMethod">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="30" style="0"/>
@@ -190,7 +190,7 @@
             <Property name="text" type="java.lang.String" value="&#x5ea;&#x5d9;&#x5d0;&#x5d5;&#x5e8;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel4">
+        <Component class="javax.swing.JLabel" name="labelDate">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="30" style="0"/>
@@ -198,7 +198,7 @@
             <Property name="text" type="java.lang.String" value="&#x5ea;&#x5d0;&#x5e8;&#x5d9;&#x5da;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel5">
+        <Component class="javax.swing.JLabel" name="labelAmount">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="30" style="0"/>
@@ -271,7 +271,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="comboBoxExpenseMethodPropertyChange"/>
+            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="comboBoxExpenseMethodItemStateChanged"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -310,6 +310,9 @@
             <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="spinnerExpenseSumStateChanged"/>
             <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="spinnerExpenseSumFocusLost"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JSpinner(new SpinnerNumberModel(0.00,0.00,99999999.99,0.01))"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel11">
           <Properties>

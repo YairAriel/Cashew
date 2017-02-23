@@ -5,6 +5,7 @@
  */
 package homebudgetmanager;
 
+import java.awt.Color;
 import java.awt.ComponentOrientation;
 import java.awt.Font;
 import java.awt.event.WindowEvent;
@@ -17,8 +18,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
+import javax.swing.SpinnerNumberModel;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import org.jdesktop.swingx.JXDatePicker;
 
@@ -32,6 +35,11 @@ public class NewExpense extends javax.swing.JFrame {
      * Creates new form NewExpense
      */
     public NewExpense() {
+        setAmount(0.01);
+        setPaymentMethod("");
+        setCatagory("");
+        setIconPath("");
+        setDescription("");
         initComponents();
         setVisible(true);
         setIconImage(new ImageIcon(getClass().getResource("logoIcon.png")).getImage());
@@ -60,16 +68,16 @@ public class NewExpense extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        labelCategory = new javax.swing.JLabel();
+        labelPaymentMethod = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        labelDate = new javax.swing.JLabel();
+        labelAmount = new javax.swing.JLabel();
         comboBoxExpenseCategory = new javax.swing.JComboBox<>();
         comboBoxExpenseMethod = new javax.swing.JComboBox<>();
         textBoxExpenseComments = new javax.swing.JTextField();
         datePickerExpense = new org.jdesktop.swingx.JXDatePicker(new Date());
-        spinnerExpenseSum = new javax.swing.JSpinner();
+        spinnerExpenseSum = new javax.swing.JSpinner(new SpinnerNumberModel(0.00,0.00,99999999.99,0.01));
         jLabel11 = new javax.swing.JLabel();
         buttonAddExpense = new javax.swing.JButton();
         buttonExpenseCancel = new javax.swing.JButton();
@@ -96,20 +104,20 @@ public class NewExpense extends javax.swing.JFrame {
         jLabel6.setText("הוצאה חדשה");
         jLabel6.setName("jLabel6"); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
-        jLabel1.setText("קטגוריה");
+        labelCategory.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        labelCategory.setText("קטגוריה");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
-        jLabel2.setText("אמצעי תשלום");
+        labelPaymentMethod.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        labelPaymentMethod.setText("אמצעי תשלום");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel3.setText("תיאור");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
-        jLabel4.setText("תאריך");
+        labelDate.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        labelDate.setText("תאריך");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
-        jLabel5.setText("סכום");
+        labelAmount.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        labelAmount.setText("סכום");
 
         comboBoxExpenseCategory.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         comboBoxExpenseCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "בחר קטגוריה", "ארנונה", "ביגוד", "בידור", "ביטוח", "בריאות", "גינון", "דו\"חות", "דלק", "הנעלה", "חוגים", "חופשה", "חיות מחמד", "חינוך", "חיסכון", "חשמל", "טיולים", "כושר", "מזון וטואלטיקה", "מים", "מיסים", "מסעדות", "משכנתא", "מתנות", "עישון", "צדקה", "רכב", "שכר דירה", "תחבורה ציבורית", "תיקונים", "תקשורת", "אחר" }));
@@ -121,9 +129,9 @@ public class NewExpense extends javax.swing.JFrame {
 
         comboBoxExpenseMethod.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         comboBoxExpenseMethod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "בחר אמצעי תשלום", "מזומן", "צ'ק", "העברה בנקאית", "אשראי" }));
-        comboBoxExpenseMethod.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                comboBoxExpenseMethodPropertyChange(evt);
+        comboBoxExpenseMethod.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                comboBoxExpenseMethodItemStateChanged(evt);
             }
         });
 
@@ -185,16 +193,16 @@ public class NewExpense extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(spinnerExpenseSum))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel4)
-                        .addComponent(jLabel5)
+                        .addComponent(labelDate)
+                        .addComponent(labelAmount)
                         .addComponent(datePickerExpense, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(comboBoxExpenseCategory, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(labelCategory, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(comboBoxExpenseMethod, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel2)
+                    .addComponent(labelPaymentMethod)
                     .addComponent(jLabel3))
                 .addGap(21, 21, 21))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -219,16 +227,16 @@ public class NewExpense extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelCategory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelDate, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comboBoxExpenseCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(datePickerExpense, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE))
+                    .addComponent(labelPaymentMethod, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelAmount, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comboBoxExpenseMethod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -261,18 +269,37 @@ public class NewExpense extends javax.swing.JFrame {
 
     private void buttonAddExpenseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddExpenseActionPerformed
         // TODO add your handling code here:
+        boolean flag = false;
         if (evt.getSource() instanceof JButton) {
+            if (getComboBoxExpenseCategory().getSelectedIndex() == 0) {
+                getLabelCategory().setForeground(Color.RED);
+                flag = true;
+            }
+            if (getComboBoxExpenseMethod().getSelectedIndex() == 0) {
+                getLabelPaymentMethod().setForeground(Color.RED);
+                flag = true;
+            }
+            if (Double.parseDouble(getSpinnerExpenseSum().getValue().toString()) == 0) {
+                getLabelAmount().setForeground(Color.RED);
+                flag = true;
+            }
+            if (flag) {
+                return;
+            }
             SimpleDateFormat sdf = new SimpleDateFormat("_ddMMyyyy");
-            TransactionParser.transactions.add(new Expense(sdf.format(date.getTime()) + "E", amount, date, description, catagory, paymentMethod, iconPath));
+            TransactionParser.transactions.add(new Expense(sdf.format(getDate().getTime()) + "E", getAmount(), getDate(), getDescription(), getCatagory(), getPaymentMethod(), getIconPath()));
             dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
         }
     }//GEN-LAST:event_buttonAddExpenseActionPerformed
 
     private void comboBoxExpenseCategoryItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboBoxExpenseCategoryItemStateChanged
         // TODO add your handling code here:
+        if (getLabelCategory().getForeground() == Color.RED) {
+            getLabelCategory().setForeground(Color.BLACK);
+        }
         if (evt.getSource() instanceof JComboBox) {
-            iconPath = "images/" + TransactionParser.ICON_ARR[((JComboBox) evt.getSource()).getSelectedIndex()];
-            catagory = ((JComboBox) evt.getSource()).getSelectedItem().toString();
+            setIconPath("images/" + TransactionParser.ICON_ARR[((JComboBox) evt.getSource()).getSelectedIndex()]);
+            setCatagory(((JComboBox) evt.getSource()).getSelectedItem().toString());
 //            System.out.println(iconName);
 //            System.out.println(catagory);
         }
@@ -280,31 +307,27 @@ public class NewExpense extends javax.swing.JFrame {
 
     private void datePickerExpensePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_datePickerExpensePropertyChange
         if (evt.getSource() instanceof JXDatePicker) {
-            date = new GregorianCalendar();
-            date.setTime(((JXDatePicker) evt.getSource()).getDate());
+            setDate(new GregorianCalendar());
+            getDate().setTime(((JXDatePicker) evt.getSource()).getDate());
             //System.out.println(date);
         }
     }//GEN-LAST:event_datePickerExpensePropertyChange
 
-    private void comboBoxExpenseMethodPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_comboBoxExpenseMethodPropertyChange
-        // TODO add your handling code here:
-        if (evt.getSource() instanceof JComboBox) {
-            paymentMethod = ((JComboBox) evt.getSource()).getSelectedItem().toString();
-        }
-    }//GEN-LAST:event_comboBoxExpenseMethodPropertyChange
-
     private void spinnerExpenseSumFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_spinnerExpenseSumFocusLost
         // TODO add your handling code here:
         if (evt.getSource() instanceof JSpinner) {
-            amount = Double.parseDouble(((JSpinner) evt.getSource()).getValue().toString());
+            setAmount(Double.parseDouble(((JSpinner) evt.getSource()).getValue().toString()));
             //System.out.println(amount);
         }
     }//GEN-LAST:event_spinnerExpenseSumFocusLost
 
     private void spinnerExpenseSumStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinnerExpenseSumStateChanged
         // TODO add your handling code here:
+        if (getLabelAmount().getForeground() == Color.RED) {
+            getLabelAmount().setForeground(Color.BLACK);
+        }
         if (evt.getSource() instanceof JSpinner) {
-            amount = Double.parseDouble(((JSpinner) evt.getSource()).getValue().toString());
+            setAmount(Double.parseDouble(((JSpinner) evt.getSource()).getValue().toString()));
             //System.out.println(amount);
         }
     }//GEN-LAST:event_spinnerExpenseSumStateChanged
@@ -312,7 +335,7 @@ public class NewExpense extends javax.swing.JFrame {
     private void textBoxExpenseCommentsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textBoxExpenseCommentsKeyReleased
         // TODO add your handling code here:
         if (evt.getSource() instanceof JTextField) {
-            description = ((JTextField) evt.getSource()).getText() != null ? ((JTextField) evt.getSource()).getText() : "";
+            setDescription(((JTextField) evt.getSource()).getText() != null ? ((JTextField) evt.getSource()).getText() : "");
             System.out.println(description);
         }
     }//GEN-LAST:event_textBoxExpenseCommentsKeyReleased
@@ -321,6 +344,16 @@ public class NewExpense extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
     }//GEN-LAST:event_buttonExpenseCancelActionPerformed
+
+    private void comboBoxExpenseMethodItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboBoxExpenseMethodItemStateChanged
+        // TODO add your handling code here:
+        if (getLabelPaymentMethod().getForeground() == Color.RED) {
+            getLabelPaymentMethod().setForeground(Color.BLACK);
+        }
+        if (evt.getSource() instanceof JComboBox) {
+            setPaymentMethod(((JComboBox) evt.getSource()).getSelectedItem().toString());
+        }
+    }//GEN-LAST:event_comboBoxExpenseMethodItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -363,15 +396,15 @@ public class NewExpense extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboBoxExpenseCategory;
     private javax.swing.JComboBox<String> comboBoxExpenseMethod;
     private org.jdesktop.swingx.JXDatePicker datePickerExpense;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel labelAmount;
+    private javax.swing.JLabel labelCategory;
+    private javax.swing.JLabel labelDate;
+    private javax.swing.JLabel labelPaymentMethod;
     private javax.swing.JSpinner spinnerExpenseSum;
     private javax.swing.JTextField textBoxExpenseComments;
     // End of variables declaration//GEN-END:variables
@@ -381,4 +414,141 @@ public class NewExpense extends javax.swing.JFrame {
     private String paymentMethod;
     private String description;
     private double amount;
+
+    public String getIconPath() {
+        return iconPath;
+    }
+
+    public void setIconPath(String iconPath) {
+        this.iconPath = iconPath;
+    }
+
+    public Calendar getDate() {
+        return date;
+    }
+
+    public void setDate(Calendar date) {
+        this.date = date;
+    }
+
+    public String getCatagory() {
+        return catagory;
+    }
+
+    public void setCatagory(String catagory) {
+        this.catagory = catagory;
+    }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public JButton getButtonAddExpense() {
+        return buttonAddExpense;
+    }
+
+    public void setButtonAddExpense(JButton buttonAddExpense) {
+        this.buttonAddExpense = buttonAddExpense;
+    }
+
+    public JButton getButtonExpenseCancel() {
+        return buttonExpenseCancel;
+    }
+
+    public void setButtonExpenseCancel(JButton buttonExpenseCancel) {
+        this.buttonExpenseCancel = buttonExpenseCancel;
+    }
+
+    public JComboBox<String> getComboBoxExpenseCategory() {
+        return comboBoxExpenseCategory;
+    }
+
+    public void setComboBoxExpenseCategory(JComboBox<String> comboBoxExpenseCategory) {
+        this.comboBoxExpenseCategory = comboBoxExpenseCategory;
+    }
+
+    public JComboBox<String> getComboBoxExpenseMethod() {
+        return comboBoxExpenseMethod;
+    }
+
+    public void setComboBoxExpenseMethod(JComboBox<String> comboBoxExpenseMethod) {
+        this.comboBoxExpenseMethod = comboBoxExpenseMethod;
+    }
+
+    public JXDatePicker getDatePickerExpense() {
+        return datePickerExpense;
+    }
+
+    public void setDatePickerExpense(JXDatePicker datePickerExpense) {
+        this.datePickerExpense = datePickerExpense;
+    }
+
+    public JLabel getLabelAmount() {
+        return labelAmount;
+    }
+
+    public void setLabelAmount(JLabel labelAmount) {
+        this.labelAmount = labelAmount;
+    }
+
+    public JLabel getLabelCategory() {
+        return labelCategory;
+    }
+
+    public void setLabelCategory(JLabel labelCategory) {
+        this.labelCategory = labelCategory;
+    }
+
+    public JLabel getLabelDate() {
+        return labelDate;
+    }
+
+    public void setLabelDate(JLabel labelDate) {
+        this.labelDate = labelDate;
+    }
+
+    public JLabel getLabelPaymentMethod() {
+        return labelPaymentMethod;
+    }
+
+    public void setLabelPaymentMethod(JLabel labelPaymentMethod) {
+        this.labelPaymentMethod = labelPaymentMethod;
+    }
+
+    public JSpinner getSpinnerExpenseSum() {
+        return spinnerExpenseSum;
+    }
+
+    public void setSpinnerExpenseSum(JSpinner spinnerExpenseSum) {
+        this.spinnerExpenseSum = spinnerExpenseSum;
+    }
+
+    public JTextField getTextBoxExpenseComments() {
+        return textBoxExpenseComments;
+    }
+
+    public void setTextBoxExpenseComments(JTextField textBoxExpenseComments) {
+        this.textBoxExpenseComments = textBoxExpenseComments;
+    }
+
 }
