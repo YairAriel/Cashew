@@ -9,9 +9,15 @@ import static homebudgetmanager.MainWindow.program;
 import java.awt.ComponentOrientation;
 import java.awt.Font;
 import java.awt.event.WindowEvent;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JSpinner;
+import javax.swing.JTextField;
+import javax.swing.SpinnerNumberModel;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 
 /**
@@ -29,16 +35,17 @@ public class NewIncome extends javax.swing.JFrame {
         setIconImage(new ImageIcon(getClass().getResource("logoIcon.png")).getImage());
         setResizable(false);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        Locale hebrew = new Locale("iw","IL");
+        Locale hebrew = new Locale("iw", "IL");
         ComponentOrientation hebrewOri1entation = ComponentOrientation.getOrientation(hebrew);
         comboBoxIncomeSource.applyComponentOrientation(hebrewOri1entation);
-        ((JLabel)comboBoxIncomeSource.getRenderer()).setHorizontalAlignment(JLabel.RIGHT);
+        ((JLabel) comboBoxIncomeSource.getRenderer()).setHorizontalAlignment(JLabel.RIGHT);
         comboBoxIncomeMethod.applyComponentOrientation(hebrewOri1entation);
-        ((JLabel)comboBoxIncomeMethod.getRenderer()).setHorizontalAlignment(JLabel.RIGHT);
+        ((JLabel) comboBoxIncomeMethod.getRenderer()).setHorizontalAlignment(JLabel.RIGHT);
         datePickerIncome.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         textBoxIncomeComments.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         spinnerIncomeSum.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -50,14 +57,14 @@ public class NewIncome extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        labelIncomeSource = new javax.swing.JLabel();
         comboBoxIncomeSource = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        datePickerIncome = new org.jdesktop.swingx.JXDatePicker();
-        jLabel2 = new javax.swing.JLabel();
+        datePickerIncome = new org.jdesktop.swingx.JXDatePicker(new Date());
+        labalIncomeMethod = new javax.swing.JLabel();
         comboBoxIncomeMethod = new javax.swing.JComboBox<>();
-        jLabel5 = new javax.swing.JLabel();
-        spinnerIncomeSum = new javax.swing.JSpinner();
+        labelIncomeAmount = new javax.swing.JLabel();
+        spinnerIncomeSum = new javax.swing.JSpinner(new SpinnerNumberModel(0.00,0.00,99999999.99,0.01));
         jLabel11 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         textBoxIncomeComments = new javax.swing.JTextField();
@@ -76,8 +83,8 @@ public class NewIncome extends javax.swing.JFrame {
         jLabel6.setText("הכנסה חדשה");
         jLabel6.setName("jLabel6"); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
-        jLabel1.setText("מקור");
+        labelIncomeSource.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        labelIncomeSource.setText("מקור");
 
         comboBoxIncomeSource.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         comboBoxIncomeSource.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "בחר מקור", "משכורת", "ביטוח לאומי", "קצבה", "מתנה", "זכיות", "פנסיה", "עבודה מזדמנת", "שכר דירה", "אחר" }));
@@ -87,14 +94,14 @@ public class NewIncome extends javax.swing.JFrame {
 
         datePickerIncome.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
-        jLabel2.setText("אמצעי תשלום");
+        labalIncomeMethod.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        labalIncomeMethod.setText("אמצעי תשלום");
 
         comboBoxIncomeMethod.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         comboBoxIncomeMethod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "בחר אמצעי תשלום", "מזומן", "צ'ק", "העברה בנקאית", "אשראי" }));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
-        jLabel5.setText("סכום");
+        labelIncomeAmount.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        labelIncomeAmount.setText("סכום");
 
         spinnerIncomeSum.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
 
@@ -143,7 +150,7 @@ public class NewIncome extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(178, 178, 178)
                         .addComponent(textBoxIncomeComments, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                         .addComponent(jLabel3))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,7 +163,7 @@ public class NewIncome extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1))
+                                .addComponent(labelIncomeSource))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(92, 92, 92)
                                 .addComponent(comboBoxIncomeSource, 0, 220, Short.MAX_VALUE))))
@@ -169,10 +176,10 @@ public class NewIncome extends javax.swing.JFrame {
                                 .addComponent(spinnerIncomeSum))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jLabel5)))
+                                .addComponent(labelIncomeAmount)))
                         .addGap(92, 92, 92)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
+                            .addComponent(labalIncomeMethod)
                             .addComponent(comboBoxIncomeMethod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(19, 19, 19))
         );
@@ -183,20 +190,20 @@ public class NewIncome extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(labelIncomeSource)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comboBoxIncomeSource, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(datePickerIncome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(labalIncomeMethod)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(comboBoxIncomeMethod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
+                        .addComponent(labelIncomeAmount)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(spinnerIncomeSum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -216,7 +223,7 @@ public class NewIncome extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,12 +234,13 @@ public class NewIncome extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void textBoxIncomeCommentsKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textBoxIncomeCommentsKeyTyped
-        if (textBoxIncomeComments.getText().length() >= 22 )
+        if (textBoxIncomeComments.getText().length() >= 22) {
             evt.consume();
+        }
     }//GEN-LAST:event_textBoxIncomeCommentsKeyTyped
 
     private void buttonIncomeCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonIncomeCancelActionPerformed
-        
+
         dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
         program.getButtonNewExpense().setEnabled(true);
         program.getButtonNewIncome().setEnabled(true);
@@ -245,7 +253,7 @@ public class NewIncome extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -279,18 +287,127 @@ public class NewIncome extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboBoxIncomeMethod;
     private javax.swing.JComboBox<String> comboBoxIncomeSource;
     private org.jdesktop.swingx.JXDatePicker datePickerIncome;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel labalIncomeMethod;
+    private javax.swing.JLabel labelIncomeAmount;
+    private javax.swing.JLabel labelIncomeSource;
     private javax.swing.JSpinner spinnerIncomeSum;
     private javax.swing.JTextField textBoxIncomeComments;
     // End of variables declaration//GEN-END:variables
 
-    
+    private String incomeMethod;
+    private String incomeSource;
+    private String incomeDescription;
+    private String iconPath;
+    private double amount;
+    private Calendar date;
+
+    public JComboBox<String> getComboBoxIncomeMethod() {
+        return comboBoxIncomeMethod;
+    }
+
+    public void setComboBoxIncomeMethod(JComboBox<String> comboBoxIncomeMethod) {
+        this.comboBoxIncomeMethod = comboBoxIncomeMethod;
+    }
+
+    public JComboBox<String> getComboBoxIncomeSource() {
+        return comboBoxIncomeSource;
+    }
+
+    public void setComboBoxIncomeSource(JComboBox<String> comboBoxIncomeSource) {
+        this.comboBoxIncomeSource = comboBoxIncomeSource;
+    }
+
+    public JLabel getLabalIncomeMethod() {
+        return labalIncomeMethod;
+    }
+
+    public void setLabalIncomeMethod(JLabel labalIncomeMethod) {
+        this.labalIncomeMethod = labalIncomeMethod;
+    }
+
+    public JLabel getLabelIncomeAmount() {
+        return labelIncomeAmount;
+    }
+
+    public void setLabelIncomeAmount(JLabel labelIncomeAmount) {
+        this.labelIncomeAmount = labelIncomeAmount;
+    }
+
+    public JLabel getLabelIncomeSource() {
+        return labelIncomeSource;
+    }
+
+    public void setLabelIncomeSource(JLabel labelIncomeSource) {
+        this.labelIncomeSource = labelIncomeSource;
+    }
+
+    public JSpinner getSpinnerIncomeSum() {
+        return spinnerIncomeSum;
+    }
+
+    public void setSpinnerIncomeSum(JSpinner spinnerIncomeSum) {
+        this.spinnerIncomeSum = spinnerIncomeSum;
+    }
+
+    public JTextField getTextBoxIncomeComments() {
+        return textBoxIncomeComments;
+    }
+
+    public void setTextBoxIncomeComments(JTextField textBoxIncomeComments) {
+        this.textBoxIncomeComments = textBoxIncomeComments;
+    }
+
+    public String getIncomeMethod() {
+        return incomeMethod;
+    }
+
+    public void setIncomeMethod(String incomeMethod) {
+        this.incomeMethod = incomeMethod;
+    }
+
+    public String getIncomeSource() {
+        return incomeSource;
+    }
+
+    public void setIncomeSource(String incomeSource) {
+        this.incomeSource = incomeSource;
+    }
+
+    public String getIncomeDescription() {
+        return incomeDescription;
+    }
+
+    public void setIncomeDescription(String incomeDescription) {
+        this.incomeDescription = incomeDescription;
+    }
+
+    public String getIconPath() {
+        return iconPath;
+    }
+
+    public void setIconPath(String iconPath) {
+        this.iconPath = iconPath;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public Calendar getDate() {
+        return date;
+    }
+
+    public void setDate(Calendar date) {
+        this.date = date;
+    }
 
 }

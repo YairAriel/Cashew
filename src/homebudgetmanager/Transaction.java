@@ -47,16 +47,6 @@ public class Transaction {
         Transaction.transactionsCount += 1;
     }
 
-    private static void decTransactionsCount() {
-        Transaction.transactionsCount -= 1;
-    }
-
-    private void delTransaction() {
-        Transaction.decTransactionsCount();
-        Transaction del = this;
-        del = null;
-    }
-
     public String getTransID() {
         return transID;
     }
