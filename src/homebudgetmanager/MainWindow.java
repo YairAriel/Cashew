@@ -18,6 +18,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTabbedPane;
@@ -105,6 +106,9 @@ public class MainWindow extends javax.swing.JFrame {
         datePickerToDate = new org.jdesktop.swingx.JXDatePicker();
         jLabel15 = new javax.swing.JLabel();
         comboBoxTransactionsData = new javax.swing.JComboBox<>();
+        jPanel8 = new javax.swing.JPanel();
+        buttonNewIncome1 = new javax.swing.JButton();
+        buttonNewExpense1 = new javax.swing.JButton();
         labelTitleBudget = new javax.swing.JPanel();
         labelBudget = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -206,7 +210,6 @@ public class MainWindow extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(0, 64, Short.MAX_VALUE)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel24)
                             .addComponent(jLabel21))
@@ -221,9 +224,10 @@ public class MainWindow extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14)))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -484,13 +488,48 @@ public class MainWindow extends javax.swing.JFrame {
         comboBoxTransactionsData.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         comboBoxTransactionsData.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "כל התנועות", "הכנסות", "הוצאות" }));
 
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 211, Short.MAX_VALUE)
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 110, Short.MAX_VALUE)
+        );
+
+        buttonNewIncome1.setBackground(new java.awt.Color(34, 206, 26));
+        buttonNewIncome1.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
+        buttonNewIncome1.setForeground(new java.awt.Color(255, 255, 255));
+        buttonNewIncome1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homebudgetmanager/plusIcon.png"))); // NOI18N
+        buttonNewIncome1.setText("הכנסה ");
+        buttonNewIncome1.setName("buttonNewIncome"); // NOI18N
+        buttonNewIncome1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonNewIncome1ActionPerformed(evt);
+            }
+        });
+
+        buttonNewExpense1.setBackground(new java.awt.Color(242, 65, 21));
+        buttonNewExpense1.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
+        buttonNewExpense1.setForeground(new java.awt.Color(255, 255, 255));
+        buttonNewExpense1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homebudgetmanager/minusIcon.png"))); // NOI18N
+        buttonNewExpense1.setText("הוצאה ");
+        buttonNewExpense1.setName("buttonNewExpense"); // NOI18N
+        buttonNewExpense1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonNewExpense1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout labelTitleTransactionsLayout = new javax.swing.GroupLayout(labelTitleTransactions);
         labelTitleTransactions.setLayout(labelTitleTransactionsLayout);
         labelTitleTransactionsLayout.setHorizontalGroup(
             labelTitleTransactionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(labelTitleTransactionsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 780, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(labelTitleTransactionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(datePickerFromDate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -498,19 +537,26 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(comboBoxTransactionsData, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(datePickerToDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(datePickerToDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonNewIncome1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonNewExpense1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(labelTitleTransactionsLayout.createSequentialGroup()
                 .addGap(398, 398, 398)
                 .addComponent(labelTransactions)
                 .addContainerGap(441, Short.MAX_VALUE))
+            .addGroup(labelTitleTransactionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(labelTitleTransactionsLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         labelTitleTransactionsLayout.setVerticalGroup(
             labelTitleTransactionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(labelTitleTransactionsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labelTransactions)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                 .addGroup(labelTitleTransactionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(labelTitleTransactionsLayout.createSequentialGroup()
                         .addComponent(jLabel15)
@@ -523,9 +569,18 @@ public class MainWindow extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(datePickerToDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(datePickerToDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(buttonNewIncome1)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonNewExpense1))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
+            .addGroup(labelTitleTransactionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(labelTitleTransactionsLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         jTabbedPaneMenu.addTab("תנועות", labelTitleTransactions);
@@ -720,13 +775,33 @@ public class MainWindow extends javax.swing.JFrame {
 
         NewExpense expenseModal = new NewExpense();
         expenseModal.setLocationRelativeTo(this);
+        buttonNewExpense.setEnabled(false);
+        buttonNewIncome.setEnabled(false);
     }//GEN-LAST:event_buttonNewExpenseActionPerformed
 
     private void buttonNewIncomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewIncomeActionPerformed
 
         NewIncome incomeModal = new NewIncome();
         incomeModal.setLocationRelativeTo(this);
+        buttonNewIncome.setEnabled(false);
+        buttonNewExpense.setEnabled(false);
     }//GEN-LAST:event_buttonNewIncomeActionPerformed
+
+    private void buttonNewIncome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewIncome1ActionPerformed
+
+        NewIncome incomeModal = new NewIncome();
+        incomeModal.setLocationRelativeTo(this);
+        buttonNewIncome1.setEnabled(false);
+        buttonNewExpense1.setEnabled(false);
+    }//GEN-LAST:event_buttonNewIncome1ActionPerformed
+
+    private void buttonNewExpense1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewExpense1ActionPerformed
+
+        NewExpense expenseModal = new NewExpense();
+        expenseModal.setLocationRelativeTo(this);
+        buttonNewExpense1.setEnabled(false);
+        buttonNewIncome1.setEnabled(false);
+    }//GEN-LAST:event_buttonNewExpense1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -736,7 +811,9 @@ public class MainWindow extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainWindow().setVisible(true);
+                
+                program = new MainWindow();
+                program.setVisible(true);
             }
         });
     }
@@ -744,7 +821,9 @@ public class MainWindow extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonDefineBudjet;
     private javax.swing.JButton buttonNewExpense;
+    private javax.swing.JButton buttonNewExpense1;
     private javax.swing.JButton buttonNewIncome;
+    private javax.swing.JButton buttonNewIncome1;
     private javax.swing.JCheckBox checkBoxAlertBeforeException;
     private javax.swing.JCheckBox checkBoxAlertBeforeX;
     private javax.swing.JComboBox<String> comboBoxDatesRange;
@@ -786,6 +865,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPaneMenu;
@@ -798,4 +878,42 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JSpinner spinnerAlertBefore;
     private javax.swing.JSpinner spinnerBudgetAmount;
     // End of variables declaration//GEN-END:variables
+
+    static MainWindow program;
+    
+    public JButton getButtonNewExpense() {
+        return buttonNewExpense;
+    }
+
+    public void setButtonNewExpense(JButton buttonNewExpense) {
+        this.buttonNewExpense = buttonNewExpense;
+    }
+
+    public JButton getButtonNewExpense1() {
+        return buttonNewExpense1;
+    }
+
+    public void setButtonNewExpense1(JButton buttonNewExpense1) {
+        this.buttonNewExpense1 = buttonNewExpense1;
+    }
+
+    public JButton getButtonNewIncome() {
+        return buttonNewIncome;
+    }
+
+    public void setButtonNewIncome(JButton buttonNewIncome) {
+        this.buttonNewIncome = buttonNewIncome;
+    }
+
+    public JButton getButtonNewIncome1() {
+        return buttonNewIncome1;
+    }
+
+    public void setButtonNewIncome1(JButton buttonNewIncome1) {
+        this.buttonNewIncome1 = buttonNewIncome1;
+    }
+    
+    
+    //Setters and getters
+    
 }

@@ -5,8 +5,10 @@
  */
 package homebudgetmanager;
 
+import static homebudgetmanager.MainWindow.program;
 import java.awt.ComponentOrientation;
 import java.awt.Font;
+import java.awt.event.WindowEvent;
 import java.util.Locale;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -104,9 +106,19 @@ public class NewIncome extends javax.swing.JFrame {
         jLabel3.setText("תיאור");
 
         textBoxIncomeComments.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        textBoxIncomeComments.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textBoxIncomeCommentsKeyTyped(evt);
+            }
+        });
 
         buttonIncomeCancel.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         buttonIncomeCancel.setText("ביטול");
+        buttonIncomeCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonIncomeCancelActionPerformed(evt);
+            }
+        });
 
         buttonAddIncome.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         buttonAddIncome.setText("הוסף");
@@ -129,9 +141,9 @@ public class NewIncome extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(textBoxIncomeComments, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                        .addGap(178, 178, 178)
+                        .addComponent(textBoxIncomeComments, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,7 +159,7 @@ public class NewIncome extends javax.swing.JFrame {
                                 .addComponent(jLabel1))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(92, 92, 92)
-                                .addComponent(comboBoxIncomeSource, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(comboBoxIncomeSource, 0, 220, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(74, 74, 74)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,6 +226,18 @@ public class NewIncome extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void textBoxIncomeCommentsKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textBoxIncomeCommentsKeyTyped
+        if (textBoxIncomeComments.getText().length() >= 22 )
+            evt.consume();
+    }//GEN-LAST:event_textBoxIncomeCommentsKeyTyped
+
+    private void buttonIncomeCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonIncomeCancelActionPerformed
+        
+        dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+        program.getButtonNewExpense().setEnabled(true);
+        program.getButtonNewIncome().setEnabled(true);
+    }//GEN-LAST:event_buttonIncomeCancelActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -266,4 +290,7 @@ public class NewIncome extends javax.swing.JFrame {
     private javax.swing.JSpinner spinnerIncomeSum;
     private javax.swing.JTextField textBoxIncomeComments;
     // End of variables declaration//GEN-END:variables
+
+    
+
 }
