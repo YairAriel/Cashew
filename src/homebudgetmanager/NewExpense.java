@@ -98,6 +98,15 @@ public class NewExpense extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(660, 500));
 
         jPanel1.setBackground(new java.awt.Color(242, 242, 242));
+        jPanel1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+                jPanel1AncestorRemoved(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(85, 96, 128));
@@ -138,11 +147,11 @@ public class NewExpense extends javax.swing.JFrame {
 
         textBoxExpenseComments.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         textBoxExpenseComments.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                textBoxExpenseCommentsKeyTyped(evt);
-            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 textBoxExpenseCommentsKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textBoxExpenseCommentsKeyTyped(evt);
             }
         });
 
@@ -216,13 +225,14 @@ public class NewExpense extends javax.swing.JFrame {
                         .addComponent(jLabel6))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(buttonAddExpense, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(buttonExpenseCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(textBoxExpenseComments, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 112, Short.MAX_VALUE))
+                        .addComponent(buttonAddExpense, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonExpenseCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 197, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(191, 191, 191)
+                .addComponent(textBoxExpenseComments, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -369,6 +379,15 @@ public class NewExpense extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_textBoxExpenseCommentsKeyTyped
+
+    private void jPanel1AncestorRemoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jPanel1AncestorRemoved
+        
+        program.getButtonNewExpense().setEnabled(true);
+        program.getButtonNewIncome().setEnabled(true);
+        program.getButtonNewExpense1().setEnabled(true);
+        program.getButtonNewIncome1().setEnabled(true);
+        
+    }//GEN-LAST:event_jPanel1AncestorRemoved
 
     /**
      * @param args the command line arguments

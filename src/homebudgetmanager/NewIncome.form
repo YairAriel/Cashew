@@ -45,6 +45,9 @@
           <Dimension value="[660, 500]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="ancestorRemoved" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="jPanel1AncestorRemoved"/>
+      </Events>
 
       <Layout>
         <DimensionLayout dim="0">

@@ -87,6 +87,15 @@ public class NewIncome extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(242, 242, 242));
         jPanel1.setPreferredSize(new java.awt.Dimension(660, 500));
+        jPanel1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+                jPanel1AncestorRemoved(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(85, 96, 128));
@@ -378,6 +387,14 @@ public class NewIncome extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_textBoxIncomeCommentsKeyTyped
+
+    private void jPanel1AncestorRemoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jPanel1AncestorRemoved
+        
+        program.getButtonNewExpense().setEnabled(true);
+        program.getButtonNewIncome().setEnabled(true);
+        program.getButtonNewExpense1().setEnabled(true);
+        program.getButtonNewIncome1().setEnabled(true);
+    }//GEN-LAST:event_jPanel1AncestorRemoved
 
     /**
      * @param args the command line arguments
