@@ -16,6 +16,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -103,7 +105,7 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         datePickerFromDate = new org.jdesktop.swingx.JXDatePicker();
-        datePickerToDate = new org.jdesktop.swingx.JXDatePicker();
+        datePickerToDate = new org.jdesktop.swingx.JXDatePicker(new Date());
         jLabel15 = new javax.swing.JLabel();
         comboBoxTransactionsData = new javax.swing.JComboBox<>();
         jPanel8 = new javax.swing.JPanel();
@@ -142,6 +144,8 @@ public class MainWindow extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setToolTipText("");
         jPanel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jPanel1.setMaximumSize(new java.awt.Dimension(1000, 600));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1000, 600));
         jPanel1.setName(""); // NOI18N
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 600));
 
@@ -427,7 +431,7 @@ public class MainWindow extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(generalViewPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -556,7 +560,7 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(labelTitleTransactionsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labelTransactions)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
                 .addGroup(labelTitleTransactionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(labelTitleTransactionsLayout.createSequentialGroup()
                         .addComponent(jLabel15)
@@ -718,7 +722,7 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(labelTitleBudgetLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labelBudget)
-                .addGap(18, 66, Short.MAX_VALUE)
+                .addGap(18, 110, Short.MAX_VALUE)
                 .addGroup(labelTitleBudgetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -750,7 +754,7 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labelCalculator)
-                .addContainerGap(477, Short.MAX_VALUE))
+                .addContainerGap(522, Short.MAX_VALUE))
         );
 
         jTabbedPaneMenu.addTab("מחשבון", jPanel3);
@@ -880,6 +884,9 @@ public class MainWindow extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     static MainWindow program;
+//    Calendar c = Calendar.getInstance();
+//    c.(Calendar.DAY_OF_MONTH, 1);
+//    System.out.println(c.getTime()); 
     
     public JButton getButtonNewExpense() {
         return buttonNewExpense;
