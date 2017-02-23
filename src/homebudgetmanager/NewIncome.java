@@ -35,6 +35,12 @@ public class NewIncome extends javax.swing.JFrame {
      * Creates new form NewIncome
      */
     public NewIncome() {
+        setIconPath("");
+        setAmount(0.0);
+        setDate(new GregorianCalendar());
+        setIncomeDescription("");
+        setIncomeMethod("");
+        setIncomeSource("");
         initComponents();
         setVisible(true);
         setIconImage(new ImageIcon(getClass().getResource("logoIcon.png")).getImage());

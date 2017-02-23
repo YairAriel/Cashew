@@ -36,7 +36,7 @@ public class NewExpense extends javax.swing.JFrame {
      * Creates new form NewExpense
      */
     public NewExpense() {
-        setAmount(0.01);
+        setAmount(0.0);
         setPaymentMethod("");
         setCatagory("");
         setIconPath("");
