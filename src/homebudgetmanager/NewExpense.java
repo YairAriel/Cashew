@@ -5,6 +5,7 @@
  */
 package homebudgetmanager;
 
+import static homebudgetmanager.MainWindow.program;
 import java.awt.Color;
 import java.awt.ComponentOrientation;
 import java.awt.Font;
@@ -137,6 +138,9 @@ public class NewExpense extends javax.swing.JFrame {
 
         textBoxExpenseComments.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         textBoxExpenseComments.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textBoxExpenseCommentsKeyTyped(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 textBoxExpenseCommentsKeyReleased(evt);
             }
@@ -284,11 +288,15 @@ public class NewExpense extends javax.swing.JFrame {
                 flag = true;
             }
             if (flag) {
+                program.getButtonNewExpense().setEnabled(true);
+                program.getButtonNewIncome().setEnabled(true);
                 return;
             }
             SimpleDateFormat sdf = new SimpleDateFormat("_ddMMyyyy");
             TransactionParser.transactions.add(new Expense(sdf.format(getDate().getTime()) + "E", getAmount(), getDate(), getDescription(), getCatagory(), getPaymentMethod(), getIconPath()));
             dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+            program.getButtonNewExpense().setEnabled(true);
+            program.getButtonNewIncome().setEnabled(true);
         }
     }//GEN-LAST:event_buttonAddExpenseActionPerformed
 
@@ -298,7 +306,7 @@ public class NewExpense extends javax.swing.JFrame {
             getLabelCategory().setForeground(Color.BLACK);
         }
         if (evt.getSource() instanceof JComboBox) {
-            setIconPath("images/" + TransactionParser.ICON_ARR[((JComboBox) evt.getSource()).getSelectedIndex()]);
+            setIconPath("images/" + TransactionParser.EXPENSE_ICON_ARR[((JComboBox) evt.getSource()).getSelectedIndex()]);
             setCatagory(((JComboBox) evt.getSource()).getSelectedItem().toString());
 //            System.out.println(iconName);
 //            System.out.println(catagory);
@@ -336,7 +344,7 @@ public class NewExpense extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (evt.getSource() instanceof JTextField) {
             setDescription(((JTextField) evt.getSource()).getText() != null ? ((JTextField) evt.getSource()).getText() : "");
-            System.out.println(description);
+            //System.out.println(description);
         }
     }//GEN-LAST:event_textBoxExpenseCommentsKeyReleased
 
@@ -354,6 +362,13 @@ public class NewExpense extends javax.swing.JFrame {
             setPaymentMethod(((JComboBox) evt.getSource()).getSelectedItem().toString());
         }
     }//GEN-LAST:event_comboBoxExpenseMethodItemStateChanged
+
+    private void textBoxExpenseCommentsKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textBoxExpenseCommentsKeyTyped
+        // TODO add your handling code here:
+        if ((evt.getSource() instanceof JTextField) && (((JTextField) evt.getSource()).getText().length() >= 22)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_textBoxExpenseCommentsKeyTyped
 
     /**
      * @param args the command line arguments

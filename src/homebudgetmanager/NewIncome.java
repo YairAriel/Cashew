@@ -6,19 +6,24 @@
 package homebudgetmanager;
 
 import static homebudgetmanager.MainWindow.program;
+import java.awt.Color;
 import java.awt.ComponentOrientation;
 import java.awt.Font;
 import java.awt.event.WindowEvent;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Locale;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
+import org.jdesktop.swingx.JXDatePicker;
 
 /**
  *
@@ -61,7 +66,7 @@ public class NewIncome extends javax.swing.JFrame {
         comboBoxIncomeSource = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         datePickerIncome = new org.jdesktop.swingx.JXDatePicker(new Date());
-        labalIncomeMethod = new javax.swing.JLabel();
+        labelIncomeMethod = new javax.swing.JLabel();
         comboBoxIncomeMethod = new javax.swing.JComboBox<>();
         labelIncomeAmount = new javax.swing.JLabel();
         spinnerIncomeSum = new javax.swing.JSpinner(new SpinnerNumberModel(0.00,0.00,99999999.99,0.01));
@@ -88,22 +93,47 @@ public class NewIncome extends javax.swing.JFrame {
 
         comboBoxIncomeSource.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         comboBoxIncomeSource.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "בחר מקור", "משכורת", "ביטוח לאומי", "קצבה", "מתנה", "זכיות", "פנסיה", "עבודה מזדמנת", "שכר דירה", "אחר" }));
+        comboBoxIncomeSource.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                comboBoxIncomeSourceItemStateChanged(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel4.setText("תאריך");
 
         datePickerIncome.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        datePickerIncome.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                datePickerIncomePropertyChange(evt);
+            }
+        });
 
-        labalIncomeMethod.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
-        labalIncomeMethod.setText("אמצעי תשלום");
+        labelIncomeMethod.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        labelIncomeMethod.setText("אמצעי תשלום");
 
         comboBoxIncomeMethod.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         comboBoxIncomeMethod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "בחר אמצעי תשלום", "מזומן", "צ'ק", "העברה בנקאית", "אשראי" }));
+        comboBoxIncomeMethod.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                comboBoxIncomeMethodItemStateChanged(evt);
+            }
+        });
 
         labelIncomeAmount.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         labelIncomeAmount.setText("סכום");
 
         spinnerIncomeSum.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        spinnerIncomeSum.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                spinnerIncomeSumStateChanged(evt);
+            }
+        });
+        spinnerIncomeSum.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                spinnerIncomeSumFocusLost(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Arial", 0, 28)); // NOI18N
         jLabel11.setText("₪");
@@ -117,6 +147,9 @@ public class NewIncome extends javax.swing.JFrame {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 textBoxIncomeCommentsKeyTyped(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                textBoxIncomeCommentsKeyReleased(evt);
+            }
         });
 
         buttonIncomeCancel.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -129,6 +162,11 @@ public class NewIncome extends javax.swing.JFrame {
 
         buttonAddIncome.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         buttonAddIncome.setText("הוסף");
+        buttonAddIncome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAddIncomeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -179,7 +217,7 @@ public class NewIncome extends javax.swing.JFrame {
                                 .addComponent(labelIncomeAmount)))
                         .addGap(92, 92, 92)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(labalIncomeMethod)
+                            .addComponent(labelIncomeMethod)
                             .addComponent(comboBoxIncomeMethod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(19, 19, 19))
         );
@@ -199,7 +237,7 @@ public class NewIncome extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(labalIncomeMethod)
+                        .addComponent(labelIncomeMethod)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(comboBoxIncomeMethod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -233,18 +271,107 @@ public class NewIncome extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textBoxIncomeCommentsKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textBoxIncomeCommentsKeyTyped
-        if (textBoxIncomeComments.getText().length() >= 22) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_textBoxIncomeCommentsKeyTyped
-
     private void buttonIncomeCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonIncomeCancelActionPerformed
 
         dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
         program.getButtonNewExpense().setEnabled(true);
         program.getButtonNewIncome().setEnabled(true);
     }//GEN-LAST:event_buttonIncomeCancelActionPerformed
+
+    private void buttonAddIncomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddIncomeActionPerformed
+        // TODO add your handling code here:
+        boolean flag = false;
+        if (evt.getSource() instanceof JButton) {
+            if (getComboBoxIncomeSource().getSelectedIndex() == 0) {
+                getLabelIncomeSource().setForeground(Color.RED);
+                flag = true;
+            }
+            if (getComboBoxIncomeMethod().getSelectedIndex() == 0) {
+                getLabelIncomeMethod().setForeground(Color.RED);
+                flag = true;
+            }
+            if (Double.parseDouble(getSpinnerIncomeSum().getValue().toString()) == 0) {
+                getLabelIncomeAmount().setForeground(Color.RED);
+                flag = true;
+            }
+            if (flag) {
+                program.getButtonNewExpense().setEnabled(true);
+                program.getButtonNewIncome().setEnabled(true);
+                return;
+            }
+            SimpleDateFormat sdf = new SimpleDateFormat("_ddMMyyyy");
+            TransactionParser.transactions.add(new Income(sdf.format(getDate().getTime()) + "I", getAmount(), getDate(), getIncomeDescription(), getIncomeMethod(), getIncomeSource(), getIconPath()));
+            dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+            program.getButtonNewExpense().setEnabled(true);
+            program.getButtonNewIncome().setEnabled(true);
+        }
+    }//GEN-LAST:event_buttonAddIncomeActionPerformed
+
+    private void comboBoxIncomeMethodItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboBoxIncomeMethodItemStateChanged
+        // TODO add your handling code here:
+        if (getLabelIncomeMethod().getForeground() == Color.RED) {
+            getLabelIncomeMethod().setForeground(Color.BLACK);
+        }
+        if (evt.getSource() instanceof JComboBox) {
+            setIncomeMethod(((JComboBox) evt.getSource()).getSelectedItem().toString());
+        }
+    }//GEN-LAST:event_comboBoxIncomeMethodItemStateChanged
+
+    private void comboBoxIncomeSourceItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboBoxIncomeSourceItemStateChanged
+        // TODO add your handling code here:
+        if (getLabelIncomeSource().getForeground() == Color.RED) {
+            getLabelIncomeSource().setForeground(Color.BLACK);
+        }
+        if (evt.getSource() instanceof JComboBox) {
+            setIconPath("images/" + TransactionParser.INCOME_ICON_ARR[((JComboBox) evt.getSource()).getSelectedIndex()]);
+            setIncomeSource(((JComboBox) evt.getSource()).getSelectedItem().toString());
+//            System.out.println(iconName);
+//            System.out.println(catagory);
+        }
+    }//GEN-LAST:event_comboBoxIncomeSourceItemStateChanged
+
+    private void datePickerIncomePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_datePickerIncomePropertyChange
+        // TODO add your handling code here:
+        if (evt.getSource() instanceof JXDatePicker) {
+            setDate(new GregorianCalendar());
+            getDate().setTime(((JXDatePicker) evt.getSource()).getDate());
+            //System.out.println(date);
+        }
+    }//GEN-LAST:event_datePickerIncomePropertyChange
+
+    private void spinnerIncomeSumStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinnerIncomeSumStateChanged
+        // TODO add your handling code here:
+        if (getLabelIncomeAmount().getForeground() == Color.RED) {
+            getLabelIncomeAmount().setForeground(Color.BLACK);
+        }
+        if (evt.getSource() instanceof JSpinner) {
+            setAmount(Double.parseDouble(((JSpinner) evt.getSource()).getValue().toString()));
+            //System.out.println(amount);
+        }
+    }//GEN-LAST:event_spinnerIncomeSumStateChanged
+
+    private void spinnerIncomeSumFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_spinnerIncomeSumFocusLost
+        // TODO add your handling code here:
+        if (evt.getSource() instanceof JSpinner) {
+            setAmount(Double.parseDouble(((JSpinner) evt.getSource()).getValue().toString()));
+            //System.out.println(amount);
+        }
+    }//GEN-LAST:event_spinnerIncomeSumFocusLost
+
+    private void textBoxIncomeCommentsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textBoxIncomeCommentsKeyReleased
+        // TODO add your handling code here:
+        if (evt.getSource() instanceof JTextField) {
+            setIncomeDescription(((JTextField) evt.getSource()).getText() != null ? ((JTextField) evt.getSource()).getText() : "");
+            //System.out.println(incomeDescription);
+        }
+    }//GEN-LAST:event_textBoxIncomeCommentsKeyReleased
+
+    private void textBoxIncomeCommentsKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textBoxIncomeCommentsKeyTyped
+        // TODO add your handling code here:
+        if ((evt.getSource() instanceof JTextField) && (((JTextField) evt.getSource()).getText().length() >= 22)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_textBoxIncomeCommentsKeyTyped
 
     /**
      * @param args the command line arguments
@@ -292,8 +419,8 @@ public class NewIncome extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel labalIncomeMethod;
     private javax.swing.JLabel labelIncomeAmount;
+    private javax.swing.JLabel labelIncomeMethod;
     private javax.swing.JLabel labelIncomeSource;
     private javax.swing.JSpinner spinnerIncomeSum;
     private javax.swing.JTextField textBoxIncomeComments;
@@ -322,12 +449,12 @@ public class NewIncome extends javax.swing.JFrame {
         this.comboBoxIncomeSource = comboBoxIncomeSource;
     }
 
-    public JLabel getLabalIncomeMethod() {
-        return labalIncomeMethod;
+    public JLabel getLabelIncomeMethod() {
+        return labelIncomeMethod;
     }
 
-    public void setLabalIncomeMethod(JLabel labalIncomeMethod) {
-        this.labalIncomeMethod = labalIncomeMethod;
+    public void setLabelIncomeMethod(JLabel labelIncomeMethod) {
+        this.labelIncomeMethod = labelIncomeMethod;
     }
 
     public JLabel getLabelIncomeAmount() {

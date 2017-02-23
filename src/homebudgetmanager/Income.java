@@ -19,8 +19,7 @@ public class Income extends Transaction {
 
     }
 
-    public Income(String transID, double transAmount, Calendar transDate, String transDescription,
-            String expenseCategory, String transPaymentMethod, String incomeSource, String transIconPath) {
+    public Income(String transID, double transAmount, Calendar transDate, String transDescription, String transPaymentMethod, String incomeSource, String transIconPath) {
 
         super(transID, transAmount, transDate, transDescription, transPaymentMethod, transIconPath);
         setIncomeSource(incomeSource);

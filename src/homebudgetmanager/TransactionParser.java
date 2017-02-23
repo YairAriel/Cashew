@@ -52,7 +52,7 @@ public class TransactionParser {
 //
 //        }
 //    };
-    public static final String[] ICON_ARR = {"",
+    public static final String[] EXPENSE_ICON_ARR = {"",
         "measuring-tape.png",
         "shirt.png",
         "popcorn.png",
@@ -77,12 +77,25 @@ public class TransactionParser {
         "construction.png",
         "gift.png",
         "smoking.png",
+        "banking.png",
         "car.png",
         "house.png",
         "train.png",
         "wrench.png",
         "technology.png",
         "draw.png"
+    };
+
+    public static final String[] INCOME_ICON_ARR = {
+        "",
+        "security.png",
+        "trophy.png",
+        "coins.png",
+        "gift1.png",
+        "television.png",
+        "wallet.png",
+        "real-estate.png",
+        "contract.png"
     };
 
     public static List<Transaction> transactions = new ArrayList();
