@@ -112,7 +112,7 @@ public class NewExpense extends javax.swing.JFrame {
         jLabel5.setText("סכום");
 
         comboBoxExpenseCategory.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        comboBoxExpenseCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "בחר קטגוריה", "שכר דירה", "משכנתא", "ארנונה", "מזון", "ביגוד", "הנעלה", "מתנות", "חיסכון", "חשמל", "מים", "מיסים", "חינוך", "בריאות", "נסיעות", "רכב", "דלק", "חיות מחמד", "גינון", "ביטוח", "עישון", "בידור", "טיולים", "אוכל בחוץ", "חופשה", "כושר", "תיקונים", "תקשורת", "דוחו\"ת", "חוגים", "אחר" }));
+        comboBoxExpenseCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "בחר קטגוריה", "ארנונה", "ביגוד", "בידור", "ביטוח", "בריאות", "גינון", "דו\"חות", "דלק", "הנעלה", "חוגים", "חופשה", "חיות מחמד", "חינוך", "חיסכון", "חשמל", "טיולים", "כושר", "מזון וטואלטיקה", "מים", "מיסים", "מסעדות", "משכנתא", "מתנות", "עישון", "צדקה", "רכב", "שכר דירה", "תחבורה ציבורית", "תיקונים", "תקשורת", "אחר" }));
         comboBoxExpenseCategory.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 comboBoxExpenseCategoryItemStateChanged(evt);

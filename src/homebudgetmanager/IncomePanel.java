@@ -5,18 +5,16 @@
  */
 package homebudgetmanager;
 
-import javax.swing.ImageIcon;
-
 /**
  *
- * @author Shlomo Pfeuffer
+ * @author Yair Ariel
  */
-public class ExpensePanel extends javax.swing.JPanel {
+public class IncomePanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form TransactionPanel
+     * Creates new form IncomePanel
      */
-    public ExpensePanel() {
+    public IncomePanel() {
         initComponents();
     }
 
@@ -31,13 +29,9 @@ public class ExpensePanel extends javax.swing.JPanel {
 
         icon = new javax.swing.JLabel();
         date = new javax.swing.JLabel();
+        method = new javax.swing.JLabel();
         catagory = new javax.swing.JLabel();
         amount = new javax.swing.JLabel();
-        method = new javax.swing.JLabel();
-
-        setMaximumSize(new java.awt.Dimension(800, 64));
-        setMinimumSize(new java.awt.Dimension(800, 64));
-        setPreferredSize(new java.awt.Dimension(800, 84));
 
         icon.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -46,6 +40,12 @@ public class ExpensePanel extends javax.swing.JPanel {
         date.setText("01/01/2017");
         date.setToolTipText("");
         date.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        method.setFont(method.getFont().deriveFont((float)24));
+        method.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        method.setText("אשראי");
+        method.setToolTipText("");
+        method.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         catagory.setFont(catagory.getFont().deriveFont((float)24));
         catagory.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -60,43 +60,39 @@ public class ExpensePanel extends javax.swing.JPanel {
         amount.setToolTipText("");
         amount.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 0)));
 
-        method.setFont(method.getFont().deriveFont((float)24));
-        method.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        method.setText("אשראי");
-        method.setToolTipText("");
-        method.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(catagory, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(catagory, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(method, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(method, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(icon, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(catagory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(date, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(amount)
-                    .addComponent(method, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-            .addGroup(layout.createSequentialGroup()
                 .addComponent(icon, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 20, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(date)
+                    .addComponent(method, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(catagory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(amount))
+                .addGap(28, 28, 28))
         );
     }// </editor-fold>//GEN-END:initComponents
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel amount;
@@ -105,25 +101,4 @@ public class ExpensePanel extends javax.swing.JPanel {
     private javax.swing.JLabel icon;
     private javax.swing.JLabel method;
     // End of variables declaration//GEN-END:variables
-
-    public void setAmountText(String text) {
-        this.amount.setText(text);
-    }
-
-    public void setCatagoryText(String text) {
-        this.catagory.setText(text);
-    }
-
-    public void setDateText(String text) {
-        this.date.setText(text);
-    }
-
-    public void setMethodText(String text) {
-        this.method.setText(text);
-    }
-
-    public void setIcon(ImageIcon icon) {
-        this.icon.setIcon(icon);
-    }
-
 }
