@@ -9,6 +9,7 @@ import static homebudgetmanager.MainWindow.program;
 import java.awt.Color;
 import java.awt.ComponentOrientation;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.WindowEvent;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -99,12 +100,12 @@ public class NewExpense extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(242, 242, 242));
         jPanel1.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
                 jPanel1AncestorRemoved(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
 
@@ -305,8 +306,14 @@ public class NewExpense extends javax.swing.JFrame {
             SimpleDateFormat sdf = new SimpleDateFormat("_ddMMyyyy");
             TransactionParser.transactions.add(new Expense(sdf.format(getDate().getTime()) + "E", getAmount(), getDate(), getDescription(), getCatagory(), getPaymentMethod(), getIconPath()));
             dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
-            program.getButtonNewExpense().setEnabled(true);
-            program.getButtonNewIncome().setEnabled(true);
+            MainWindow.setTrasactionsCount(MainWindow.getTrasactionsCount() + 1);
+            MainWindow.program.getPanelTransactions().setLayout(new GridLayout(MainWindow.getTrasactionsCount(), 0));
+            if ((TransactionParser.transactions.get(TransactionParser.transactions.size() - 1) instanceof Expense)) {
+                MainWindow.program.getPanelTransactions().add(new ExpensePanel(((Expense) TransactionParser.transactions.get(TransactionParser.transactions.size() - 1))));
+            }
+            MainWindow.program.getPanelTransactions().revalidate();
+            MainWindow.program.getPanelTransactions().repaint();
+            //System.out.println(MainWindow.program.getPanelTransactions().getComponents().length);
         }
     }//GEN-LAST:event_buttonAddExpenseActionPerformed
 
@@ -381,12 +388,12 @@ public class NewExpense extends javax.swing.JFrame {
     }//GEN-LAST:event_textBoxExpenseCommentsKeyTyped
 
     private void jPanel1AncestorRemoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jPanel1AncestorRemoved
-        
+
         program.getButtonNewExpense().setEnabled(true);
         program.getButtonNewIncome().setEnabled(true);
         program.getButtonNewExpense1().setEnabled(true);
         program.getButtonNewIncome1().setEnabled(true);
-        
+
     }//GEN-LAST:event_jPanel1AncestorRemoved
 
     /**

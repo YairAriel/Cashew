@@ -5,6 +5,7 @@
  */
 package homebudgetmanager;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,10 +17,12 @@ import java.util.Map;
  */
 public class TransactionParser {
 
+    public static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
+
 //    public static final Map<String, String> ICON_MAP = new HashMap<String, String>(30) {
 //        {
 //
-//            put("property_tax", "measuring-tape.png");
+//            put("property_tax", "measuriTOOL_TIP_TEXT_KEYng-tape.png");
 //            put("clothing", "shirt.png");
 //            put("entertainment", "popcorn.png");
 //            put("insurance", "shield.png");

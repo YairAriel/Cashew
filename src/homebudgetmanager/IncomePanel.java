@@ -5,6 +5,9 @@
  */
 package homebudgetmanager;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 /**
  *
  * @author Yair Ariel
@@ -18,6 +21,15 @@ public class IncomePanel extends javax.swing.JPanel {
         initComponents();
     }
 
+    public IncomePanel(Income income) {
+        initComponents();
+        setLabelIncomeIcon(income.getTransIcon());
+        setLabelIncomeDate(TransactionParser.SIMPLE_DATE_FORMAT.format(income.getTransDate().getTime()));
+        setLabelIncomeAmount(Double.toString(income.getTransAmount()));
+        setLabelIncomeDescription(income.getTransDescription());
+        setLabelIncomePaymentMethod(income.getTransPaymentMethod());
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,81 +39,186 @@ public class IncomePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        incomePanelIcon = new javax.swing.JLabel();
-        incomePanelDate = new javax.swing.JLabel();
-        incomePanelPaymentMethod = new javax.swing.JLabel();
-        incomePanelDescription = new javax.swing.JLabel();
-        incomePanelAmount = new javax.swing.JLabel();
+        labelIncomeAmount = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        labelIncomeIcon = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
+        labelIncomeDate = new javax.swing.JLabel();
+        jSeparator4 = new javax.swing.JSeparator();
+        labelIncomePaymentMethod = new javax.swing.JLabel();
+        labelIncomeDescription = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(242, 255, 240));
+        setBorder(javax.swing.BorderFactory.createEmptyBorder(12, 1, 12, 1));
         setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        setMaximumSize(new java.awt.Dimension(816, 88));
+        setMinimumSize(new java.awt.Dimension(816, 88));
+        setPreferredSize(new java.awt.Dimension(816, 88));
 
-        incomePanelIcon.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        labelIncomeAmount.setBackground(new java.awt.Color(242, 255, 240));
+        labelIncomeAmount.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        labelIncomeAmount.setForeground(java.awt.Color.green);
+        labelIncomeAmount.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelIncomeAmount.setText("2134.67");
+        labelIncomeAmount.setToolTipText("");
+        labelIncomeAmount.setBorder(null);
+        labelIncomeAmount.setOpaque(true);
 
-        incomePanelDate.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        incomePanelDate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        incomePanelDate.setText("01/01/2017");
-        incomePanelDate.setToolTipText("");
-        incomePanelDate.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator1.setMaximumSize(new java.awt.Dimension(3, 64));
+        jSeparator1.setPreferredSize(new java.awt.Dimension(3, 64));
 
-        incomePanelPaymentMethod.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        incomePanelPaymentMethod.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        incomePanelPaymentMethod.setText("העברה בנקאית");
-        incomePanelPaymentMethod.setToolTipText("");
-        incomePanelPaymentMethod.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator2.setMaximumSize(new java.awt.Dimension(3, 64));
+        jSeparator2.setPreferredSize(new java.awt.Dimension(3, 64));
 
-        incomePanelDescription.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        incomePanelDescription.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        incomePanelDescription.setText("אבגדהוזחטיכלמנסעפצקרשת");
-        incomePanelDescription.setToolTipText("");
-        incomePanelDescription.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        incomePanelDescription.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        labelIncomeIcon.setBorder(null);
 
-        incomePanelAmount.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        incomePanelAmount.setForeground(new java.awt.Color(34, 206, 26));
-        incomePanelAmount.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        incomePanelAmount.setText("2134.67");
-        incomePanelAmount.setToolTipText("");
-        incomePanelAmount.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(34, 206, 26), 1, true));
+        jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator3.setMaximumSize(new java.awt.Dimension(3, 64));
+        jSeparator3.setPreferredSize(new java.awt.Dimension(3, 64));
+
+        labelIncomeDate.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        labelIncomeDate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelIncomeDate.setText("01/01/2017");
+        labelIncomeDate.setToolTipText("");
+        labelIncomeDate.setBorder(null);
+
+        jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator4.setMaximumSize(new java.awt.Dimension(3, 64));
+        jSeparator4.setPreferredSize(new java.awt.Dimension(3, 64));
+
+        labelIncomePaymentMethod.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        labelIncomePaymentMethod.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelIncomePaymentMethod.setText("העברה בנקאית");
+        labelIncomePaymentMethod.setToolTipText("");
+        labelIncomePaymentMethod.setBorder(null);
+
+        labelIncomeDescription.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        labelIncomeDescription.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelIncomeDescription.setText("אבגדהוזחטיכלמנסעפצקרשת");
+        labelIncomeDescription.setToolTipText("");
+        labelIncomeDescription.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        labelIncomeDescription.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(incomePanelAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(incomePanelDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(incomePanelPaymentMethod, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(incomePanelDate, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(incomePanelIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(labelIncomePaymentMethod, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(labelIncomeDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(labelIncomeAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(labelIncomeDate, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(labelIncomeIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(incomePanelIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(incomePanelDate)
-                    .addComponent(incomePanelPaymentMethod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(incomePanelDescription, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(incomePanelAmount))
-                .addGap(28, 28, 28))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelIncomePaymentMethod, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelIncomeDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelIncomeAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelIncomeDate, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelIncomeIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel incomePanelAmount;
-    private javax.swing.JLabel incomePanelDate;
-    private javax.swing.JLabel incomePanelDescription;
-    private javax.swing.JLabel incomePanelIcon;
-    private javax.swing.JLabel incomePanelPaymentMethod;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JLabel labelIncomeAmount;
+    private javax.swing.JLabel labelIncomeDate;
+    private javax.swing.JLabel labelIncomeDescription;
+    private javax.swing.JLabel labelIncomeIcon;
+    private javax.swing.JLabel labelIncomePaymentMethod;
     // End of variables declaration//GEN-END:variables
+
+    public JLabel getLabelIncomeAmount() {
+        return labelIncomeAmount;
+    }
+
+    public void setLabelIncomeAmount(JLabel labelIncomeAmount) {
+        this.labelIncomeAmount = labelIncomeAmount;
+    }
+
+    public void setLabelIncomeAmount(String incomeAmount) {
+        this.getLabelIncomeAmount().setText(incomeAmount);
+    }
+
+    public JLabel getLabelIncomeDate() {
+        return labelIncomeDate;
+    }
+
+    public void setLabelIncomeDate(JLabel labelIncomeDate) {
+        this.labelIncomeDate = labelIncomeDate;
+    }
+
+    public void setLabelIncomeDate(String incomeDate) {
+        this.getLabelIncomeDate().setText(incomeDate);
+    }
+
+    public JLabel getLabelIncomeDescription() {
+        return labelIncomeDescription;
+    }
+
+    public void setLabelIncomeDescription(JLabel labelIncomeDescription) {
+        this.labelIncomeDescription = labelIncomeDescription;
+    }
+
+    public void setLabelIncomeDescription(String incomeDescription) {
+        this.getLabelIncomeDescription().setText(incomeDescription);
+    }
+
+    public JLabel getLabelIncomeIcon() {
+        return labelIncomeIcon;
+    }
+
+    public void setLabelIncomeIcon(JLabel labelIncomeIcon) {
+        this.labelIncomeIcon = labelIncomeIcon;
+    }
+
+    public void setLabelIncomeIcon(ImageIcon incomeIcon) {
+        this.getLabelIncomeIcon().setIcon(incomeIcon);
+    }
+
+    public JLabel getLabelIncomePaymentMethod() {
+        return labelIncomePaymentMethod;
+    }
+
+    public void setLabelIncomePaymentMethod(JLabel labelIncomePaymentMethod) {
+        this.labelIncomePaymentMethod = labelIncomePaymentMethod;
+    }
+
+    public void setLabelIncomePaymentMethod(String incomePaymentMethod) {
+        this.getLabelIncomePaymentMethod().setText(incomePaymentMethod);
+    }
+
 }

@@ -9,6 +9,7 @@ import static homebudgetmanager.MainWindow.program;
 import java.awt.Color;
 import java.awt.ComponentOrientation;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.WindowEvent;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -287,10 +288,7 @@ public class NewIncome extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonIncomeCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonIncomeCancelActionPerformed
-
         dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
-        program.getButtonNewExpense().setEnabled(true);
-        program.getButtonNewIncome().setEnabled(true);
     }//GEN-LAST:event_buttonIncomeCancelActionPerformed
 
     private void buttonAddIncomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddIncomeActionPerformed
@@ -314,11 +312,16 @@ public class NewIncome extends javax.swing.JFrame {
                 program.getButtonNewIncome().setEnabled(true);
                 return;
             }
+            dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+            MainWindow.setTrasactionsCount(MainWindow.getTrasactionsCount() + 1);
+            MainWindow.program.getPanelTransactions().setLayout(new GridLayout(MainWindow.getTrasactionsCount(), 0));
             SimpleDateFormat sdf = new SimpleDateFormat("_ddMMyyyy");
             TransactionParser.transactions.add(new Income(sdf.format(getDate().getTime()) + "I", getAmount(), getDate(), getIncomeDescription(), getIncomeMethod(), getIncomeSource(), getIconPath()));
-            dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
-            program.getButtonNewExpense().setEnabled(true);
-            program.getButtonNewIncome().setEnabled(true);
+            if ((TransactionParser.transactions.get(TransactionParser.transactions.size() - 1)) instanceof Income) {
+                MainWindow.program.getPanelTransactions().add(new IncomePanel((Income) (TransactionParser.transactions.get(TransactionParser.transactions.size() - 1))));
+            }
+            MainWindow.program.getPanelTransactions().revalidate();
+            MainWindow.program.getPanelTransactions().repaint();
         }
     }//GEN-LAST:event_buttonAddIncomeActionPerformed
 
@@ -389,7 +392,7 @@ public class NewIncome extends javax.swing.JFrame {
     }//GEN-LAST:event_textBoxIncomeCommentsKeyTyped
 
     private void jPanel1AncestorRemoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jPanel1AncestorRemoved
-        
+
         program.getButtonNewExpense().setEnabled(true);
         program.getButtonNewIncome().setEnabled(true);
         program.getButtonNewExpense1().setEnabled(true);

@@ -5,6 +5,12 @@
  */
 package homebudgetmanager;
 
+import java.util.Calendar;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JSeparator;
+
 /**
  *
  * @author Yair Ariel
@@ -18,6 +24,15 @@ public class ExpensePanel extends javax.swing.JPanel {
         initComponents();
     }
 
+    public ExpensePanel(final Expense expens) {
+        initComponents();
+        getLabelExpenseIcon().setIcon(expens.getTransIcon());
+        getLabelExpenseDate().setText(TransactionParser.SIMPLE_DATE_FORMAT.format(expens.getTransDate().getTime()));
+        getLabelExpenseAmount().setText(Double.toString(expens.getTransAmount()));
+        getLabelExpenseDescription().setText(expens.getTransDescription());
+        getLabelExpensePaymentMethod().setText(expens.getTransPaymentMethod());
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,79 +42,194 @@ public class ExpensePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        expensePanelIcon = new javax.swing.JLabel();
-        expensePanelDate = new javax.swing.JLabel();
-        expensePanelPaymentMethod = new javax.swing.JLabel();
-        expensePanelDescription = new javax.swing.JLabel();
-        expensePanelAmount = new javax.swing.JLabel();
+        labelExpenseIcon = new javax.swing.JLabel();
+        labelExpenseDate = new javax.swing.JLabel();
+        labelExpensePaymentMethod = new javax.swing.JLabel();
+        labelExpenseDescription = new javax.swing.JLabel();
+        labelExpenseAmount = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
 
-        expensePanelIcon.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        setBackground(new java.awt.Color(255, 241, 240));
+        setBorder(javax.swing.BorderFactory.createEmptyBorder(12, 1, 12, 1));
+        setMaximumSize(new java.awt.Dimension(816, 88));
+        setMinimumSize(new java.awt.Dimension(816, 88));
+        setPreferredSize(new java.awt.Dimension(816, 88));
 
-        expensePanelDate.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        expensePanelDate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        expensePanelDate.setText("01/01/2017");
-        expensePanelDate.setToolTipText("");
-        expensePanelDate.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        labelExpenseIcon.setBorder(null);
 
-        expensePanelPaymentMethod.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        expensePanelPaymentMethod.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        expensePanelPaymentMethod.setText("העברה בנקאית");
-        expensePanelPaymentMethod.setToolTipText("");
-        expensePanelPaymentMethod.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        labelExpenseDate.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        labelExpenseDate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelExpenseDate.setText("01/01/2017");
+        labelExpenseDate.setToolTipText("");
+        labelExpenseDate.setBorder(null);
 
-        expensePanelDescription.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        expensePanelDescription.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        expensePanelDescription.setText("אבגדהוזחטיכלמנסעפצקרשת");
-        expensePanelDescription.setToolTipText("");
-        expensePanelDescription.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        expensePanelDescription.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        labelExpensePaymentMethod.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        labelExpensePaymentMethod.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelExpensePaymentMethod.setText("העברה בנקאית");
+        labelExpensePaymentMethod.setToolTipText("");
+        labelExpensePaymentMethod.setBorder(null);
 
-        expensePanelAmount.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        expensePanelAmount.setForeground(new java.awt.Color(242, 65, 21));
-        expensePanelAmount.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        expensePanelAmount.setText("2134.67");
-        expensePanelAmount.setToolTipText("");
-        expensePanelAmount.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(242, 65, 21), 1, true));
+        labelExpenseDescription.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        labelExpenseDescription.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelExpenseDescription.setText("אבגדהוזחטיכלמנסעפצקרשת");
+        labelExpenseDescription.setToolTipText("");
+        labelExpenseDescription.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        labelExpenseDescription.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+
+        labelExpenseAmount.setBackground(new java.awt.Color(255, 241, 240));
+        labelExpenseAmount.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        labelExpenseAmount.setForeground(new java.awt.Color(242, 65, 21));
+        labelExpenseAmount.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelExpenseAmount.setText("2134.67");
+        labelExpenseAmount.setToolTipText("");
+        labelExpenseAmount.setBorder(null);
+        labelExpenseAmount.setOpaque(true);
+
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator1.setMaximumSize(new java.awt.Dimension(3, 64));
+        jSeparator1.setPreferredSize(new java.awt.Dimension(3, 64));
+
+        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator2.setMaximumSize(new java.awt.Dimension(3, 64));
+        jSeparator2.setPreferredSize(new java.awt.Dimension(3, 64));
+
+        jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator3.setMaximumSize(new java.awt.Dimension(3, 64));
+        jSeparator3.setPreferredSize(new java.awt.Dimension(3, 64));
+
+        jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator4.setMaximumSize(new java.awt.Dimension(3, 64));
+        jSeparator4.setPreferredSize(new java.awt.Dimension(3, 64));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(expensePanelAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(expensePanelDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(expensePanelPaymentMethod, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(expensePanelDate, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(expensePanelIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(labelExpensePaymentMethod, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(labelExpenseDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(labelExpenseAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(labelExpenseDate, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(labelExpenseIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(expensePanelIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(expensePanelDate)
-                    .addComponent(expensePanelPaymentMethod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(expensePanelDescription, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(expensePanelAmount))
-                .addGap(28, 28, 28))
+            .addComponent(labelExpensePaymentMethod, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(labelExpenseDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(labelExpenseAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(labelExpenseDate, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(labelExpenseIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel expensePanelAmount;
-    private javax.swing.JLabel expensePanelDate;
-    private javax.swing.JLabel expensePanelDescription;
-    private javax.swing.JLabel expensePanelIcon;
-    private javax.swing.JLabel expensePanelPaymentMethod;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JLabel labelExpenseAmount;
+    private javax.swing.JLabel labelExpenseDate;
+    private javax.swing.JLabel labelExpenseDescription;
+    private javax.swing.JLabel labelExpenseIcon;
+    private javax.swing.JLabel labelExpensePaymentMethod;
     // End of variables declaration//GEN-END:variables
+
+    public JSeparator getjSeparator1() {
+        return jSeparator1;
+    }
+
+    public void setjSeparator1(JSeparator jSeparator1) {
+        this.jSeparator1 = jSeparator1;
+    }
+
+    public JSeparator getjSeparator2() {
+        return jSeparator2;
+    }
+
+    public void setjSeparator2(JSeparator jSeparator2) {
+        this.jSeparator2 = jSeparator2;
+    }
+
+    public JSeparator getjSeparator3() {
+        return jSeparator3;
+    }
+
+    public void setjSeparator3(JSeparator jSeparator3) {
+        this.jSeparator3 = jSeparator3;
+    }
+
+    public JSeparator getjSeparator4() {
+        return jSeparator4;
+    }
+
+    public void setjSeparator4(JSeparator jSeparator4) {
+        this.jSeparator4 = jSeparator4;
+    }
+
+    public JLabel getLabelExpenseAmount() {
+        return labelExpenseAmount;
+    }
+
+    public void setLabelExpenseAmount(JLabel labelExpenseAmount) {
+        this.labelExpenseAmount = labelExpenseAmount;
+    }
+
+    public JLabel getLabelExpenseDate() {
+        return labelExpenseDate;
+    }
+
+    public void setLabelExpenseDate(JLabel labelExpenseDate) {
+        this.labelExpenseDate = labelExpenseDate;
+    }
+
+    public JLabel getLabelExpenseDescription() {
+        return labelExpenseDescription;
+    }
+
+    public void setLabelExpenseDescription(JLabel labelExpenseDescription) {
+        this.labelExpenseDescription = labelExpenseDescription;
+    }
+
+    public JLabel getLabelExpenseIcon() {
+        return labelExpenseIcon;
+    }
+
+    public void setLabelExpenseIcon(JLabel labelExpenseIcon) {
+        this.labelExpenseIcon = labelExpenseIcon;
+    }
+
+    public JLabel getLabelExpensePaymentMethod() {
+        return labelExpensePaymentMethod;
+    }
+
+    public void setLabelExpensePaymentMethod(JLabel labelExpensePaymentMethod) {
+        this.labelExpensePaymentMethod = labelExpensePaymentMethod;
+    }
+
 }
