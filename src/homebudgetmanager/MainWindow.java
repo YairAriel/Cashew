@@ -58,9 +58,6 @@ public class MainWindow extends javax.swing.JFrame {
         spinnerBudgetAmount.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         spinnerAlertBefore.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
-        getScrollbarTransactions().getHorizontalScrollBar().setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-        getPanelTransactions().setComponentOrientation(hebrewOri1entation);
-        getPanelScrollInnerContainer().setComponentOrientation(hebrewOri1entation);
         // Calculator components
     }
 
@@ -468,7 +465,7 @@ public class MainWindow extends javax.swing.JFrame {
         scrollbarTransactions.setBackground(new java.awt.Color(242, 242, 242));
         scrollbarTransactions.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(85, 96, 128), 2, true));
 
-        panelScrollInnerContainer.setLayout(new java.awt.GridLayout());
+        panelTransactions.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         panelScrollInnerContainer.add(panelTransactions);
 
         scrollbarTransactions.setViewportView(panelScrollInnerContainer);
