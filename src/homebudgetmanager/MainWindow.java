@@ -24,6 +24,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.UIManager;
 
@@ -57,6 +58,9 @@ public class MainWindow extends javax.swing.JFrame {
         spinnerBudgetAmount.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         spinnerAlertBefore.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
+        getScrollbarTransactions().getHorizontalScrollBar().setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        getPanelTransactions().setComponentOrientation(hebrewOri1entation);
+        getPanelScrollInnerContainer().setComponentOrientation(hebrewOri1entation);
         // Calculator components
     }
 
@@ -101,8 +105,8 @@ public class MainWindow extends javax.swing.JFrame {
         buttonNewExpense = new javax.swing.JButton();
         labelTitleTransactions = new javax.swing.JPanel();
         labelTransactions = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jPanel9 = new javax.swing.JPanel();
+        scrollbarTransactions = new javax.swing.JScrollPane();
+        panelScrollInnerContainer = new javax.swing.JPanel();
         panelTransactions = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -461,25 +465,13 @@ public class MainWindow extends javax.swing.JFrame {
         labelTransactions.setText("תנועות");
         labelTransactions.setName("labelTitleGeneralView"); // NOI18N
 
-        jScrollPane1.setBackground(new java.awt.Color(242, 242, 242));
-        jScrollPane1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(85, 96, 128), 2, true));
+        scrollbarTransactions.setBackground(new java.awt.Color(242, 242, 242));
+        scrollbarTransactions.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(85, 96, 128), 2, true));
 
-        panelTransactions.setLayout(new java.awt.GridLayout(1, 0));
+        panelScrollInnerContainer.setLayout(new java.awt.GridLayout());
+        panelScrollInnerContainer.add(panelTransactions);
 
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelTransactions, javax.swing.GroupLayout.PREFERRED_SIZE, 816, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addComponent(panelTransactions, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                .addGap(351, 351, 351))
-        );
-
-        jScrollPane1.setViewportView(jPanel9);
+        scrollbarTransactions.setViewportView(panelScrollInnerContainer);
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel13.setText("מתאריך");
@@ -530,7 +522,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGroup(labelTitleTransactionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(labelTitleTransactionsLayout.createSequentialGroup()
                         .addGap(24, 24, 24)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 802, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(scrollbarTransactions, javax.swing.GroupLayout.PREFERRED_SIZE, 802, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(labelTitleTransactionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(datePickerFromDate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -569,7 +561,7 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(buttonNewIncome1)
                         .addGap(18, 18, 18)
                         .addComponent(buttonNewExpense1))
-                    .addComponent(jScrollPane1))
+                    .addComponent(scrollbarTransactions))
                 .addContainerGap())
         );
 
@@ -806,6 +798,7 @@ public class MainWindow extends javax.swing.JFrame {
                 program.setVisible(true);
             }
         });
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -854,9 +847,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JProgressBar jProgressBar1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPaneMenu;
     private javax.swing.JLabel labelBudget;
     private javax.swing.JLabel labelCalculator;
@@ -864,7 +855,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel labelTitleGeneralView;
     private javax.swing.JPanel labelTitleTransactions;
     private javax.swing.JLabel labelTransactions;
+    private javax.swing.JPanel panelScrollInnerContainer;
     private javax.swing.JPanel panelTransactions;
+    private javax.swing.JScrollPane scrollbarTransactions;
     private javax.swing.JSpinner spinnerAlertBefore;
     private javax.swing.JSpinner spinnerBudgetAmount;
     // End of variables declaration//GEN-END:variables
@@ -908,7 +901,22 @@ public class MainWindow extends javax.swing.JFrame {
         this.buttonNewIncome1 = buttonNewIncome1;
     }
 
-    //Setters and getters
+    public JPanel getPanelScrollInnerContainer() {
+        return panelScrollInnerContainer;
+    }
+
+    public void setPanelScrollInnerContainer(JPanel panelScrollInnerContainer) {
+        this.panelScrollInnerContainer = panelScrollInnerContainer;
+    }
+
+    public JScrollPane getScrollbarTransactions() {
+        return scrollbarTransactions;
+    }
+
+    public void setScrollbarTransactions(JScrollPane scrollbarTransactions) {
+        this.scrollbarTransactions = scrollbarTransactions;
+    }
+
     public JPanel getPanelTransactions() {
         return panelTransactions;
     }

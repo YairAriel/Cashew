@@ -5,11 +5,8 @@
  */
 package homebudgetmanager;
 
-import java.util.Calendar;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JSeparator;
 
 /**
  *
@@ -26,11 +23,11 @@ public class ExpensePanel extends javax.swing.JPanel {
 
     public ExpensePanel(final Expense expens) {
         initComponents();
-        getLabelExpenseIcon().setIcon(expens.getTransIcon());
-        getLabelExpenseDate().setText(TransactionParser.SIMPLE_DATE_FORMAT.format(expens.getTransDate().getTime()));
-        getLabelExpenseAmount().setText(Double.toString(expens.getTransAmount()));
-        getLabelExpenseDescription().setText(expens.getTransDescription());
-        getLabelExpensePaymentMethod().setText(expens.getTransPaymentMethod());
+        setLabelExpenseIcon(expens.getTransIcon());
+        setLabelExpenseDate(TransactionParser.SIMPLE_DATE_FORMAT.format(expens.getTransDate().getTime()));
+        setLabelExpenseAmount(Double.toString(expens.getTransAmount()));
+        setLabelExpenseDescription(expens.getTransDescription());
+        getLabelExpenseIcon().setToolTipText(expens.getTransPaymentMethod());
     }
 
     /**
@@ -54,6 +51,7 @@ public class ExpensePanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 241, 240));
         setBorder(javax.swing.BorderFactory.createEmptyBorder(12, 1, 12, 1));
+        setToolTipText("");
         setMaximumSize(new java.awt.Dimension(816, 88));
         setMinimumSize(new java.awt.Dimension(816, 88));
         setPreferredSize(new java.awt.Dimension(816, 88));
@@ -160,44 +158,16 @@ public class ExpensePanel extends javax.swing.JPanel {
     private javax.swing.JLabel labelExpensePaymentMethod;
     // End of variables declaration//GEN-END:variables
 
-    public JSeparator getjSeparator1() {
-        return jSeparator1;
-    }
-
-    public void setjSeparator1(JSeparator jSeparator1) {
-        this.jSeparator1 = jSeparator1;
-    }
-
-    public JSeparator getjSeparator2() {
-        return jSeparator2;
-    }
-
-    public void setjSeparator2(JSeparator jSeparator2) {
-        this.jSeparator2 = jSeparator2;
-    }
-
-    public JSeparator getjSeparator3() {
-        return jSeparator3;
-    }
-
-    public void setjSeparator3(JSeparator jSeparator3) {
-        this.jSeparator3 = jSeparator3;
-    }
-
-    public JSeparator getjSeparator4() {
-        return jSeparator4;
-    }
-
-    public void setjSeparator4(JSeparator jSeparator4) {
-        this.jSeparator4 = jSeparator4;
-    }
-
     public JLabel getLabelExpenseAmount() {
         return labelExpenseAmount;
     }
 
     public void setLabelExpenseAmount(JLabel labelExpenseAmount) {
         this.labelExpenseAmount = labelExpenseAmount;
+    }
+
+    public void setLabelExpenseAmount(String expenseAmount) {
+        this.getLabelExpenseAmount().setText(expenseAmount);
     }
 
     public JLabel getLabelExpenseDate() {
@@ -208,12 +178,20 @@ public class ExpensePanel extends javax.swing.JPanel {
         this.labelExpenseDate = labelExpenseDate;
     }
 
+    public void setLabelExpenseDate(String expenseDate) {
+        this.getLabelExpenseDate().setText(expenseDate);
+    }
+
     public JLabel getLabelExpenseDescription() {
         return labelExpenseDescription;
     }
 
     public void setLabelExpenseDescription(JLabel labelExpenseDescription) {
         this.labelExpenseDescription = labelExpenseDescription;
+    }
+
+    public void setLabelExpenseDescription(String expenseDescription) {
+        this.getLabelExpenseDescription().setText(expenseDescription);
     }
 
     public JLabel getLabelExpenseIcon() {
@@ -224,6 +202,10 @@ public class ExpensePanel extends javax.swing.JPanel {
         this.labelExpenseIcon = labelExpenseIcon;
     }
 
+    public void setLabelExpenseIcon(ImageIcon expenseIcon) {
+        this.getLabelExpenseIcon().setIcon(expenseIcon);
+    }
+
     public JLabel getLabelExpensePaymentMethod() {
         return labelExpensePaymentMethod;
     }
@@ -232,4 +214,7 @@ public class ExpensePanel extends javax.swing.JPanel {
         this.labelExpensePaymentMethod = labelExpensePaymentMethod;
     }
 
+    public void setLabelExpensePaymentMethod(String expensePaymentMethod) {
+        this.getLabelExpensePaymentMethod().setText(expensePaymentMethod);
+    }
 }

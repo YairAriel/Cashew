@@ -28,6 +28,7 @@ public class IncomePanel extends javax.swing.JPanel {
         setLabelIncomeAmount(Double.toString(income.getTransAmount()));
         setLabelIncomeDescription(income.getTransDescription());
         setLabelIncomePaymentMethod(income.getTransPaymentMethod());
+        getLabelIncomeIcon().setToolTipText(income.getIncomeSource());
     }
 
     /**

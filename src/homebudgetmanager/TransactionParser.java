@@ -5,11 +5,12 @@
  */
 package homebudgetmanager;
 
+import java.awt.ComponentOrientation;
+import java.awt.GridLayout;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
 
 /**
  *
@@ -19,42 +20,6 @@ public class TransactionParser {
 
     public static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
 
-//    public static final Map<String, String> ICON_MAP = new HashMap<String, String>(30) {
-//        {
-//
-//            put("property_tax", "measuriTOOL_TIP_TEXT_KEYng-tape.png");
-//            put("clothing", "shirt.png");
-//            put("entertainment", "popcorn.png");
-//            put("insurance", "shield.png");
-//            put("health_care", "medical.png");
-//            put("gardening", "nature.png");
-//            put("reports", "invoice.png");
-//            put("fuel", "gas-station.png");
-//            put("shoes", "shoe.png");
-//            put("classes", "sea.png");
-//            put("holiday", "sun-umbrella.png");
-//            put("pets", "dog.png");
-//            put("education", "library.png");
-//            put("savings", "money.png");
-//            put("electricity", "light-bulb.png");
-//            put("vacation", "transport.png");
-//            put("fitness", "sportsIcon.png");
-//            put("food", "foodIcon.png");
-//            put("water", "waterIcon.png");
-//            put("tax", "gym.png");
-//            put("restaurants", "food.png");
-//            put("mortgage", "construction.png");
-//            put("gifts", "gift.png");
-//            put("moking", "smoking.png");
-//            put("vehicle", "car.png");
-//            put("rent", "house.png");
-//            put("transportation", "train.png");
-//            put("maintenance", "wrench.png");
-//            put("communication", "technology.png");
-//            put("other", "draw.png");
-//
-//        }
-//    };
     public static final String[] EXPENSE_ICON_ARR = {"",
         "measuring-tape.png",
         "shirt.png",
@@ -101,6 +66,35 @@ public class TransactionParser {
         "contract.png"
     };
 
-    public static List<Transaction> transactions = new ArrayList();
+    public static final List<Transaction> TRANSACTIONS = new ArrayList();
+
+    public static void sortTransactionsByDate() {
+        TransactionParser.TRANSACTIONS.sort(new Comparator<Transaction>() {
+            @Override
+            public int compare(Transaction o1, Transaction o2) {
+                return o1.getTransDate().compareTo(o2.getTransDate());
+            }
+
+        });
+    }
+
+    public static void fillTransactionsPanel() {
+        MainWindow.program.getPanelTransactions().removeAll();
+        MainWindow.program.getPanelTransactions().setLayout(new GridLayout(TransactionParser.TRANSACTIONS.size(), 1, 0, 12));
+        for (int i = 0; i < TransactionParser.TRANSACTIONS.size(); i++) {
+            MainWindow.program.getPanelTransactions().add(new TransactionPanel(TransactionParser.TRANSACTIONS.get(i)));
+            MainWindow.program.getPanelTransactions().revalidate();
+            MainWindow.program.getPanelTransactions().repaint();
+        }
+    }
+
+    public static int indexOfTransactionById(String transId) {
+        for (int i = 0; i < TransactionParser.TRANSACTIONS.size(); i++) {
+            if (TransactionParser.TRANSACTIONS.get(i).getTransID().equals(transId)) {
+                return i;
+            }
+        }
+        return -1;
+    }
 
 }
