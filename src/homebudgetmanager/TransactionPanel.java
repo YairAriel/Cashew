@@ -6,6 +6,7 @@
 package homebudgetmanager;
 
 import java.awt.Color;
+import java.awt.ComponentOrientation;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -28,7 +29,7 @@ public class TransactionPanel extends javax.swing.JPanel {
     public TransactionPanel(final Transaction transaction) {
         initComponents();
         setLabelTransactionIcon(transaction.getTransIcon());
-        setLabelTransactionDate(TransactionParser.SIMPLE_DATE_FORMAT.format(transaction.getTransDate().getTime()));
+        setLabelTransactionDate(TransactionParser.TransactionDate.SIMPLE_DATE_FORMAT.format(transaction.getTransDate().getTime()));
         setLabelTransactionAmount(Double.toString(transaction.getTransAmount()));
         setLabelTransactionDescription(transaction.getTransDescription());
         setLabelTransactionPaymentMethod(transaction.getTransPaymentMethod());
@@ -195,7 +196,7 @@ public class TransactionPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         if (JOptionPane.showConfirmDialog(MainWindow.program, "האם הנך בטוח\\ה שברצונך למחוק תנועה זו?", "שאילתת מחיקה", JOptionPane.YES_NO_OPTION) == JOptionPane.OK_OPTION) {
             TransactionParser.TRANSACTIONS.remove(TransactionParser.indexOfTransactionById(id));
-            TransactionParser.fillTransactionsPanel();
+            TransactionParser.SensitiveFillTransactionsPanel();
         }
     }//GEN-LAST:event_buttionTransactionDelActionPerformed
 

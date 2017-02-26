@@ -38,4 +38,5 @@ public class Expense extends Transaction {
     public String toString() {
         return super.toString() + ",expenseCategory=" + getExpenseCategory() + '}';
     }
+
 }

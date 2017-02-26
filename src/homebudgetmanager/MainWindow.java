@@ -21,6 +21,7 @@ import java.util.Date;
 import java.util.Locale;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -91,13 +92,13 @@ public class MainWindow extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        labelIncomeAmount = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        labelExpenseAmount = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        labelTransactionSum = new javax.swing.JLabel();
         buttonNewIncome = new javax.swing.JButton();
         buttonNewExpense = new javax.swing.JButton();
         labelTitleTransactions = new javax.swing.JPanel();
@@ -274,10 +275,11 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel8.setText("₪");
         jLabel8.setName("incomesLabel"); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(34, 206, 26));
-        jLabel6.setText("0.0");
-        jLabel6.setName("incomesLabel"); // NOI18N
+        labelIncomeAmount.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        labelIncomeAmount.setForeground(new java.awt.Color(34, 206, 26));
+        labelIncomeAmount.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelIncomeAmount.setText("0.0");
+        labelIncomeAmount.setName("incomesLabel"); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(242, 65, 21));
@@ -288,10 +290,11 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel9.setText("₪");
         jLabel9.setName("incomesLabel"); // NOI18N
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(242, 65, 21));
-        jLabel7.setText("0.0");
-        jLabel7.setName("incomesLabel"); // NOI18N
+        labelExpenseAmount.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        labelExpenseAmount.setForeground(new java.awt.Color(242, 65, 21));
+        labelExpenseAmount.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelExpenseAmount.setText("0.0");
+        labelExpenseAmount.setName("incomesLabel"); // NOI18N
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(85, 96, 128));
@@ -302,38 +305,39 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel11.setText("₪");
         jLabel11.setName("incomesLabel"); // NOI18N
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(85, 96, 128));
-        jLabel12.setText("0.0");
-        jLabel12.setName("incomesLabel"); // NOI18N
+        labelTransactionSum.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        labelTransactionSum.setForeground(new java.awt.Color(85, 96, 128));
+        labelTransactionSum.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelTransactionSum.setText("0.0");
+        labelTransactionSum.setName("incomesLabel"); // NOI18N
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(122, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel10))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(labelIncomeAmount, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel9))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
+                                .addComponent(jLabel8))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(labelExpenseAmount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel8)))
+                                .addComponent(jLabel9)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(labelTransactionSum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel10)))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -343,17 +347,17 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel8)
-                    .addComponent(jLabel6))
+                    .addComponent(labelIncomeAmount))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel9)
-                    .addComponent(jLabel7))
+                    .addComponent(labelExpenseAmount))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(jLabel11)
-                    .addComponent(jLabel12))
+                    .addComponent(labelTransactionSum))
                 .addGap(25, 25, 25))
         );
 
@@ -433,7 +437,7 @@ public class MainWindow extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(generalViewPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -485,6 +489,11 @@ public class MainWindow extends javax.swing.JFrame {
 
         comboBoxTransactionsData.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         comboBoxTransactionsData.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "כל התנועות", "הכנסות", "הוצאות" }));
+        comboBoxTransactionsData.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                comboBoxTransactionsDataItemStateChanged(evt);
+            }
+        });
 
         buttonNewIncome1.setBackground(new java.awt.Color(34, 206, 26));
         buttonNewIncome1.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
@@ -782,6 +791,11 @@ public class MainWindow extends javax.swing.JFrame {
         buttonNewIncome1.setEnabled(false);
     }//GEN-LAST:event_buttonNewExpense1ActionPerformed
 
+    private void comboBoxTransactionsDataItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboBoxTransactionsDataItemStateChanged
+        // TODO add your handling code here:
+        TransactionParser.SensitiveFillTransactionsPanel();
+    }//GEN-LAST:event_comboBoxTransactionsDataItemStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -814,7 +828,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -833,8 +846,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
@@ -848,9 +859,12 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPaneMenu;
     private javax.swing.JLabel labelBudget;
     private javax.swing.JLabel labelCalculator;
+    private javax.swing.JLabel labelExpenseAmount;
+    private javax.swing.JLabel labelIncomeAmount;
     private javax.swing.JPanel labelTitleBudget;
     private javax.swing.JLabel labelTitleGeneralView;
     private javax.swing.JPanel labelTitleTransactions;
+    private javax.swing.JLabel labelTransactionSum;
     private javax.swing.JLabel labelTransactions;
     private javax.swing.JPanel panelScrollInnerContainer;
     private javax.swing.JPanel panelTransactions;
@@ -861,10 +875,26 @@ public class MainWindow extends javax.swing.JFrame {
 
     static MainWindow program;
 
-    private static int trasactionsCount = 0;
+    private static double ballance = 0;
 //    Calendar c = Calendar.getInstance();
 //    c.(Calendar.DAY_OF_MONTH, 1);
 //    System.out.println(c.getTime());
+
+    public static MainWindow getProgram() {
+        return program;
+    }
+
+    private static void setProgram(MainWindow program) {
+        MainWindow.program = program;
+    }
+
+    public static double getBallance() {
+        return ballance;
+    }
+
+    public static void setBallance(double ballance) {
+        MainWindow.ballance = ballance;
+    }
 
     public JButton getButtonNewExpense() {
         return buttonNewExpense;
@@ -898,6 +928,22 @@ public class MainWindow extends javax.swing.JFrame {
         this.buttonNewIncome1 = buttonNewIncome1;
     }
 
+    public JComboBox<String> getComboBoxTransactionsData() {
+        return comboBoxTransactionsData;
+    }
+
+    public void setComboBoxTransactionsData(JComboBox<String> comboBoxTransactionsData) {
+        this.comboBoxTransactionsData = comboBoxTransactionsData;
+    }
+
+    public JComboBox<String> getComboBoxDatesRange() {
+        return comboBoxDatesRange;
+    }
+
+    public void setComboBoxDatesRange(JComboBox<String> comboBoxDatesRange) {
+        this.comboBoxDatesRange = comboBoxDatesRange;
+    }
+
     public JPanel getPanelScrollInnerContainer() {
         return panelScrollInnerContainer;
     }
@@ -922,12 +968,52 @@ public class MainWindow extends javax.swing.JFrame {
         this.panelTransactions = panelTransactions;
     }
 
-    public static int getTrasactionsCount() {
-        return trasactionsCount;
+    public JLabel getLabelExpenseAmount() {
+        return labelExpenseAmount;
     }
 
-    public static void setTrasactionsCount(int trasactionsCount) {
-        MainWindow.trasactionsCount = trasactionsCount;
+    public void setLabelExpenseAmount(JLabel labelExpenseAmount) {
+        this.labelExpenseAmount = labelExpenseAmount;
+    }
+
+    public void setLabelExpenseAmount(String expenseAmount) {
+        this.getLabelExpenseAmount().setText(expenseAmount);
+    }
+
+    public void setLabelExpenseAmount(double expenseAmount) {
+        this.getLabelExpenseAmount().setText(String.format("%.2f", expenseAmount));
+    }
+
+    public JLabel getLabelIncomeAmount() {
+        return labelIncomeAmount;
+    }
+
+    public void setLabelIncomeAmount(JLabel labelIncomeAmount) {
+        this.labelIncomeAmount = labelIncomeAmount;
+    }
+
+    public void setLabelIncomeAmount(String incomeAmount) {
+        this.getLabelIncomeAmount().setText(incomeAmount);
+    }
+
+    public void setLabelIncomeAmount(double incomeAmount) {
+        this.getLabelIncomeAmount().setText(String.format("%.2f", incomeAmount));
+    }
+
+    public JLabel getLabelTransactionSum() {
+        return labelTransactionSum;
+    }
+
+    public void setLabelTransactionSum(JLabel labelTransactionSum) {
+        this.labelTransactionSum = labelTransactionSum;
+    }
+
+    public void setLabelTransactionSum(String transactionSum) {
+        this.getLabelTransactionSum().setText(transactionSum);
+    }
+
+    public void setLabelTransactionSum(double transactionSum) {
+        this.getLabelTransactionSum().setText(String.format("%.2f", transactionSum));
     }
 
 }

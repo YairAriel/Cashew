@@ -37,4 +37,5 @@ public class Income extends Transaction {
     public String toString() {
         return super.toString() + ", incomeSource=" + getIncomeSource() + '}';
     }
+
 }

@@ -97,12 +97,12 @@ public class NewExpense extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(242, 242, 242));
         jPanel1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
                 jPanel1AncestorRemoved(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
 
@@ -306,7 +306,7 @@ public class NewExpense extends javax.swing.JFrame {
             SimpleDateFormat sdf = new SimpleDateFormat("_ddMMyyyy");
             TransactionParser.TRANSACTIONS.add(0, new Expense(sdf.format(getDate().getTime()) + "E", getAmount(), getDate(), getDescription(), getCatagory(), getPaymentMethod(), getIconPath()));
             dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
-            TransactionParser.fillTransactionsPanel();
+            TransactionParser.SensitiveFillTransactionsPanel();
 
             //System.out.println(MainWindow.program.getPanelTransactions().getComponents().length);
         }
