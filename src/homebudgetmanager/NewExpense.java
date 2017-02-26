@@ -300,6 +300,9 @@ public class NewExpense extends javax.swing.JFrame {
                 program.getButtonNewIncome().setEnabled(true);
                 return;
             }
+            if (getDescription().trim().equals("")) {
+                setDescription(getCatagory());
+            }
             SimpleDateFormat sdf = new SimpleDateFormat("_ddMMyyyy");
             TransactionParser.TRANSACTIONS.add(0, new Expense(sdf.format(getDate().getTime()) + "E", getAmount(), getDate(), getDescription(), getCatagory(), getPaymentMethod(), getIconPath()));
             dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));

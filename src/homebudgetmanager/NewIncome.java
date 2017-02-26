@@ -87,12 +87,12 @@ public class NewIncome extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(242, 242, 242));
         jPanel1.setPreferredSize(new java.awt.Dimension(660, 500));
         jPanel1.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
                 jPanel1AncestorRemoved(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
 
@@ -106,7 +106,7 @@ public class NewIncome extends javax.swing.JFrame {
         labelIncomeSource.setText("מקור");
 
         comboBoxIncomeSource.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        comboBoxIncomeSource.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "בחר מקור", "משכורת", "ביטוח לאומי", "קצבה", "מתנה", "זכיות", "פנסיה", "עבודה מזדמנת", "שכר דירה", "אחר" }));
+        comboBoxIncomeSource.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "בחר מקור", "ביטוח לאומי", "זכיות", "משכורת", "מתנה", "עבודה מזדמנת", "פנסיה", "קצבה", "שכר דירה", "אחר" }));
         comboBoxIncomeSource.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 comboBoxIncomeSourceItemStateChanged(evt);
@@ -309,6 +309,9 @@ public class NewIncome extends javax.swing.JFrame {
                 program.getButtonNewExpense().setEnabled(true);
                 program.getButtonNewIncome().setEnabled(true);
                 return;
+            }
+            if (getIncomeDescription().trim().equals("")) {
+                setIncomeDescription(getIncomeSource());
             }
             dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
             SimpleDateFormat sdf = new SimpleDateFormat("_ddMMyyyy");
