@@ -226,7 +226,7 @@ public class NewExpense extends javax.swing.JFrame {
                         .addComponent(buttonAddExpense, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buttonExpenseCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 197, Short.MAX_VALUE))
+                .addGap(0, 212, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(191, 191, 191)
                 .addComponent(textBoxExpenseComments, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -304,9 +304,9 @@ public class NewExpense extends javax.swing.JFrame {
                 setDescription(getCatagory());
             }
             SimpleDateFormat sdf = new SimpleDateFormat("_ddMMyyyy");
-            TransactionParser.TRANSACTIONS.add(0, new Expense(sdf.format(getDate().getTime()) + "E", getAmount(), getDate(), getDescription(), getCatagory(), getPaymentMethod(), getIconPath()));
+            TransactionParser.addTransactionRoutine(new Expense(sdf.format(getDate().getTime()) + "E", getAmount(), getDate(), getDescription(), getCatagory(), getPaymentMethod(), getIconPath()));
             dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
-            TransactionParser.SensitiveFillTransactionsPanel();
+            TransactionParser.transactionChangesRoutine();
 
             //System.out.println(MainWindow.program.getPanelTransactions().getComponents().length);
         }

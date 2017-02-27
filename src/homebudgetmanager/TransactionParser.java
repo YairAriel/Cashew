@@ -6,12 +6,20 @@
 package homebudgetmanager;
 
 import java.awt.GridLayout;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Comparator;
-import java.util.GregorianCalendar;
+import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -65,8 +73,9 @@ public class TransactionParser {
         "contract.png"
     };
 
-    public static final List<Transaction> TRANSACTIONS = new ArrayList<>();
+    public static final List<Transaction> TRANSACTIONS = TransactionParser.SerializationHandler.getSerielizedTransactions();
 
+    //Methods
     public static void sortTransactionsByDate() {
         TransactionParser.TRANSACTIONS.sort(new Comparator<Transaction>() {
             @Override
@@ -86,7 +95,33 @@ public class TransactionParser {
         return -1;
     }
 
-    public static void SensitiveFillTransactionsPanel() {
+    public static void addTransactionRoutine(final Transaction transaction) {
+        try {
+            TransactionParser.SerializationHandler.writeTransactionToDisk(transaction);
+        } catch (IOException ex) {
+            Logger.getLogger(TransactionParser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        TransactionParser.TRANSACTIONS.add(0, transaction);
+        TransactionParser.transactionChangesRoutine();
+    }
+
+    public static void removeTransactionRoutine(final String transId) {
+
+        TransactionParser.SerializationHandler.deleteTransactionFromDisk(transId);
+        TransactionParser.TRANSACTIONS.remove(TransactionParser.indexOfTransactionById(transId));
+        TransactionParser.transactionChangesRoutine();
+    }
+
+    public static void transactionChangesRoutine() {
+        TransactionParser.sensitiveFillTransactionsPanel();
+        TransactionParser.sesitiveFillTransactionsAmount();
+    }
+
+    public static void sensitiveFillTransactionsPanel() {
+        if (MainWindow.getProgram() == null) {
+            return;
+        }
         switch (MainWindow.getProgram().getComboBoxTransactionsData().getSelectedIndex()) {
             case 1:
                 TransactionParser.fillIncomesPanel();
@@ -100,7 +135,7 @@ public class TransactionParser {
         }
     }
 
-    public static void SesitiveFillTransactionsAmount() {
+    public static void sesitiveFillTransactionsAmount() {
         switch (MainWindow.getProgram().getComboBoxDatesRange().getSelectedIndex()) {
             case 1:
                 TransactionParser.fillThisMonthTransactionsAmount();
@@ -118,59 +153,66 @@ public class TransactionParser {
         MainWindow.getProgram().setLabelIncomeAmount(TransactionParser.getTodaysIncomesAmount());
         MainWindow.getProgram().setLabelExpenseAmount(TransactionParser.getTodaysExpensesAmount());
         MainWindow.getProgram().setLabelTransactionSum(TransactionParser.getTodaysIncomesAmount() - TransactionParser.getTodaysExpensesAmount());
-        MainWindow.program.getPanelTransactions().revalidate();
-        MainWindow.program.getPanelTransactions().repaint();
+        MainWindow.getProgram().updateGeneralViewPanel();
     }
 
     public static void fillThisMonthTransactionsAmount() {
         MainWindow.getProgram().setLabelIncomeAmount(TransactionParser.getThisMonthIncomesAmount());
         MainWindow.getProgram().setLabelExpenseAmount(TransactionParser.getThisMonthExpensesAmount());
         MainWindow.getProgram().setLabelTransactionSum(TransactionParser.getThisMonthIncomesAmount() - TransactionParser.getThisMonthExpensesAmount());
+        MainWindow.getProgram().updateGeneralViewPanel();
     }
 
     public static void fillThisYearTransactionsAmount() {
         MainWindow.getProgram().setLabelIncomeAmount(TransactionParser.getThisYearIncomesAmount());
         MainWindow.getProgram().setLabelExpenseAmount(TransactionParser.getThisYearExpensesAmount());
         MainWindow.getProgram().setLabelTransactionSum(TransactionParser.getThisYearIncomesAmount() - TransactionParser.getThisYearExpensesAmount());
+        MainWindow.getProgram().updateGeneralViewPanel();
     }
 
     public static void fillTransactionsPanel() {
-        MainWindow.program.getPanelTransactions().removeAll();
-        MainWindow.program.getPanelTransactions().setLayout(new GridLayout(TransactionParser.TRANSACTIONS.size(), 1, 0, 12));
-        for (int i = 0; i < TransactionParser.TRANSACTIONS.size(); i++) {
-            MainWindow.program.getPanelTransactions().add(new TransactionPanel(TransactionParser.TRANSACTIONS.get(i)));
+        MainWindow.getProgram().getPanelTransactions().removeAll();
+        MainWindow.getProgram().getPanelTransactions().setLayout(new GridLayout(TransactionParser.TRANSACTIONS.size(), 1, 0, 12));
+        for (Transaction i : TransactionParser.TRANSACTIONS) {
+            if (TransactionParser.TransactionDate.isInUserSetRange(i)) {
+                MainWindow.getProgram().getPanelTransactions().add(new TransactionPanel(i));
+            }
         }
-        MainWindow.program.getPanelTransactions().revalidate();
-        MainWindow.program.getPanelTransactions().repaint();
+        MainWindow.getProgram().getPanelTransactions().revalidate();
+        MainWindow.getProgram().getPanelTransactions().repaint();
     }
 
     public static void fillIncomesPanel() {
         final List<Income> incomes = TransactionParser.getIncomesList();
-        MainWindow.program.getPanelTransactions().removeAll();
-        MainWindow.program.getPanelTransactions().setLayout(new GridLayout(incomes.size(), 1, 0, 12));
-        for (int i = 0; i < incomes.size(); i++) {
-            MainWindow.program.getPanelTransactions().add(new TransactionPanel(incomes.get(i)));
+        MainWindow.getProgram().getPanelTransactions().removeAll();
+        MainWindow.getProgram().getPanelTransactions().setLayout(new GridLayout(incomes.size(), 1, 0, 12));
+        for (Income i : incomes) {
+            if (TransactionParser.TransactionDate.isInUserSetRange(i)) {
+                MainWindow.getProgram().getPanelTransactions().add(new TransactionPanel(i));
+            }
         }
-        MainWindow.program.getPanelTransactions().revalidate();
-        MainWindow.program.getPanelTransactions().repaint();
+        MainWindow.getProgram().getPanelTransactions().revalidate();
+        MainWindow.getProgram().getPanelTransactions().repaint();
     }
 
     public static void fillExpensesPanel() {
         final List<Expense> expenses = TransactionParser.getExpensesList();
-        MainWindow.program.getPanelTransactions().removeAll();
-        MainWindow.program.getPanelTransactions().setLayout(new GridLayout(expenses.size(), 1, 0, 12));
-        for (int i = 0; i < expenses.size(); i++) {
-            MainWindow.program.getPanelTransactions().add(new TransactionPanel(expenses.get(i)));
+        MainWindow.getProgram().getPanelTransactions().removeAll();
+        MainWindow.getProgram().getPanelTransactions().setLayout(new GridLayout(expenses.size(), 1, 0, 12));
+        for (Expense i : expenses) {
+            if (TransactionParser.TransactionDate.isInUserSetRange(i)) {
+                MainWindow.getProgram().getPanelTransactions().add(new TransactionPanel(i));
+            }
         }
-        MainWindow.program.getPanelTransactions().revalidate();
-        MainWindow.program.getPanelTransactions().repaint();
+        MainWindow.getProgram().getPanelTransactions().revalidate();
+        MainWindow.getProgram().getPanelTransactions().repaint();
     }
 
     public static List<Income> getIncomesList() {
         final List<Income> incomes = new ArrayList<>();
-        for (int i = 0; i < TransactionParser.TRANSACTIONS.size(); i++) {
-            if (TransactionParser.TRANSACTIONS.get(i) instanceof Income) {
-                incomes.add(((Income) TransactionParser.TRANSACTIONS.get(i)));
+        for (Transaction i : TransactionParser.TRANSACTIONS) {
+            if (i instanceof Income) {
+                incomes.add(((Income) i));
             }
         }
         return incomes;
@@ -178,9 +220,9 @@ public class TransactionParser {
 
     public static List<Expense> getExpensesList() {
         final List<Expense> expenses = new ArrayList<>();
-        for (int i = 0; i < TransactionParser.TRANSACTIONS.size(); i++) {
-            if (TransactionParser.TRANSACTIONS.get(i) instanceof Expense) {
-                expenses.add(((Expense) TransactionParser.TRANSACTIONS.get(i)));
+        for (Transaction i : TransactionParser.TRANSACTIONS) {
+            if (i instanceof Expense) {
+                expenses.add(((Expense) i));
             }
         }
         return expenses;
@@ -266,6 +308,55 @@ public class TransactionParser {
 
         public static boolean isThisYear(final Transaction transaction) {
             return Calendar.getInstance().get(Calendar.YEAR) == transaction.getTransDate().get(Calendar.YEAR);
+        }
+
+        public static boolean isInUserSetRange(final Transaction transaction) {
+            final Date fromDate = MainWindow.getProgram().getDatePickerFromDate().getDate();
+            final Date toDate = MainWindow.getProgram().getDatePickerToDate().getDate();
+            final Date transDate = transaction.getTransDate().getTime();
+
+            if (fromDate != null) {
+                if (toDate != null) {
+                    return transDate.compareTo(fromDate) >= 0 && transDate.compareTo(toDate) <= 0;
+                }
+                return transDate.compareTo(fromDate) >= 0;
+            }
+
+            return toDate == null || transDate.compareTo(toDate) <= 0;
+        }
+    }
+
+    public static class SerializationHandler {
+
+        public static void writeTransactionToDisk(final Transaction transaction) throws IOException {
+
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("local/" + transaction.getTransID() + ".bin"));
+            objectOutputStream.writeObject(transaction);
+
+        }
+
+        public static Transaction readTransactionFromDisk(final File transactionFile) throws IOException, ClassNotFoundException {
+            ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("local/" + transactionFile.getName()));
+            return (Transaction) objectInputStream.readObject();
+        }
+
+        public static void deleteTransactionFromDisk(final String transId) {
+            new File("local/" + transId + ".bin").delete();
+        }
+
+        public static List<Transaction> getSerielizedTransactions() {
+            final List<Transaction> transactions = new ArrayList<>();
+            final File[] serielizedTransactions = new File("local/").listFiles();
+            for (File i : serielizedTransactions) {
+                try {
+                    transactions.add(readTransactionFromDisk(i));
+                } catch (IOException ex) {
+                    Logger.getLogger(TransactionParser.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(TransactionParser.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            return transactions;
         }
 
     }

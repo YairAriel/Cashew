@@ -6,6 +6,7 @@
 package homebudgetmanager;
 
 import java.awt.Image;
+import java.io.Serializable;
 import java.util.Calendar;
 import javax.swing.ImageIcon;
 
@@ -13,7 +14,7 @@ import javax.swing.ImageIcon;
  *
  * @author Yair Ariel
  */
-public class Transaction {
+public abstract class Transaction implements Serializable {
 
     private static int transactionsCount = 0;
 

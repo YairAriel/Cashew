@@ -6,28 +6,15 @@
 package homebudgetmanager;
 
 import java.awt.ComponentOrientation;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.FontFormatException;
-import java.awt.GraphicsEnvironment;
-import java.awt.Rectangle;
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTabbedPane;
-import javax.swing.UIManager;
+import org.jdesktop.swingx.JXDatePicker;
 
 /**
  *
@@ -108,8 +95,8 @@ public class MainWindow extends javax.swing.JFrame {
         panelTransactions = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        datePickerFromDate = new org.jdesktop.swingx.JXDatePicker();
-        datePickerToDate = new org.jdesktop.swingx.JXDatePicker(new Date());
+        datePickerFromDate = new org.jdesktop.swingx.JXDatePicker(new Date(110,0,1));
+        datePickerToDate = new org.jdesktop.swingx.JXDatePicker(new Date(130,11,30));
         jLabel15 = new javax.swing.JLabel();
         comboBoxTransactionsData = new javax.swing.JComboBox<>();
         buttonNewIncome1 = new javax.swing.JButton();
@@ -166,6 +153,11 @@ public class MainWindow extends javax.swing.JFrame {
 
         comboBoxDatesRange.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         comboBoxDatesRange.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "היום", "החודש", "השנה" }));
+        comboBoxDatesRange.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                comboBoxDatesRangeItemStateChanged(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel3.setText("מציג מידע עבור");
@@ -484,8 +476,20 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel14.setText("עד תאריך");
 
         datePickerFromDate.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        datePickerFromDate.setFormats(TransactionParser.TransactionDate.SIMPLE_DATE_FORMAT.toPattern());
+        datePickerFromDate.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                datePickerFromDatePropertyChange(evt);
+            }
+        });
 
         datePickerToDate.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        datePickerToDate.setFormats(TransactionParser.TransactionDate.SIMPLE_DATE_FORMAT.toPattern());
+        datePickerToDate.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                datePickerToDatePropertyChange(evt);
+            }
+        });
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel15.setText("מציג");
@@ -796,8 +800,35 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void comboBoxTransactionsDataItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboBoxTransactionsDataItemStateChanged
         // TODO add your handling code here:
-        TransactionParser.SensitiveFillTransactionsPanel();
+        TransactionParser.sensitiveFillTransactionsPanel();
     }//GEN-LAST:event_comboBoxTransactionsDataItemStateChanged
+
+    private void datePickerFromDatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_datePickerFromDatePropertyChange
+        // TODO add your handling code here:
+        if (MainWindow.program == null) {
+            return;
+        }
+        if (getDatePickerFromDate().getDate().compareTo(getDatePickerToDate().getDate()) > 0) {
+            getDatePickerFromDate().setDate(getDatePickerToDate().getDate());
+        }
+        TransactionParser.sensitiveFillTransactionsPanel();
+    }//GEN-LAST:event_datePickerFromDatePropertyChange
+
+    private void datePickerToDatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_datePickerToDatePropertyChange
+        // TODO add your handling code here:
+        if (MainWindow.program == null) {
+            return;
+        }
+        if (getDatePickerToDate().getDate().compareTo(getDatePickerFromDate().getDate()) < 0) {
+            getDatePickerToDate().setDate(getDatePickerFromDate().getDate());
+        }
+        TransactionParser.sensitiveFillTransactionsPanel();
+    }//GEN-LAST:event_datePickerToDatePropertyChange
+
+    private void comboBoxDatesRangeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboBoxDatesRangeItemStateChanged
+        // TODO add your handling code here:
+        TransactionParser.sesitiveFillTransactionsAmount();
+    }//GEN-LAST:event_comboBoxDatesRangeItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -810,6 +841,7 @@ public class MainWindow extends javax.swing.JFrame {
 
                 program = new MainWindow();
                 program.setVisible(true);
+                TransactionParser.transactionChangesRoutine();
             }
         });
 
@@ -1017,6 +1049,35 @@ public class MainWindow extends javax.swing.JFrame {
 
     public void setLabelTransactionSum(double transactionSum) {
         this.getLabelTransactionSum().setText(String.format("%.2f", transactionSum));
+    }
+
+    public JPanel getGeneralViewPanel() {
+        return generalViewPanel;
+    }
+
+    public void setGeneralViewPanel(JPanel generalViewPanel) {
+        this.generalViewPanel = generalViewPanel;
+    }
+
+    public void updateGeneralViewPanel() {
+        getGeneralViewPanel().revalidate();
+        getGeneralViewPanel().repaint();
+    }
+
+    public JXDatePicker getDatePickerFromDate() {
+        return datePickerFromDate;
+    }
+
+    public void setDatePickerFromDate(JXDatePicker datePickerFromDate) {
+        this.datePickerFromDate = datePickerFromDate;
+    }
+
+    public JXDatePicker getDatePickerToDate() {
+        return datePickerToDate;
+    }
+
+    public void setDatePickerToDate(JXDatePicker datePickerToDate) {
+        this.datePickerToDate = datePickerToDate;
     }
 
 }

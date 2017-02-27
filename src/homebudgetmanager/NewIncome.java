@@ -317,9 +317,9 @@ public class NewIncome extends javax.swing.JFrame {
             }
             dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
             SimpleDateFormat sdf = new SimpleDateFormat("_ddMMyyyy");
-            TransactionParser.TRANSACTIONS.add(0, new Income(sdf.format(getDate().getTime()) + "I", getAmount(), getDate(), getIncomeDescription(), getIncomeMethod(), getIncomeSource(), getIconPath()));
+            TransactionParser.addTransactionRoutine(new Income(sdf.format(getDate().getTime()) + "I", getAmount(), getDate(), getIncomeDescription(), getIncomeMethod(), getIncomeSource(), getIconPath()));
 
-            TransactionParser.SensitiveFillTransactionsPanel();
+            TransactionParser.transactionChangesRoutine();
         }
     }//GEN-LAST:event_buttonAddIncomeActionPerformed
 
