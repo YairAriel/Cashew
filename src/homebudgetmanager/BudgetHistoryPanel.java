@@ -9,12 +9,12 @@ package homebudgetmanager;
  *
  * @author Yair Ariel
  */
-public class BudjetHistoryPanel extends javax.swing.JPanel {
+public class BudgetHistoryPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form BudjetHistoryPanel
      */
-    public BudjetHistoryPanel() {
+    public BudgetHistoryPanel() {
         initComponents();
     }
 

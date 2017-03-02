@@ -104,6 +104,17 @@ public class TransactionParser {
 
         TransactionParser.TRANSACTIONS.add(0, transaction);
         TransactionParser.transactionChangesRoutine();
+        MainWindow.getProgram().setLabelUsedBudget(TransactionParser.getThisMonthExpensesAmount());
+        TransactionParser.updateProgressBar();
+    }
+    
+    public static void updateProgressBar(){
+        
+//        double top = Double.parseDouble(MainWindow.getProgram().getSpinnerBudgetAmount().toString());
+//        int percent = (int)((TransactionParser.getThisMonthExpensesAmount() * 100) / top);
+//        
+//        MainWindow.getProgram().getProgressBarBudget().setValue(percent);
+        MainWindow.getProgram().getProgressBarBudget().setValue(50);
     }
 
     public static void removeTransactionRoutine(final String transId) {
@@ -148,7 +159,7 @@ public class TransactionParser {
                 break;
         }
     }
-
+    
     public static void fillTodaysTransactionsAmount() {
         MainWindow.getProgram().setLabelIncomeAmount(TransactionParser.getTodaysIncomesAmount());
         MainWindow.getProgram().setLabelExpenseAmount(TransactionParser.getTodaysExpensesAmount());
@@ -330,23 +341,23 @@ public class TransactionParser {
 
         public static void writeTransactionToDisk(final Transaction transaction) throws IOException {
 
-            ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("local/" + transaction.getTransID() + ".bin"));
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("local/transactions/" + transaction.getTransID() + ".bin"));
             objectOutputStream.writeObject(transaction);
 
         }
 
         public static Transaction readTransactionFromDisk(final File transactionFile) throws IOException, ClassNotFoundException {
-            ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("local/" + transactionFile.getName()));
+            ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("local/transactions/" + transactionFile.getName()));
             return (Transaction) objectInputStream.readObject();
         }
 
         public static void deleteTransactionFromDisk(final String transId) {
-            new File("local/" + transId + ".bin").delete();
+            new File("local/transations/" + transId + ".bin").delete();
         }
 
         public static List<Transaction> getSerielizedTransactions() {
             final List<Transaction> transactions = new ArrayList<>();
-            final File[] serielizedTransactions = new File("local/").listFiles();
+            final File[] serielizedTransactions = new File("local/transactions/").listFiles();
             for (File i : serielizedTransactions) {
                 try {
                     transactions.add(readTransactionFromDisk(i));
