@@ -42,7 +42,7 @@ public class NewIncome extends javax.swing.JFrame {
         setIncomeSource("");
         initComponents();
         setVisible(true);
-        setIconImage(new ImageIcon(getClass().getResource("logoIcon.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("images/logoIcon.png")).getImage());
         setResizable(false);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         Locale hebrew = new Locale("iw", "IL");
