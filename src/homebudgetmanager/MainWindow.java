@@ -10,14 +10,9 @@ import java.awt.ComponentOrientation;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
-import java.util.Map;
-import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -906,7 +901,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void datePickerFromDatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_datePickerFromDatePropertyChange
         // TODO add your handling code here:
-        if (MainWindow.program == null) {
+        if (MainWindow.getProgram() == null) {
             return;
         }
         if (getDatePickerFromDate().getDate().compareTo(getDatePickerToDate().getDate()) > 0) {
@@ -917,7 +912,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void datePickerToDatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_datePickerToDatePropertyChange
         // TODO add your handling code here:
-        if (MainWindow.program == null) {
+        if (MainWindow.getProgram() == null) {
             return;
         }
         if (getDatePickerToDate().getDate().compareTo(getDatePickerFromDate().getDate()) < 0) {
@@ -948,7 +943,7 @@ public class MainWindow extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "התקציב הוגדר בהצלחה");
 
             try {
-                Budget.SerializationHandler.writeBudgetToDisk(new Budget(Double.parseDouble(getSpinnerBudgetAmount().getValue().toString()),
+                BudgetParser.SerializationHandler.writeBudgetToDisk(new Budget(Double.parseDouble(getSpinnerBudgetAmount().getValue().toString()),
                         getCheckBoxEnableEdit().isSelected(), getCheckBoxAlertBeforeException().isSelected(), getCheckBoxAlertBeforeX().isSelected(),
                         Double.parseDouble(getSpinnerAlertBefore().getValue().toString())));
             } catch (IOException ex) {
@@ -966,10 +961,10 @@ public class MainWindow extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
 
-                program = new MainWindow();
-                program.setVisible(true);
+                MainWindow.setProgram(new MainWindow());
+                MainWindow.getProgram().setVisible(true);
                 TransactionParser.transactionChangesRoutine();
-                Budget.budgetChangesRutine();
+                BudgetParser.budgetChangesRutine();
             }
         });
     }
@@ -1047,7 +1042,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JSpinner spinnerBudgetAmount;
     // End of variables declaration//GEN-END:variables
 
-    public static MainWindow program;
+    private static MainWindow program;
     private static double ballance = 0;
 
     public static MainWindow getProgram() {
