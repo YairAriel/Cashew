@@ -25,7 +25,7 @@ import java.util.logging.Logger;
  *
  * @author Shlomo Pfeuffer
  */
-public abstract class TransactionParser {
+public class TransactionParser {
 
     public static final String[] EXPENSE_ICON_ARR = {"",
         "measuring-tape.png",
@@ -98,10 +98,8 @@ public abstract class TransactionParser {
     public static void addTransactionRoutine(final Transaction transaction) {
         try {
             TransactionParser.SerializationHandler.writeTransactionToDisk(transaction);
-
         } catch (IOException ex) {
-            Logger.getLogger(TransactionParser.class
-                    .getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TransactionParser.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         TransactionParser.TRANSACTIONS.add(0, transaction);
@@ -109,12 +107,12 @@ public abstract class TransactionParser {
         MainWindow.getProgram().setLabelUsedBudget(TransactionParser.getThisMonthExpensesAmount());
         TransactionParser.updateProgressBar();
     }
-
-    public static void updateProgressBar() {
-
+    
+    public static void updateProgressBar(){
+        
 //        double top = Double.parseDouble(MainWindow.getProgram().getSpinnerBudgetAmount().toString());
 //        int percent = (int)((TransactionParser.getThisMonthExpensesAmount() * 100) / top);
-//
+//        
 //        MainWindow.getProgram().getProgressBarBudget().setValue(percent);
         MainWindow.getProgram().getProgressBarBudget().setValue(50);
     }
@@ -161,7 +159,7 @@ public abstract class TransactionParser {
                 break;
         }
     }
-
+    
     public static void fillTodaysTransactionsAmount() {
         MainWindow.getProgram().setLabelIncomeAmount(TransactionParser.getTodaysIncomesAmount());
         MainWindow.getProgram().setLabelExpenseAmount(TransactionParser.getTodaysExpensesAmount());
@@ -305,7 +303,6 @@ public abstract class TransactionParser {
             }
         }
         return amount;
-
     }
 
     public static class TransactionDate {

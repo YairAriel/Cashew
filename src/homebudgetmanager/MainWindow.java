@@ -10,9 +10,14 @@ import java.awt.ComponentOrientation;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -852,7 +857,7 @@ public class MainWindow extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1200, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1212, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -901,7 +906,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void datePickerFromDatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_datePickerFromDatePropertyChange
         // TODO add your handling code here:
-        if (MainWindow.getProgram() == null) {
+        if (MainWindow.program == null) {
             return;
         }
         if (getDatePickerFromDate().getDate().compareTo(getDatePickerToDate().getDate()) > 0) {
@@ -912,7 +917,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void datePickerToDatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_datePickerToDatePropertyChange
         // TODO add your handling code here:
-        if (MainWindow.getProgram() == null) {
+        if (MainWindow.program == null) {
             return;
         }
         if (getDatePickerToDate().getDate().compareTo(getDatePickerFromDate().getDate()) < 0) {
@@ -943,7 +948,7 @@ public class MainWindow extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "התקציב הוגדר בהצלחה");
 
             try {
-                BudgetParser.SerializationHandler.writeBudgetToDisk(new Budget(Double.parseDouble(getSpinnerBudgetAmount().getValue().toString()),
+                Budget.SerializationHandler.writeBudgetToDisk(new Budget(Double.parseDouble(getSpinnerBudgetAmount().getValue().toString()),
                         getCheckBoxEnableEdit().isSelected(), getCheckBoxAlertBeforeException().isSelected(), getCheckBoxAlertBeforeX().isSelected(),
                         Double.parseDouble(getSpinnerAlertBefore().getValue().toString())));
             } catch (IOException ex) {
@@ -961,10 +966,10 @@ public class MainWindow extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
 
-                MainWindow.setProgram(new MainWindow());
-                MainWindow.getProgram().setVisible(true);
+                program = new MainWindow();
+                program.setVisible(true);
                 TransactionParser.transactionChangesRoutine();
-                BudgetParser.budgetChangesRutine();
+                Budget.budgetChangesRutine();
             }
         });
     }
@@ -1042,7 +1047,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JSpinner spinnerBudgetAmount;
     // End of variables declaration//GEN-END:variables
 
-    private static MainWindow program;
+    public static MainWindow program;
     private static double ballance = 0;
 
     public static MainWindow getProgram() {

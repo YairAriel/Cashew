@@ -5,7 +5,22 @@
  */
 package homebudgetmanager;
 
+import static homebudgetmanager.TransactionParser.SerializationHandler.readTransactionFromDisk;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -18,6 +33,8 @@ public class Budget implements Serializable {
     private boolean deviationMessage = true;
     private boolean deviationWarning = true;
     private double deviationWarningSum;
+
+    private static Budget budget = Budget.SerializationHandler.readBudgetFromDisk();
 
     public Budget() {
 
@@ -73,6 +90,14 @@ public class Budget implements Serializable {
         this.deviationWarningSum = deviationWarningSum;
     }
 
+    public static Budget getBudget() {
+        return budget;
+    }
+
+    public static void setBudget(Budget budget) {
+        Budget.budget = budget;
+    }
+
     @Override
     public String toString() {
         return "Budget{budgetSum=" + getBudgetSum() + ", budgetEditable=" + isBudgetEditable()
@@ -80,4 +105,48 @@ public class Budget implements Serializable {
                 + getDeviationWarningSum() + '}';
     }
 
+    public static void budgetChangesRutine() {
+
+        MainWindow.program.getLabelOfBudget().setText(String.format("%.2f", Budget.getBudget().getBudgetSum()));
+        MainWindow.program.getSpinnerBudgetAmount().setValue(Budget.getBudget().getBudgetSum());
+        MainWindow.program.getCheckBoxEnableEdit().setSelected(Budget.getBudget().isBudgetEditable());
+        MainWindow.program.getCheckBoxAlertBeforeException().setSelected(Budget.getBudget().isDeviationMessage());
+        MainWindow.program.getCheckBoxAlertBeforeX().setSelected(Budget.getBudget().isDeviationWarning());
+        MainWindow.program.getSpinnerAlertBefore().setValue(Budget.getBudget().getDeviationWarningSum());
+        MainWindow.program.setLabelUsedBudget(TransactionParser.getThisMonthExpensesAmount());
+    }
+
+    public static class SerializationHandler {
+
+        public static void writeBudgetToDisk(Budget budget) throws IOException {
+
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("local/budget/budget.bin"));
+            objectOutputStream.writeObject(budget);
+        }
+
+        public static Budget readBudgetFromDisk() {
+
+            FileInputStream fileInputStream = null;
+            try {
+                ObjectInputStream objectInputStream;
+                fileInputStream = new FileInputStream("local/budget/budget.bin");
+                objectInputStream = new ObjectInputStream(fileInputStream);
+                return (Budget) objectInputStream.readObject();
+            } catch (IOException ex) {
+                return new Budget();
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(Budget.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    if (fileInputStream != null) {
+                        fileInputStream.close();
+                    }
+                } catch (IOException ex) {
+                    System.out.println("New Budget");
+                }
+            }
+            return null;
+        }
+
+    }
 }
