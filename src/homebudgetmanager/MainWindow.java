@@ -94,7 +94,7 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         progressBarBudget = new javax.swing.JProgressBar();
         jLabel1 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
+        labelMaxBudgetPercent = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -233,8 +233,8 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("0%");
 
-        jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel19.setText("100%");
+        labelMaxBudgetPercent.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        labelMaxBudgetPercent.setText("100%");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -261,7 +261,7 @@ public class MainWindow extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(progressBarBudget, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(labelMaxBudgetPercent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(23, 23, 23))
         );
         jPanel4Layout.setVerticalGroup(
@@ -285,7 +285,7 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(progressBarBudget, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(2, 2, 2)
-                        .addComponent(jLabel19)))
+                        .addComponent(labelMaxBudgetPercent)))
                 .addContainerGap(43, Short.MAX_VALUE))
         );
 
@@ -623,9 +623,8 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(buttonNewIncome1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(comboBoxTransactionsData, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(datePickerFromDate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(comboBoxTransactionsData, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(datePickerFromDate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(datePickerToDate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -927,7 +926,7 @@ public class MainWindow extends javax.swing.JFrame {
             if (!getCheckBoxEnableEdit().isSelected()) {
                 Budget.setAllBudgetComponentsDisabled();
             }
-            JOptionPane.showMessageDialog(null, "התקציב הוגדר בהצלחה");
+            JOptionPane.showMessageDialog(this, "התקציב הוגדר בהצלחה");
 
             try {
                 Budget.SerializationHandler.writeBudgetToDisk(new Budget(Double.parseDouble(getSpinnerBudgetAmount().getValue().toString()),
@@ -951,7 +950,6 @@ public class MainWindow extends javax.swing.JFrame {
                 program = new MainWindow();
                 program.setVisible(true);
                 TransactionParser.transactionChangesRoutine();
-                TransactionParser.updateProgressBar();
                 Budget.budgetChangesRutine();
             }
         });
@@ -981,7 +979,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -1013,6 +1010,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel labelBudgetTitle;
     private javax.swing.JLabel labelExpenseAmount;
     private javax.swing.JLabel labelIncomeAmount;
+    private javax.swing.JLabel labelMaxBudgetPercent;
     private javax.swing.JLabel labelOfBudget;
     private javax.swing.JLabel labelSetBudgetSum;
     private javax.swing.JPanel labelTitleBudget;
@@ -1152,6 +1150,22 @@ public class MainWindow extends javax.swing.JFrame {
         this.getLabelIncomeAmount().setText(String.format("%.2f", incomeAmount));
     }
 
+    public JLabel getLabelMaxBudgetPercent() {
+        return labelMaxBudgetPercent;
+    }
+
+    public void setLabelMaxBudgetPercent(JLabel labelMaxBudgetPercent) {
+        this.labelMaxBudgetPercent = labelMaxBudgetPercent;
+    }
+
+    public void setLabelMaxBudgetPercent(String maxBudgetPercent) {
+        this.getLabelMaxBudgetPercent().setText(maxBudgetPercent);
+    }
+
+    public void setLabelMaxBudgetPercent(double maxBudgetPercent) {
+        this.setLabelMaxBudgetPercent(String.format("%.0f", maxBudgetPercent) + "%");
+    }
+
     public JLabel getLabelTransactionSum() {
         return labelTransactionSum;
     }
@@ -1275,6 +1289,32 @@ public class MainWindow extends javax.swing.JFrame {
 
     public void setProgressBarBudget(JProgressBar progressBarBudget) {
         this.progressBarBudget = progressBarBudget;
+    }
+
+    public static void setProgressBarBudget(double percent) {
+        MainWindow.getProgram().getProgressBarBudget().setValue((int) percent);
+        if (percent > 100) {
+            MainWindow.getProgram().getProgressBarBudget().setForeground(Color.RED);
+            MainWindow.getProgram().setLabelMaxBudgetPercent(percent);
+            MainWindow.getProgram().getLabelMaxBudgetPercent().setForeground(Color.RED);
+            MainWindow.getProgram().getLabelMaxBudgetPercent().revalidate();
+            MainWindow.getProgram().getLabelMaxBudgetPercent().repaint();
+            return;
+        } else if (percent > 75) {
+            MainWindow.getProgram().getProgressBarBudget().setForeground(Color.ORANGE);
+        } else if (percent > 50) {
+            MainWindow.getProgram().getProgressBarBudget().setForeground(Color.YELLOW);
+        } else if (percent > 25) {
+            MainWindow.getProgram().getProgressBarBudget().setForeground(Color.GREEN);
+            return;
+        } else {
+            MainWindow.getProgram().getProgressBarBudget().setForeground(Color.BLUE);
+        }
+        MainWindow.getProgram().setLabelMaxBudgetPercent(100);
+        MainWindow.getProgram().getLabelMaxBudgetPercent().setForeground(Color.BLACK);
+        MainWindow.getProgram().getLabelMaxBudgetPercent().revalidate();
+        MainWindow.getProgram().getLabelMaxBudgetPercent().repaint();
+
     }
 
     public JButton getButtonDefineBudget() {

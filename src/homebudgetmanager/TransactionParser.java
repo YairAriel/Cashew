@@ -6,7 +6,6 @@
 package homebudgetmanager;
 
 import java.awt.GridLayout;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -25,7 +24,7 @@ import java.util.logging.Logger;
  *
  * @author Shlomo Pfeuffer
  */
-public class TransactionParser {
+public abstract class TransactionParser {
 
     public static final String[] EXPENSE_ICON_ARR = {"",
         "measuring-tape.png",
@@ -73,7 +72,7 @@ public class TransactionParser {
         "contract.png"
     };
 
-    public static final List<Transaction> TRANSACTIONS = TransactionParser.SerializationHandler.getSerielizedTransactions();
+    public static final List<Transaction> TRANSACTIONS = TransactionParser.SerializationHandler.readTransactionsFromDisk();
 
     //Methods
     public static void sortTransactionsByDate() {
@@ -96,34 +95,30 @@ public class TransactionParser {
     }
 
     public static void addTransactionRoutine(final Transaction transaction) {
+        TransactionParser.TRANSACTIONS.add(0, transaction);
         try {
-            TransactionParser.SerializationHandler.writeTransactionToDisk(transaction);
+            TransactionParser.SerializationHandler.writeTransactionToDisk();
         } catch (IOException ex) {
             Logger.getLogger(TransactionParser.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        TransactionParser.TRANSACTIONS.add(0, transaction);
         TransactionParser.transactionChangesRoutine();
-        MainWindow.getProgram().setLabelUsedBudget(TransactionParser.getThisMonthExpensesAmount());
-        TransactionParser.updateProgressBar();
-    }
-
-    public static void updateProgressBar() {
-
-        int top = Integer.parseInt(MainWindow.getProgram().getSpinnerBudgetAmount().toString());
-        //int top = Integer.parseInt("1500");
-        int percent = (int) ((TransactionParser.getThisMonthExpensesAmount() * 100) / top);
-        MainWindow.getProgram().getProgressBarBudget().setValue(percent);
+        Budget.budgetChangesRutine();
     }
 
     public static void removeTransactionRoutine(final String transId) {
 
-        TransactionParser.SerializationHandler.deleteTransactionFromDisk(transId);
         TransactionParser.TRANSACTIONS.remove(TransactionParser.indexOfTransactionById(transId));
+        try {
+            TransactionParser.SerializationHandler.writeTransactionToDisk();
+        } catch (IOException ex) {
+            Logger.getLogger(TransactionParser.class.getName()).log(Level.SEVERE, null, ex);
+        }
         TransactionParser.transactionChangesRoutine();
+        Budget.budgetChangesRutine();
     }
 
     public static void transactionChangesRoutine() {
+        TransactionParser.sortTransactionsByDate();
         TransactionParser.sensitiveFillTransactionsPanel();
         TransactionParser.sesitiveFillTransactionsAmount();
     }
@@ -336,37 +331,38 @@ public class TransactionParser {
         }
     }
 
-    public static class SerializationHandler {
+    private static class SerializationHandler {
 
-        public static void writeTransactionToDisk(final Transaction transaction) throws IOException {
+        private static final String PATH = "local/transactions/transactions.bin";
 
-            ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("local/transactions/" + transaction.getTransID() + ".bin"));
-            objectOutputStream.writeObject(transaction);
+        public static void writeTransactionToDisk() throws IOException {
+
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(TransactionParser.SerializationHandler.PATH));
+            objectOutputStream.writeObject(TransactionParser.TRANSACTIONS);
 
         }
 
-        public static Transaction readTransactionFromDisk(final File transactionFile) throws IOException, ClassNotFoundException {
-            ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("local/transactions/" + transactionFile.getName()));
-            return (Transaction) objectInputStream.readObject();
-        }
-
-        public static void deleteTransactionFromDisk(final String transId) {
-            new File("local/transations/" + transId + ".bin").delete();
-        }
-
-        public static List<Transaction> getSerielizedTransactions() {
-            final List<Transaction> transactions = new ArrayList<>();
-            final File[] serielizedTransactions = new File("local/transactions/").listFiles();
-            for (File i : serielizedTransactions) {
-                try {
-                    transactions.add(readTransactionFromDisk(i));
-                } catch (IOException ex) {
-                    Logger.getLogger(TransactionParser.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (ClassNotFoundException ex) {
+        public static List<Transaction> readTransactionsFromDisk() {
+            ObjectInputStream objectInputStream = null;
+            try {
+                objectInputStream = new ObjectInputStream(new FileInputStream(TransactionParser.SerializationHandler.PATH));
+                return (ArrayList<Transaction>) objectInputStream.readObject();
+            } catch (IOException | ClassNotFoundException ex) {
+                if (ex instanceof IOException) {
+                    System.out.println("File " + TransactionParser.SerializationHandler.PATH + " does not exist yet:");
+                } else {
                     Logger.getLogger(TransactionParser.class.getName()).log(Level.SEVERE, null, ex);
                 }
+            } finally {
+                if (objectInputStream != null) {
+                    try {
+                        objectInputStream.close();
+                    } catch (IOException ex) {
+                        Logger.getLogger(TransactionParser.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
             }
-            return transactions;
+            return new ArrayList<>();
         }
 
     }

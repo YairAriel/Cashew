@@ -6,8 +6,17 @@
 package homebudgetmanager;
 
 import java.awt.Image;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 /**
@@ -16,7 +25,7 @@ import javax.swing.ImageIcon;
  */
 public abstract class Transaction implements Serializable {
 
-    private static int transactionsCount = 0;
+    private static Integer transactionsCount = Transaction.SerializationHandler.readTransactionsFromDisk();
 
     private final int SIZE = 64;
     private String transID;
@@ -38,14 +47,21 @@ public abstract class Transaction implements Serializable {
         setTransPaymentMethod(transPaymentMethod);
         setTransIcon(iconPath);
         Transaction.incTransactionsCount();
+
+        //System.out.println(this.getTransID());
     }
 
-    public static int getTransactionsCount() {
+    public static Integer getTransactionsCount() {
         return Transaction.transactionsCount;
     }
 
     private static void incTransactionsCount() {
         Transaction.transactionsCount += 1;
+        try {
+            Transaction.SerializationHandler.writeTransactionToDisk();
+        } catch (IOException ex) {
+            Logger.getLogger(Transaction.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public String getTransID() {
@@ -109,6 +125,42 @@ public abstract class Transaction implements Serializable {
         return "Transaction{" + "transID=" + getTransID() + ", transAmount=" + getTransAmount()
                 + ", transDate=" + getTransDate() + ", transDescription=" + getTransDescription()
                 + ", transPaymentMethod=" + getTransPaymentMethod();
+    }
+
+    private static class SerializationHandler {
+
+        private static final String PATH = "local/transactions/transactionsCount.bin";
+
+        public static void writeTransactionToDisk() throws IOException {
+
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(Transaction.SerializationHandler.PATH));
+            objectOutputStream.writeObject(Transaction.getTransactionsCount());
+
+        }
+
+        public static Integer readTransactionsFromDisk() {
+            ObjectInputStream objectInputStream = null;
+            try {
+                objectInputStream = new ObjectInputStream(new FileInputStream(Transaction.SerializationHandler.PATH));
+                return (Integer) objectInputStream.readObject();
+            } catch (IOException | ClassNotFoundException ex) {
+                if (ex instanceof IOException) {
+                    System.out.println("File " + Transaction.SerializationHandler.PATH + " does not exist yet:");
+                } else {
+                    Logger.getLogger(TransactionParser.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } finally {
+                if (objectInputStream != null) {
+                    try {
+                        objectInputStream.close();
+                    } catch (IOException ex) {
+                        Logger.getLogger(TransactionParser.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+            return 0;
+        }
+
     }
 
 }

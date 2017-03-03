@@ -5,20 +5,13 @@
  */
 package homebudgetmanager;
 
-import static homebudgetmanager.TransactionParser.SerializationHandler.readTransactionFromDisk;
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -33,6 +26,7 @@ public class Budget implements Serializable {
     private boolean deviationMessage = true;
     private boolean deviationWarning = true;
     private double deviationWarningSum;
+    private int month;
 
     private static Budget budget = Budget.SerializationHandler.readBudgetFromDisk();
 
@@ -48,6 +42,9 @@ public class Budget implements Serializable {
         setDeviationMessage(deviationMessage);
         setDeviationWarning(deviationWarning);
         setDeviationWarningSum(deviationWarningSum);
+        setMonth(Calendar.getInstance().get(Calendar.MONTH));
+        Budget.setBudget(this);
+        Budget.budgetChangesRutine();
     }
 
     public double getBudgetSum() {
@@ -90,6 +87,14 @@ public class Budget implements Serializable {
         this.deviationWarningSum = deviationWarningSum;
     }
 
+    public int getMonth() {
+        return month;
+    }
+
+    private void setMonth(int month) {
+        this.month = month;
+    }
+
     public static Budget getBudget() {
         return budget;
     }
@@ -111,10 +116,13 @@ public class Budget implements Serializable {
         MainWindow.program.getSpinnerBudgetAmount().setValue(Budget.getBudget().getBudgetSum());
         MainWindow.program.getCheckBoxEnableEdit().setSelected(Budget.getBudget().isBudgetEditable());
         MainWindow.program.getCheckBoxAlertBeforeException().setSelected(Budget.getBudget().isDeviationMessage());
-        MainWindow.program.getCheckBoxAlertBeforeX().setSelected(Budget.getBudget().isDeviationWarning());
-        MainWindow.program.getSpinnerAlertBefore().setValue(Budget.getBudget().getDeviationWarningSum());
-        MainWindow.program.setLabelUsedBudget(TransactionParser.getThisMonthExpensesAmount());
-        if (!MainWindow.program.getCheckBoxEnableEdit().isSelected()) {
+        MainWindow.getProgram().getCheckBoxAlertBeforeX().setSelected(Budget.getBudget().isDeviationWarning());
+        MainWindow.getProgram().getSpinnerAlertBefore().setValue(Budget.getBudget().getDeviationWarningSum());
+        MainWindow.getProgram().setLabelUsedBudget(TransactionParser.getThisMonthExpensesAmount());
+        MainWindow.setProgressBarBudget(Budget.getExpenseBudgetRatio());
+        MainWindow.getProgram().getProgressBarBudget().revalidate();
+        MainWindow.getProgram().getProgressBarBudget().repaint();
+        if (!MainWindow.getProgram().getCheckBoxEnableEdit().isSelected()) {
             setAllBudgetComponentsDisabled();
         }
     }
@@ -127,6 +135,10 @@ public class Budget implements Serializable {
         MainWindow.program.getCheckBoxAlertBeforeX().setEnabled(false);
         MainWindow.program.getCheckBoxEnableEdit().setEnabled(false);
         MainWindow.program.getButtonDefineBudget().setEnabled(false);
+    }
+
+    public static double getExpenseBudgetRatio() {
+        return TransactionParser.getThisMonthExpensesAmount() * 100 / Budget.getBudget().getBudgetSum();
     }
 
     public static class SerializationHandler {
@@ -144,7 +156,8 @@ public class Budget implements Serializable {
                 ObjectInputStream objectInputStream;
                 fileInputStream = new FileInputStream("local/budget/budget.bin");
                 objectInputStream = new ObjectInputStream(fileInputStream);
-                return (Budget) objectInputStream.readObject();
+                Budget budget = (Budget) objectInputStream.readObject();
+                return budget.getMonth() == Calendar.getInstance().get(Calendar.MONTH) ? budget : new Budget();
             } catch (IOException ex) {
                 return new Budget();
             } catch (ClassNotFoundException ex) {

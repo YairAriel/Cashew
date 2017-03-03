@@ -314,8 +314,8 @@ public class NewExpense extends javax.swing.JFrame {
             SimpleDateFormat sdf = new SimpleDateFormat("_ddMMyyyy");
             TransactionParser.addTransactionRoutine(new Expense(sdf.format(getDate().getTime()) + "E", getAmount(), getDate(), getDescription(), getCatagory(), getPaymentMethod(), getIconPath()));
             if (Budget.getBudget().isDeviationMessage()) {
-                if (Double.parseDouble(MainWindow.getProgram().getLabelUsedBudget().toString())
-                        > Double.parseDouble(MainWindow.getProgram().getLabelOfBudget().toString())) {
+                if (Double.parseDouble(MainWindow.getProgram().getLabelUsedBudget().getText().toString())
+                        > Double.parseDouble(MainWindow.getProgram().getLabelOfBudget().getText().toString())) {
                     JOptionPane.showMessageDialog(null, "שים לב! אתה חורג מהתקציב");
                 }
             }
