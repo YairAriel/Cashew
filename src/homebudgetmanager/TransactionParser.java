@@ -44,10 +44,10 @@ public class TransactionParser {
         "money.png",
         "light-bulb.png",
         "transport.png",
-        "sportsIcon.png",
-        "foodIcon.png",
-        "waterIcon.png",
         "gym.png",
+        "fruit.png",
+        "drink.png",
+        "money-1",
         "food.png",
         "construction.png",
         "gift.png",
@@ -107,14 +107,13 @@ public class TransactionParser {
         MainWindow.getProgram().setLabelUsedBudget(TransactionParser.getThisMonthExpensesAmount());
         TransactionParser.updateProgressBar();
     }
-    
-    public static void updateProgressBar(){
-        
-//        double top = Double.parseDouble(MainWindow.getProgram().getSpinnerBudgetAmount().toString());
-//        int percent = (int)((TransactionParser.getThisMonthExpensesAmount() * 100) / top);
-//        
-//        MainWindow.getProgram().getProgressBarBudget().setValue(percent);
-        MainWindow.getProgram().getProgressBarBudget().setValue(50);
+
+    public static void updateProgressBar() {
+
+        int top = Integer.parseInt(MainWindow.getProgram().getSpinnerBudgetAmount().toString());
+        //int top = Integer.parseInt("1500");
+        int percent = (int) ((TransactionParser.getThisMonthExpensesAmount() * 100) / top);
+        MainWindow.getProgram().getProgressBarBudget().setValue(percent);
     }
 
     public static void removeTransactionRoutine(final String transId) {
@@ -159,7 +158,7 @@ public class TransactionParser {
                 break;
         }
     }
-    
+
     public static void fillTodaysTransactionsAmount() {
         MainWindow.getProgram().setLabelIncomeAmount(TransactionParser.getTodaysIncomesAmount());
         MainWindow.getProgram().setLabelExpenseAmount(TransactionParser.getTodaysExpensesAmount());

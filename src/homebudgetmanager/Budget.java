@@ -114,6 +114,19 @@ public class Budget implements Serializable {
         MainWindow.program.getCheckBoxAlertBeforeX().setSelected(Budget.getBudget().isDeviationWarning());
         MainWindow.program.getSpinnerAlertBefore().setValue(Budget.getBudget().getDeviationWarningSum());
         MainWindow.program.setLabelUsedBudget(TransactionParser.getThisMonthExpensesAmount());
+        if (!MainWindow.program.getCheckBoxEnableEdit().isSelected()) {
+            setAllBudgetComponentsDisabled();
+        }
+    }
+
+    public static void setAllBudgetComponentsDisabled() {
+
+        MainWindow.program.getSpinnerBudgetAmount().setEnabled(false);
+        MainWindow.program.getSpinnerAlertBefore().setEnabled(false);
+        MainWindow.program.getCheckBoxAlertBeforeException().setEnabled(false);
+        MainWindow.program.getCheckBoxAlertBeforeX().setEnabled(false);
+        MainWindow.program.getCheckBoxEnableEdit().setEnabled(false);
+        MainWindow.program.getButtonDefineBudget().setEnabled(false);
     }
 
     public static class SerializationHandler {
