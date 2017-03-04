@@ -190,7 +190,7 @@ public class TransactionPanel extends javax.swing.JPanel {
 
     private void buttionTransactionDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttionTransactionDelActionPerformed
         // TODO add your handling code here:
-        if (JOptionPane.showConfirmDialog(MainWindow.getProgram(), "האם הנך בטוח\\ה שברצונך למחוק תנועה זו?", "שאילתת מחיקה", JOptionPane.YES_NO_OPTION) == JOptionPane.OK_OPTION) {
+        if (JOptionPane.showConfirmDialog(MainWindow.getProgram(), "האם הנך בטוח\\ה שברצונך למחוק תנועה זו?", "שאילתת מחיקה", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) == JOptionPane.OK_OPTION) {
             TransactionParser.removeTransactionRoutine(id);
         }
     }//GEN-LAST:event_buttionTransactionDelActionPerformed

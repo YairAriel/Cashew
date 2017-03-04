@@ -16,6 +16,7 @@ import java.util.Locale;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
@@ -28,12 +29,13 @@ import org.jdesktop.swingx.JXDatePicker;
  *
  * @author Yair Ariel
  */
-public class NewExpense extends javax.swing.JFrame {
+public class NewExpense extends javax.swing.JDialog {
 
     /**
      * Creates new form NewExpense
      */
     public NewExpense() {
+        super(MainWindow.getProgram());
         setAmount(0.0);
         setPaymentMethod("");
         setCatagory("");
@@ -76,7 +78,7 @@ public class NewExpense extends javax.swing.JFrame {
         comboBoxExpenseMethod = new javax.swing.JComboBox<>();
         textBoxExpenseComments = new javax.swing.JTextField();
         datePickerExpense = new org.jdesktop.swingx.JXDatePicker(new Date());
-        spinnerExpenseSum = new javax.swing.JSpinner(new SpinnerNumberModel(0.00,0.00,99999999.99,0.01));
+        spinnerExpenseSum = new javax.swing.JSpinner();
         jLabel11 = new javax.swing.JLabel();
         buttonAddExpense = new javax.swing.JButton();
         buttonExpenseCancel = new javax.swing.JButton();
@@ -92,18 +94,18 @@ public class NewExpense extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cashew - New Expense");
         setPreferredSize(new java.awt.Dimension(660, 500));
 
         jPanel1.setBackground(new java.awt.Color(242, 242, 242));
         jPanel1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
                 jPanel1AncestorRemoved(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
 
@@ -165,6 +167,7 @@ public class NewExpense extends javax.swing.JFrame {
         });
 
         spinnerExpenseSum.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        spinnerExpenseSum.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, null, 5.0d));
         spinnerExpenseSum.setMaximumSize(new java.awt.Dimension(150, 36));
         spinnerExpenseSum.setMinimumSize(new java.awt.Dimension(150, 36));
         spinnerExpenseSum.setPreferredSize(new java.awt.Dimension(150, 36));
@@ -303,8 +306,7 @@ public class NewExpense extends javax.swing.JFrame {
                 flag = true;
             }
             if (flag) {
-                MainWindow.getProgram().getButtonNewExpense().setEnabled(true);
-                MainWindow.getProgram().getButtonNewIncome().setEnabled(true);
+                JOptionPane.showConfirmDialog(this, "אנא מלאו את כל השדות הנצרכות", "Cashew", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
                 return;
             }
             if (getDescription().trim().equals("")) {
@@ -434,6 +436,7 @@ public class NewExpense extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new NewExpense().setVisible(true);
+
             }
         });
     }

@@ -1283,8 +1283,8 @@
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Segoe UI" size="24" style="0"/>
                             </Property>
-                            <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                              <Connection code="1000" type="code"/>
+                            <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                              <SpinnerModel initial="0.0" minimum="0.0" numberType="java.lang.Double" stepSize="50.0" type="number"/>
                             </Property>
                           </Properties>
                           <AuxValues>

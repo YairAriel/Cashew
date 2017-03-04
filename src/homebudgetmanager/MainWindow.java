@@ -714,7 +714,7 @@ public class MainWindow extends javax.swing.JFrame {
         checkBoxEnableEdit.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         spinnerAlertBefore.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        spinnerAlertBefore.setValue(1000);
+        spinnerAlertBefore.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, null, 50.0d));
 
         spinnerBudgetAmount.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         spinnerBudgetAmount.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, null, 100.0d));

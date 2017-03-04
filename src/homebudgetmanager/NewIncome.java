@@ -16,7 +16,9 @@ import java.util.Locale;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
@@ -27,12 +29,13 @@ import org.jdesktop.swingx.JXDatePicker;
  *
  * @author Yair Ariel
  */
-public class NewIncome extends javax.swing.JFrame {
+public class NewIncome extends JDialog {
 
     /**
      * Creates new form NewIncome
      */
     public NewIncome() {
+        super(MainWindow.getProgram());
         setIconPath("");
         setAmount(0.0);
         setDate(new GregorianCalendar());
@@ -73,14 +76,14 @@ public class NewIncome extends javax.swing.JFrame {
         labelIncomeMethod = new javax.swing.JLabel();
         comboBoxIncomeMethod = new javax.swing.JComboBox<>();
         labelIncomeAmount = new javax.swing.JLabel();
-        spinnerIncomeSum = new javax.swing.JSpinner(new SpinnerNumberModel(0.00,0.00,99999999.99,0.01));
+        spinnerIncomeSum = new javax.swing.JSpinner();
         jLabel11 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         textBoxIncomeComments = new javax.swing.JTextField();
         buttonIncomeCancel = new javax.swing.JButton();
         buttonAddIncome = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cashew - New Income");
         setMinimumSize(null);
 
@@ -144,6 +147,7 @@ public class NewIncome extends javax.swing.JFrame {
         labelIncomeAmount.setText("סכום");
 
         spinnerIncomeSum.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        spinnerIncomeSum.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, null, 5.0d));
         spinnerIncomeSum.setMaximumSize(new java.awt.Dimension(150, 36));
         spinnerIncomeSum.setMinimumSize(new java.awt.Dimension(150, 36));
         spinnerIncomeSum.setName(""); // NOI18N
@@ -314,8 +318,7 @@ public class NewIncome extends javax.swing.JFrame {
                 flag = true;
             }
             if (flag) {
-                MainWindow.getProgram().getButtonNewExpense().setEnabled(true);
-                MainWindow.getProgram().getButtonNewIncome().setEnabled(true);
+                JOptionPane.showConfirmDialog(this, "אנא מלאו את כל השדות הנצרכות", "Cashew", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
                 return;
             }
             if (getIncomeDescription().trim().equals("")) {
