@@ -32,14 +32,14 @@ public abstract class BudgetParser {
 
     public static void budgetChangesRutine() {
 
-        MainWindow.program.getLabelOfBudget().setText(String.format("%.2f", BudgetParser.getBudget().getBudgetSum()));
-        MainWindow.program.getSpinnerBudgetAmount().setValue(BudgetParser.getBudget().getBudgetSum());
-        MainWindow.program.getCheckBoxEnableEdit().setSelected(BudgetParser.getBudget().isBudgetEditable());
-        MainWindow.program.getCheckBoxAlertBeforeException().setSelected(BudgetParser.getBudget().isDeviationMessage());
+        MainWindow.getProgram().getLabelOfBudget().setText(String.format("%.2f", BudgetParser.getBudget().getBudgetSum()));
+        MainWindow.getProgram().getSpinnerBudgetAmount().setValue(BudgetParser.getBudget().getBudgetSum());
+        MainWindow.getProgram().getCheckBoxEnableEdit().setSelected(BudgetParser.getBudget().isBudgetEditable());
+        MainWindow.getProgram().getCheckBoxAlertBeforeException().setSelected(BudgetParser.getBudget().isDeviationMessage());
         MainWindow.getProgram().getCheckBoxAlertBeforeX().setSelected(BudgetParser.getBudget().isDeviationWarning());
         MainWindow.getProgram().getSpinnerAlertBefore().setValue(BudgetParser.getBudget().getDeviationWarningSum());
         MainWindow.getProgram().setLabelUsedBudget(TransactionParser.getThisMonthExpensesAmount());
-        MainWindow.setProgressBarBudget(BudgetParser.getExpenseBudgetRatio());
+        MainWindow.getProgram().setProgressBarBudget(BudgetParser.getExpenseBudgetRatio());
         MainWindow.getProgram().getProgressBarBudget().revalidate();
         MainWindow.getProgram().getProgressBarBudget().repaint();
         if (!MainWindow.getProgram().getCheckBoxEnableEdit().isSelected()) {
@@ -49,12 +49,12 @@ public abstract class BudgetParser {
 
     public static void setAllBudgetComponentsDisabled() {
 
-        MainWindow.program.getSpinnerBudgetAmount().setEnabled(false);
-        MainWindow.program.getSpinnerAlertBefore().setEnabled(false);
-        MainWindow.program.getCheckBoxAlertBeforeException().setEnabled(false);
-        MainWindow.program.getCheckBoxAlertBeforeX().setEnabled(false);
-        MainWindow.program.getCheckBoxEnableEdit().setEnabled(false);
-        MainWindow.program.getButtonDefineBudget().setEnabled(false);
+        MainWindow.getProgram().getSpinnerBudgetAmount().setEnabled(false);
+        MainWindow.getProgram().getSpinnerAlertBefore().setEnabled(false);
+        MainWindow.getProgram().getCheckBoxAlertBeforeException().setEnabled(false);
+        MainWindow.getProgram().getCheckBoxAlertBeforeX().setEnabled(false);
+        MainWindow.getProgram().getCheckBoxEnableEdit().setEnabled(false);
+        MainWindow.getProgram().getButtonDefineBudget().setEnabled(false);
     }
 
     public static double getExpenseBudgetRatio() {

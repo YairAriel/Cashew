@@ -5,7 +5,6 @@
  */
 package homebudgetmanager;
 
-import static homebudgetmanager.MainWindow.program;
 import java.awt.Color;
 import java.awt.ComponentOrientation;
 import java.awt.event.WindowEvent;
@@ -304,8 +303,8 @@ public class NewExpense extends javax.swing.JFrame {
                 flag = true;
             }
             if (flag) {
-                program.getButtonNewExpense().setEnabled(true);
-                program.getButtonNewIncome().setEnabled(true);
+                MainWindow.getProgram().getButtonNewExpense().setEnabled(true);
+                MainWindow.getProgram().getButtonNewIncome().setEnabled(true);
                 return;
             }
             if (getDescription().trim().equals("")) {
@@ -321,7 +320,7 @@ public class NewExpense extends javax.swing.JFrame {
             }
             dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
             TransactionParser.transactionChangesRoutine();
-            //System.out.println(MainWindow.program.getPanelTransactions().getComponents().length);
+            //System.out.println(MainWindow.getProgram().getPanelTransactions().getComponents().length);
         }
     }//GEN-LAST:event_buttonAddExpenseActionPerformed
 
@@ -397,10 +396,10 @@ public class NewExpense extends javax.swing.JFrame {
 
     private void jPanel1AncestorRemoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jPanel1AncestorRemoved
 
-        MainWindow.program.getButtonNewExpense().setEnabled(true);
-        MainWindow.program.getButtonNewIncome().setEnabled(true);
-        MainWindow.program.getButtonNewExpense1().setEnabled(true);
-        MainWindow.program.getButtonNewIncome1().setEnabled(true);
+        MainWindow.getProgram().getButtonNewExpense().setEnabled(true);
+        MainWindow.getProgram().getButtonNewIncome().setEnabled(true);
+        MainWindow.getProgram().getButtonNewExpense1().setEnabled(true);
+        MainWindow.getProgram().getButtonNewIncome1().setEnabled(true);
 
     }//GEN-LAST:event_jPanel1AncestorRemoved
 

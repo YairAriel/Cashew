@@ -131,8 +131,8 @@ public class MainWindow extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         checkBoxAlertBeforeException = new javax.swing.JCheckBox();
         checkBoxEnableEdit = new javax.swing.JCheckBox();
-        spinnerAlertBefore = new javax.swing.JSpinner(new SpinnerNumberModel(0.00,0.00,99999999.99,0.01));
-        spinnerBudgetAmount = new javax.swing.JSpinner(new SpinnerNumberModel(0.00,0.00,99999999.99,100.00));
+        spinnerAlertBefore = new javax.swing.JSpinner(new SpinnerNumberModel(0.00,0.00,99999999.99,50.00));
+        spinnerBudgetAmount = new javax.swing.JSpinner();
         jLabel17 = new javax.swing.JLabel();
         labelSetBudgetSum = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -202,6 +202,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         labelUsedBudget.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         labelUsedBudget.setForeground(new java.awt.Color(153, 153, 153));
+        labelUsedBudget.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         labelUsedBudget.setText("0.0");
 
         jLabel22.setFont(new java.awt.Font("Arial", 0, 34)); // NOI18N
@@ -215,6 +216,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         labelOfBudget.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         labelOfBudget.setForeground(new java.awt.Color(153, 153, 153));
+        labelOfBudget.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         labelOfBudget.setText("0.0");
 
         jLabel25.setFont(new java.awt.Font("Arial", 0, 34)); // NOI18N
@@ -223,7 +225,6 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel25.setName("incomesLabel"); // NOI18N
 
         progressBarBudget.setToolTipText("");
-        progressBarBudget.setValue(1);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("0%");
@@ -241,8 +242,8 @@ public class MainWindow extends javax.swing.JFrame {
                     .addGroup(panelMonthlyBudgetLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(panelMonthlyBudgetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(labelOfBudget)
-                            .addComponent(labelUsedBudget))
+                            .addComponent(labelUsedBudget, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelOfBudget, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelMonthlyBudgetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel25)
@@ -253,10 +254,10 @@ public class MainWindow extends javax.swing.JFrame {
                             .addComponent(jLabel23)))
                     .addGroup(panelMonthlyBudgetLayout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(progressBarBudget, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(labelMaxBudgetPercent, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)))
+                        .addComponent(labelMaxBudgetPercent, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         panelMonthlyBudgetLayout.setVerticalGroup(
@@ -716,6 +717,7 @@ public class MainWindow extends javax.swing.JFrame {
         spinnerAlertBefore.setValue(1000);
 
         spinnerBudgetAmount.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        spinnerBudgetAmount.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, null, 100.0d));
 
         jLabel17.setFont(new java.awt.Font("Arial", 0, 26)); // NOI18N
         jLabel17.setText("₪");
@@ -943,8 +945,8 @@ public class MainWindow extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
 
-                program = new MainWindow();
-                program.setVisible(true);
+                MainWindow.setProgram(new MainWindow());
+                MainWindow.getProgram().setVisible(true);
                 TransactionParser.transactionChangesRoutine();
                 BudgetParser.budgetChangesRutine();
             }
@@ -1023,7 +1025,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JSpinner spinnerBudgetAmount;
     // End of variables declaration//GEN-END:variables
 
-    public static MainWindow program;
+    private static MainWindow program;
     private static double ballance = 0;
 
     public static MainWindow getProgram() {
@@ -1295,33 +1297,35 @@ public class MainWindow extends javax.swing.JFrame {
         this.progressBarBudget = progressBarBudget;
     }
 
-    public static void setProgressBarBudget(double percent) {
+    public void setProgressBarBudget(double percent) {
         if (percent == Global.Infinity) {
             percent = 0;
-            MainWindow.getProgram().setLabelOfBudget("טרם הוגדר");
+            this.setLabelOfBudget("טרם הוגדר");
         }
-        MainWindow.getProgram().getProgressBarBudget().setValue((int) percent);
-        if (percent > 100) {
-            MainWindow.getProgram().getProgressBarBudget().setForeground(Color.RED);
-            MainWindow.getProgram().setLabelMaxBudgetPercent(percent);
-            MainWindow.getProgram().getLabelMaxBudgetPercent().setForeground(Color.RED);
-            MainWindow.getProgram().getLabelMaxBudgetPercent().revalidate();
-            MainWindow.getProgram().getLabelMaxBudgetPercent().repaint();
+        this.getProgressBarBudget().setValue((int) percent);
+        if (percent >= 100) {
+            this.getProgressBarBudget().setForeground(Color.RED);
+            this.setLabelMaxBudgetPercent(percent);
+            this.getLabelMaxBudgetPercent().setForeground(Color.RED);
+            this.getLabelMaxBudgetPercent().revalidate();
+            this.getLabelMaxBudgetPercent().repaint();
             return;
-        } else if (percent > 75) {
-            MainWindow.getProgram().getProgressBarBudget().setForeground(Color.ORANGE);
-        } else if (percent > 50) {
-            MainWindow.getProgram().getProgressBarBudget().setForeground(Color.YELLOW);
-        } else if (percent > 25) {
-            MainWindow.getProgram().getProgressBarBudget().setForeground(Color.GREEN);
+        } else if (percent >= 90) {
+            this.getProgressBarBudget().setForeground(new Color(255, 69, 0));
+        } else if (percent >= 75) {
+            this.getProgressBarBudget().setForeground(Color.ORANGE);
+        } else if (percent >= 50) {
+            this.getProgressBarBudget().setForeground(Color.YELLOW);
+        } else if (percent >= 25) {
+            this.getProgressBarBudget().setForeground(Color.GREEN);
             return;
         } else {
-            MainWindow.getProgram().getProgressBarBudget().setForeground(Color.BLUE);
+            this.getProgressBarBudget().setForeground(Color.BLUE);
         }
-        MainWindow.getProgram().setLabelMaxBudgetPercent(100);
-        MainWindow.getProgram().getLabelMaxBudgetPercent().setForeground(Color.BLACK);
-        MainWindow.getProgram().getLabelMaxBudgetPercent().revalidate();
-        MainWindow.getProgram().getLabelMaxBudgetPercent().repaint();
+        this.setLabelMaxBudgetPercent(100);
+        this.getLabelMaxBudgetPercent().setForeground(Color.BLACK);
+        this.getLabelMaxBudgetPercent().revalidate();
+        this.getLabelMaxBudgetPercent().repaint();
 
     }
 
