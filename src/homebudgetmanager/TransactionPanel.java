@@ -232,7 +232,7 @@ public class TransactionPanel extends javax.swing.JPanel {
     }
 
     public void setLabelTransactionAmount(double transactionAmount) {
-        this.getLabelTransactionAmount().setText(String.format("%.2f", transactionAmount));
+        this.setLabelTransactionAmount(String.format("%.2f", transactionAmount));
     }
 
     public JLabel getLabelTransactionDate() {
