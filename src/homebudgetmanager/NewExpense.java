@@ -99,12 +99,12 @@ public class NewExpense extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(242, 242, 242));
         jPanel1.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
                 jPanel1AncestorRemoved(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
 
@@ -313,7 +313,7 @@ public class NewExpense extends javax.swing.JFrame {
             }
             SimpleDateFormat sdf = new SimpleDateFormat("_ddMMyyyy");
             TransactionParser.addTransactionRoutine(new Expense(sdf.format(getDate().getTime()) + "E", getAmount(), getDate(), getDescription(), getCatagory(), getPaymentMethod(), getIconPath()));
-            if (Budget.getBudget().isDeviationMessage()) {
+            if (BudgetParser.getBudget().isDeviationMessage()) {
                 if (Double.parseDouble(MainWindow.getProgram().getLabelUsedBudget().getText().toString())
                         > Double.parseDouble(MainWindow.getProgram().getLabelOfBudget().getText().toString())) {
                     JOptionPane.showMessageDialog(null, "שים לב! אתה חורג מהתקציב");

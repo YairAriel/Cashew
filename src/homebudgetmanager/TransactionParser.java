@@ -102,7 +102,7 @@ public abstract class TransactionParser {
             Logger.getLogger(TransactionParser.class.getName()).log(Level.SEVERE, null, ex);
         }
         TransactionParser.transactionChangesRoutine();
-        Budget.budgetChangesRutine();
+        BudgetParser.budgetChangesRutine();
     }
 
     public static void removeTransactionRoutine(final String transId) {
@@ -114,7 +114,7 @@ public abstract class TransactionParser {
             Logger.getLogger(TransactionParser.class.getName()).log(Level.SEVERE, null, ex);
         }
         TransactionParser.transactionChangesRoutine();
-        Budget.budgetChangesRutine();
+        BudgetParser.budgetChangesRutine();
     }
 
     public static void transactionChangesRoutine() {

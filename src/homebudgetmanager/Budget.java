@@ -28,8 +28,6 @@ public class Budget implements Serializable {
     private double deviationWarningSum;
     private int month;
 
-    private static Budget budget = Budget.SerializationHandler.readBudgetFromDisk();
-
     public Budget() {
 
     }
@@ -43,8 +41,8 @@ public class Budget implements Serializable {
         setDeviationWarning(deviationWarning);
         setDeviationWarningSum(deviationWarningSum);
         setMonth(Calendar.getInstance().get(Calendar.MONTH));
-        Budget.setBudget(this);
-        Budget.budgetChangesRutine();
+        BudgetParser.setBudget(this);
+        BudgetParser.budgetChangesRutine();
     }
 
     public double getBudgetSum() {
@@ -95,14 +93,6 @@ public class Budget implements Serializable {
         this.month = month;
     }
 
-    public static Budget getBudget() {
-        return budget;
-    }
-
-    public static void setBudget(Budget budget) {
-        Budget.budget = budget;
-    }
-
     @Override
     public String toString() {
         return "Budget{budgetSum=" + getBudgetSum() + ", budgetEditable=" + isBudgetEditable()
@@ -110,69 +100,4 @@ public class Budget implements Serializable {
                 + getDeviationWarningSum() + '}';
     }
 
-    public static void budgetChangesRutine() {
-
-        MainWindow.program.getLabelOfBudget().setText(String.format("%.2f", Budget.getBudget().getBudgetSum()));
-        MainWindow.program.getSpinnerBudgetAmount().setValue(Budget.getBudget().getBudgetSum());
-        MainWindow.program.getCheckBoxEnableEdit().setSelected(Budget.getBudget().isBudgetEditable());
-        MainWindow.program.getCheckBoxAlertBeforeException().setSelected(Budget.getBudget().isDeviationMessage());
-        MainWindow.getProgram().getCheckBoxAlertBeforeX().setSelected(Budget.getBudget().isDeviationWarning());
-        MainWindow.getProgram().getSpinnerAlertBefore().setValue(Budget.getBudget().getDeviationWarningSum());
-        MainWindow.getProgram().setLabelUsedBudget(TransactionParser.getThisMonthExpensesAmount());
-        MainWindow.setProgressBarBudget(Budget.getExpenseBudgetRatio());
-        MainWindow.getProgram().getProgressBarBudget().revalidate();
-        MainWindow.getProgram().getProgressBarBudget().repaint();
-        if (!MainWindow.getProgram().getCheckBoxEnableEdit().isSelected()) {
-            setAllBudgetComponentsDisabled();
-        }
-    }
-
-    public static void setAllBudgetComponentsDisabled() {
-
-        MainWindow.program.getSpinnerBudgetAmount().setEnabled(false);
-        MainWindow.program.getSpinnerAlertBefore().setEnabled(false);
-        MainWindow.program.getCheckBoxAlertBeforeException().setEnabled(false);
-        MainWindow.program.getCheckBoxAlertBeforeX().setEnabled(false);
-        MainWindow.program.getCheckBoxEnableEdit().setEnabled(false);
-        MainWindow.program.getButtonDefineBudget().setEnabled(false);
-    }
-
-    public static double getExpenseBudgetRatio() {
-        return TransactionParser.getThisMonthExpensesAmount() * 100 / Budget.getBudget().getBudgetSum();
-    }
-
-    public static class SerializationHandler {
-
-        public static void writeBudgetToDisk(Budget budget) throws IOException {
-
-            ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("local/budget/budget.bin"));
-            objectOutputStream.writeObject(budget);
-        }
-
-        public static Budget readBudgetFromDisk() {
-
-            FileInputStream fileInputStream = null;
-            try {
-                ObjectInputStream objectInputStream;
-                fileInputStream = new FileInputStream("local/budget/budget.bin");
-                objectInputStream = new ObjectInputStream(fileInputStream);
-                Budget budget = (Budget) objectInputStream.readObject();
-                return budget.getMonth() == Calendar.getInstance().get(Calendar.MONTH) ? budget : new Budget();
-            } catch (IOException ex) {
-                return new Budget();
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(Budget.class.getName()).log(Level.SEVERE, null, ex);
-            } finally {
-                try {
-                    if (fileInputStream != null) {
-                        fileInputStream.close();
-                    }
-                } catch (IOException ex) {
-                    System.out.println("New Budget");
-                }
-            }
-            return null;
-        }
-
-    }
 }
