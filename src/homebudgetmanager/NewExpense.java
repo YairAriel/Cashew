@@ -315,9 +315,8 @@ public class NewExpense extends javax.swing.JDialog {
             SimpleDateFormat sdf = new SimpleDateFormat("_ddMMyyyy");
             TransactionParser.addTransactionRoutine(new Expense(sdf.format(getDate().getTime()) + "E", getAmount(), getDate(), getDescription(), getCatagory(), getPaymentMethod(), getIconPath()));
             if (BudgetParser.getBudget().isDeviationMessage()) {
-                if (Double.parseDouble(MainWindow.getProgram().getLabelUsedBudget().getText().toString())
-                        > Double.parseDouble(MainWindow.getProgram().getLabelOfBudget().getText().toString())) {
-                    JOptionPane.showMessageDialog(null, "שים לב! אתה חורג מהתקציב");
+                if (TransactionParser.getThisMonthExpensesAmount() + this.getAmount() > BudgetParser.getBudget().getBudgetSum() && BudgetParser.getBudget().getBudgetSum() != 0) {
+                    JOptionPane.showMessageDialog(MainWindow.getProgram(), "שים לב! אתה חורג מהתקציב");
                 }
             }
             dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));

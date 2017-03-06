@@ -1298,7 +1298,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     public void setProgressBarBudget(double percent) {
-        if (percent == Global.Infinity) {
+        if (BudgetParser.getBudget().getBudgetSum() == 0) {
             percent = 0;
             this.setLabelOfBudget("טרם הוגדר");
         }
