@@ -925,7 +925,7 @@
                                 <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="datePickerToDatePropertyChange"/>
                               </Events>
                               <AuxValues>
-                                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new org.jdesktop.swingx.JXDatePicker(new Date(130,11,30))"/>
+                                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new org.jdesktop.swingx.JXDatePicker(new Date(new Date().getYear(), new Date().getMonth() + 1, 0))"/>
                               </AuxValues>
                             </Component>
                             <Component class="javax.swing.JComboBox" name="comboBoxTransactionsData">
@@ -990,7 +990,7 @@
                                 <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="datePickerFromDatePropertyChange"/>
                               </Events>
                               <AuxValues>
-                                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new org.jdesktop.swingx.JXDatePicker(new Date(110,0,1))"/>
+                                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new org.jdesktop.swingx.JXDatePicker(new Date(new Date().getYear(), new Date().getMonth(), 1))"/>
                               </AuxValues>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel13">

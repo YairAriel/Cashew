@@ -26,7 +26,6 @@ import org.jdesktop.swingx.JXDatePicker;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
-import jdk.nashorn.internal.objects.Global;
 
 /**
  *
@@ -109,11 +108,11 @@ public class MainWindow extends javax.swing.JFrame {
         labelTransactions = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         buttonNewExpense1 = new javax.swing.JButton();
-        datePickerToDate = new org.jdesktop.swingx.JXDatePicker(new Date(130,11,30));
+        datePickerToDate = new org.jdesktop.swingx.JXDatePicker(new Date(new Date().getYear(), new Date().getMonth() + 1, 0));
         comboBoxTransactionsData = new javax.swing.JComboBox<>();
         buttonNewIncome1 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
-        datePickerFromDate = new org.jdesktop.swingx.JXDatePicker(new Date(110,0,1));
+        datePickerFromDate = new org.jdesktop.swingx.JXDatePicker(new Date(new Date().getYear(), new Date().getMonth(), 1));
         jLabel13 = new javax.swing.JLabel();
         scrollbarTransactions = new javax.swing.JScrollPane();
         panelScrollInnerContainer = new javax.swing.JPanel();
