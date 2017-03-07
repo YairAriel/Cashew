@@ -84,7 +84,7 @@ public class NewIncome extends JDialog {
         buttonAddIncome = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cashew - New Income");
+        setTitle("Cashew - הכנסה חדשה");
         setMinimumSize(null);
 
         jPanel1.setBackground(new java.awt.Color(242, 242, 242));
@@ -99,7 +99,7 @@ public class NewIncome extends JDialog {
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 40)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(85, 96, 128));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("הכנסה חדשה");
@@ -122,7 +122,7 @@ public class NewIncome extends JDialog {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel4.setText("תאריך");
 
-        datePickerIncome.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        datePickerIncome.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         datePickerIncome.setMaximumSize(new java.awt.Dimension(160, 38));
         datePickerIncome.setMinimumSize(new java.awt.Dimension(160, 38));
         datePickerIncome.setPreferredSize(new java.awt.Dimension(160, 38));

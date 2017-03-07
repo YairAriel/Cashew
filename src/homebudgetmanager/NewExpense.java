@@ -95,21 +95,21 @@ public class NewExpense extends javax.swing.JDialog {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cashew - New Expense");
+        setTitle("Cashew - הוצאה חדשה");
         setPreferredSize(new java.awt.Dimension(660, 500));
 
         jPanel1.setBackground(new java.awt.Color(242, 242, 242));
         jPanel1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
                 jPanel1AncestorRemoved(evt);
             }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
         });
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 40)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(85, 96, 128));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("הוצאה חדשה");
@@ -156,7 +156,7 @@ public class NewExpense extends javax.swing.JDialog {
             }
         });
 
-        datePickerExpense.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        datePickerExpense.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         datePickerExpense.setMaximumSize(new java.awt.Dimension(160, 38));
         datePickerExpense.setMinimumSize(new java.awt.Dimension(160, 38));
         datePickerExpense.setPreferredSize(new java.awt.Dimension(160, 38));

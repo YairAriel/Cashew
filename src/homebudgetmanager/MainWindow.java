@@ -102,6 +102,7 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         comboBoxDatesRange = new javax.swing.JComboBox<>();
         buttonNewExpense = new javax.swing.JButton();
+        jLabel19 = new javax.swing.JLabel();
         labelTitleTransactions = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
@@ -124,6 +125,7 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
         labelTitleBudget = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         labelBudgetTitle = new javax.swing.JLabel();
@@ -138,11 +140,12 @@ public class MainWindow extends javax.swing.JFrame {
         buttonDefineBudget = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
         checkBoxAlertBeforeX = new javax.swing.JCheckBox();
+        jLabel28 = new javax.swing.JLabel();
 
         jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Cashew - Main Menu");
+        setTitle("Cashew - תפריט ראשי");
         setBackground(new java.awt.Color(242, 239, 239));
 
         jTabbedPaneMenu.setBackground(new java.awt.Color(251, 248, 255));
@@ -167,7 +170,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(242, 241, 255));
 
-        labelTitleGeneralView.setFont(new java.awt.Font("Segoe UI", 0, 50)); // NOI18N
+        labelTitleGeneralView.setFont(new java.awt.Font("Segoe UI", 1, 50)); // NOI18N
         labelTitleGeneralView.setForeground(new java.awt.Color(85, 96, 128));
         labelTitleGeneralView.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelTitleGeneralView.setText("מבט על");
@@ -196,30 +199,30 @@ public class MainWindow extends javax.swing.JFrame {
         panelMonthlyBudget.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel20.setForeground(new java.awt.Color(85, 96, 128));
         jLabel20.setText("השתמשת ב:");
 
         labelUsedBudget.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        labelUsedBudget.setForeground(new java.awt.Color(153, 153, 153));
+        labelUsedBudget.setForeground(new java.awt.Color(85, 96, 128));
         labelUsedBudget.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         labelUsedBudget.setText("0.0");
 
         jLabel22.setFont(new java.awt.Font("Arial", 0, 34)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel22.setForeground(new java.awt.Color(85, 96, 128));
         jLabel22.setText("₪");
         jLabel22.setName("incomesLabel"); // NOI18N
 
         jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel23.setForeground(new java.awt.Color(85, 96, 128));
         jLabel23.setText("מתוך:");
 
         labelOfBudget.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        labelOfBudget.setForeground(new java.awt.Color(153, 153, 153));
+        labelOfBudget.setForeground(new java.awt.Color(85, 96, 128));
         labelOfBudget.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         labelOfBudget.setText("0.0");
 
         jLabel25.setFont(new java.awt.Font("Arial", 0, 34)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel25.setForeground(new java.awt.Color(85, 96, 128));
         jLabel25.setText("₪");
         jLabel25.setName("incomesLabel"); // NOI18N
 
@@ -444,34 +447,42 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homebudgetmanager/images/logo1.png"))); // NOI18N
+        jLabel19.setMaximumSize(new java.awt.Dimension(64, 64));
+        jLabel19.setMinimumSize(new java.awt.Dimension(64, 64));
+        jLabel19.setPreferredSize(new java.awt.Dimension(64, 64));
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(labelTitleGeneralView)
-                        .addGap(450, 450, 450))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(258, 258, 258)
-                        .addComponent(buttonNewExpense)
-                        .addGap(17, 17, 17)
-                        .addComponent(buttonNewIncome)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(generalViewPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap()
+                        .addComponent(labelTitleGeneralView)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(365, 365, 365))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGap(258, 258, 258)
+                            .addComponent(buttonNewExpense)
+                            .addGap(17, 17, 17)
+                            .addComponent(buttonNewIncome))
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(generalViewPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelTitleGeneralView)
-                .addGap(29, 29, 29)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelTitleGeneralView))
+                .addGap(15, 15, 15)
                 .addComponent(generalViewPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -498,7 +509,7 @@ public class MainWindow extends javax.swing.JFrame {
         jPanel8.setBackground(new java.awt.Color(242, 241, 255));
         jPanel8.setOpaque(false);
 
-        labelTransactions.setFont(new java.awt.Font("Segoe UI", 0, 50)); // NOI18N
+        labelTransactions.setFont(new java.awt.Font("Segoe UI", 1, 50)); // NOI18N
         labelTransactions.setForeground(new java.awt.Color(85, 96, 128));
         labelTransactions.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelTransactions.setText("תנועות");
@@ -518,7 +529,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        datePickerToDate.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        datePickerToDate.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         datePickerToDate.setFormats(TransactionParser.TransactionDate.SIMPLE_DATE_FORMAT.toPattern());
         datePickerToDate.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -549,7 +560,7 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel15.setText("מציג");
 
-        datePickerFromDate.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        datePickerFromDate.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         datePickerFromDate.setFormats(TransactionParser.TransactionDate.SIMPLE_DATE_FORMAT.toPattern());
         datePickerFromDate.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -657,24 +668,30 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(34, 34, 34))
         );
 
+        jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homebudgetmanager/images/logo1.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(454, 454, 454)
-                .addComponent(labelTransactions)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelTransactions)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel27)
+                .addGap(452, 452, 452))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelTransactions)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(labelTransactions)
+                    .addComponent(jLabel27))
                 .addGap(43, 43, 43)
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(85, Short.MAX_VALUE))
@@ -693,7 +710,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         jPanel11.setBackground(new java.awt.Color(242, 241, 255));
 
-        labelBudgetTitle.setFont(new java.awt.Font("Segoe UI", 0, 50)); // NOI18N
+        labelBudgetTitle.setFont(new java.awt.Font("Segoe UI", 1, 50)); // NOI18N
         labelBudgetTitle.setForeground(new java.awt.Color(85, 96, 128));
         labelBudgetTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelBudgetTitle.setText("תקציב");
@@ -725,7 +742,7 @@ public class MainWindow extends javax.swing.JFrame {
         labelSetBudgetSum.setFont(new java.awt.Font("Segoe UI", 0, 26)); // NOI18N
         labelSetBudgetSum.setText("סכום");
 
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 28)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         jLabel16.setText("הגדר תקציב חדש ");
 
         buttonDefineBudget.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -784,8 +801,8 @@ public class MainWindow extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
+                .addComponent(jLabel16)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelSetBudgetSum, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(spinnerBudgetAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -804,6 +821,8 @@ public class MainWindow extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homebudgetmanager/images/logo1.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
@@ -812,7 +831,9 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGap(534, 534, 534)
-                        .addComponent(labelBudgetTitle))
+                        .addComponent(labelBudgetTitle)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel28))
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGap(335, 335, 335)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -822,7 +843,9 @@ public class MainWindow extends javax.swing.JFrame {
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelBudgetTitle)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(labelBudgetTitle)
+                    .addComponent(jLabel28))
                 .addGap(26, 26, 26)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(81, Short.MAX_VALUE))
@@ -976,6 +999,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -984,6 +1008,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
