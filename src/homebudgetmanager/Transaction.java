@@ -6,6 +6,7 @@
 package homebudgetmanager;
 
 import java.awt.Image;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -24,7 +25,6 @@ import javax.swing.ImageIcon;
 public abstract class Transaction implements Serializable {
 
     private static Integer transactionsCount = Transaction.SerializationHandler.readTransactionsFromDisk();
-
     private final int SIZE = 64;
     private String transID;
     private double transAmount;
@@ -44,6 +44,7 @@ public abstract class Transaction implements Serializable {
         setTransDescription(transDescription);
         setTransPaymentMethod(transPaymentMethod);
         setTransIcon(iconPath);
+        Transaction.SerializationHandler.createFolderTransactions();
         Transaction.incTransactionsCount();
 
         //System.out.println(this.getTransID());
@@ -128,6 +129,13 @@ public abstract class Transaction implements Serializable {
     private static class SerializationHandler {
 
         private static final String PATH = "local/transactions/transactionsCount.bin";
+
+        public static void createFolderTransactions() {
+            File transactions = new File("local/transactions/");
+            if (!transactions.exists()) {
+                transactions.mkdirs();
+            }
+        }
 
         public static void writeTransactionToDisk() throws IOException {
 
