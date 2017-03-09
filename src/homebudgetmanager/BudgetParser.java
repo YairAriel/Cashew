@@ -5,6 +5,7 @@
  */
 package homebudgetmanager;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -62,6 +63,13 @@ public abstract class BudgetParser {
     }
 
     public static class SerializationHandler {
+
+        public static void createFolderBudget() {
+            File budget = new File("local/budget/");
+            if (!budget.exists()) {
+                budget.mkdirs();
+            }
+        }
 
         public static void writeBudgetToDisk(Budget budget) throws IOException {
 

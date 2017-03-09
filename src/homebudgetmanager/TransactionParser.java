@@ -6,6 +6,7 @@
 package homebudgetmanager;
 
 import java.awt.GridLayout;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -95,6 +96,7 @@ public abstract class TransactionParser {
     }
 
     public static void addTransactionRoutine(final Transaction transaction) {
+        TransactionParser.createFolderTransactions();
         TransactionParser.TRANSACTIONS.add(0, transaction);
         try {
             TransactionParser.SerializationHandler.writeTransactionToDisk();
@@ -331,9 +333,20 @@ public abstract class TransactionParser {
         }
     }
 
+    public static void createFolderTransactions() {
+        TransactionParser.SerializationHandler.createFolderTransactions();
+    }
+
     private static class SerializationHandler {
 
         private static final String PATH = "local/transactions/transactions.bin";
+
+        public static void createFolderTransactions() {
+            File transactions = new File("local/transactions/");
+            if (!transactions.exists()) {
+                transactions.mkdirs();
+            }
+        }
 
         public static void writeTransactionToDisk() throws IOException {
 

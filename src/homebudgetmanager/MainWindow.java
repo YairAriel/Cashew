@@ -949,6 +949,7 @@ public class MainWindow extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "התקציב הוגדר בהצלחה");
 
             try {
+                BudgetParser.SerializationHandler.createFolderBudget();
                 BudgetParser.SerializationHandler.writeBudgetToDisk(new Budget(Double.parseDouble(getSpinnerBudgetAmount().getValue().toString()),
                         getCheckBoxEnableEdit().isSelected(), getCheckBoxAlertBeforeException().isSelected(), getCheckBoxAlertBeforeX().isSelected(),
                         Double.parseDouble(getSpinnerAlertBefore().getValue().toString())));
