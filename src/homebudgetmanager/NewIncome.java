@@ -318,7 +318,7 @@ public class NewIncome extends JDialog {
                 flag = true;
             }
             if (flag) {
-                JOptionPane.showConfirmDialog(this, "אנא מלאו את כל השדות הנצרכות", "Cashew", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showConfirmDialog(this, "אנא מלא את כל השדות הנדרשים", "Cashew", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
                 return;
             }
             if (getIncomeDescription().trim().equals("")) {
