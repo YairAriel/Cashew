@@ -100,12 +100,12 @@ public class NewExpense extends javax.swing.JDialog {
 
         jPanel1.setBackground(new java.awt.Color(242, 242, 242));
         jPanel1.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
                 jPanel1AncestorRemoved(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
 
@@ -315,8 +315,10 @@ public class NewExpense extends javax.swing.JDialog {
             SimpleDateFormat sdf = new SimpleDateFormat("_ddMMyyyy");
             TransactionParser.addTransactionRoutine(new Expense(sdf.format(getDate().getTime()) + "E", getAmount(), getDate(), getDescription(), getCatagory(), getPaymentMethod(), getIconPath()));
             if (BudgetParser.getBudget().isDeviationMessage()) {
-                if (TransactionParser.getThisMonthExpensesAmount() + this.getAmount() > BudgetParser.getBudget().getBudgetSum() && BudgetParser.getBudget().getBudgetSum() != 0) {
+                if (TransactionParser.getThisMonthExpensesAmount() > BudgetParser.getBudget().getBudgetSum() && BudgetParser.getBudget().getBudgetSum() != 0) {
                     JOptionPane.showMessageDialog(MainWindow.getProgram(), "שים לב! אתה חורג מהתקציב");
+                } else if (TransactionParser.getThisMonthExpensesAmount() > (BudgetParser.getBudget().getBudgetSum() - BudgetParser.getBudget().getDeviationWarningSum()) && BudgetParser.getBudget().getBudgetSum() != 0) {
+                    JOptionPane.showMessageDialog(MainWindow.getProgram(), "שים לב! אתה מתקרב לחריגה מהתקציב");
                 }
             }
             dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
