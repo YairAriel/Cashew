@@ -47,7 +47,7 @@ public abstract class TransactionParser {
         "gym.png",
         "fruit.png",
         "drink.png",
-        "money-1",
+        "money-1.png",
         "food.png",
         "construction.png",
         "gift.png",
