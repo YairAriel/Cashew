@@ -33,7 +33,7 @@ public abstract class BudgetParser {
 
     public static void budgetChangesRutine() {
 
-        MainWindow.getProgram().getLabelOfBudget().setText(String.format("%.2f", BudgetParser.getBudget().getBudgetSum()));
+        MainWindow.getProgram().setLabelOfBudget(BudgetParser.getBudget().getBudgetSum());
         MainWindow.getProgram().getSpinnerBudgetAmount().setValue(BudgetParser.getBudget().getBudgetSum());
         MainWindow.getProgram().getCheckBoxEnableEdit().setSelected(BudgetParser.getBudget().isBudgetEditable());
         MainWindow.getProgram().getCheckBoxAlertBeforeException().setSelected(BudgetParser.getBudget().isDeviationMessage());

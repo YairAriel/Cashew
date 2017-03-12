@@ -10,6 +10,7 @@ import java.awt.ComponentOrientation;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.IOException;
+import java.text.NumberFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.logging.Level;
@@ -147,6 +148,7 @@ public class MainWindow extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cashew - תפריט ראשי");
         setBackground(new java.awt.Color(242, 239, 239));
+        setMinimumSize(new java.awt.Dimension(600, 400));
 
         jTabbedPaneMenu.setBackground(new java.awt.Color(251, 248, 255));
         jTabbedPaneMenu.setForeground(new java.awt.Color(85, 96, 128));
@@ -1152,7 +1154,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     public void setLabelExpenseAmount(double expenseAmount) {
-        this.getLabelExpenseAmount().setText(String.format("%.2f", expenseAmount));
+        this.getLabelExpenseAmount().setText(NumberFormat.getNumberInstance(Locale.US).format(expenseAmount));
     }
 
     public JLabel getLabelIncomeAmount() {
@@ -1168,7 +1170,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     public void setLabelIncomeAmount(double incomeAmount) {
-        this.getLabelIncomeAmount().setText(String.format("%.2f", incomeAmount));
+        this.getLabelIncomeAmount().setText(NumberFormat.getNumberInstance(Locale.US).format(incomeAmount));
     }
 
     public JLabel getLabelMaxBudgetPercent() {
@@ -1200,7 +1202,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     public void setLabelTransactionSum(double transactionSum) {
-        this.getLabelTransactionSum().setText(String.format("%.2f", transactionSum));
+        this.setLabelTransactionSum(NumberFormat.getNumberInstance(Locale.US).format(transactionSum));
     }
 
     public JPanel getGeneralViewPanel() {
@@ -1245,7 +1247,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     public void setLabelOfBudget(double budgetSum) {
-        this.setLabelOfBudget(String.format("%.2f", budgetSum));
+        this.setLabelOfBudget(NumberFormat.getNumberInstance(Locale.US).format(budgetSum));
     }
 
     public JSpinner getSpinnerBudgetAmount() {
@@ -1309,7 +1311,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     public void setLabelUsedBudget(double usedBudget) {
-        this.setLabelUsedBudget(String.format("%.2f", usedBudget));
+        this.setLabelUsedBudget(NumberFormat.getNumberInstance(Locale.US).format(usedBudget));
     }
 
     public JProgressBar getProgressBarBudget() {

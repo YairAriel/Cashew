@@ -317,7 +317,7 @@ public class NewExpense extends javax.swing.JDialog {
             if (BudgetParser.getBudget().isDeviationMessage()) {
                 if (TransactionParser.getThisMonthExpensesAmount() > BudgetParser.getBudget().getBudgetSum() && BudgetParser.getBudget().getBudgetSum() != 0) {
                     JOptionPane.showMessageDialog(MainWindow.getProgram(), "שים לב! אתה חורג מהתקציב");
-                } else if (TransactionParser.getThisMonthExpensesAmount() > (BudgetParser.getBudget().getBudgetSum() - BudgetParser.getBudget().getDeviationWarningSum()) && BudgetParser.getBudget().getBudgetSum() != 0) {
+                } else if (BudgetParser.getBudget().isDeviationWarning() && (TransactionParser.getThisMonthExpensesAmount() > (BudgetParser.getBudget().getBudgetSum() - BudgetParser.getBudget().getDeviationWarningSum()) && BudgetParser.getBudget().getBudgetSum() != 0)) {
                     JOptionPane.showMessageDialog(MainWindow.getProgram(), "שים לב! אתה מתקרב לחריגה מהתקציב");
                 }
             }

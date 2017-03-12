@@ -6,6 +6,8 @@
 package homebudgetmanager;
 
 import java.awt.Color;
+import java.text.NumberFormat;
+import java.util.Locale;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -232,7 +234,7 @@ public class TransactionPanel extends javax.swing.JPanel {
     }
 
     public void setLabelTransactionAmount(double transactionAmount) {
-        this.setLabelTransactionAmount(String.format("%.2f", transactionAmount));
+        this.setLabelTransactionAmount(NumberFormat.getNumberInstance(Locale.US).format(transactionAmount));
     }
 
     public JLabel getLabelTransactionDate() {
